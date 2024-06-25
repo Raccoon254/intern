@@ -1,30 +1,40 @@
-import { PrismaClient } from '@prisma/client'
-import cors from "@/app/api/middlware/cors";
+import { PrismaClient } from '@prisma/client';
+import bcrypt from 'bcrypt';
 
-const prisma = new PrismaClient()
+const prisma = new PrismaClient();
 
-export default async function handler(req, res) {
-    await cors(req, res)
-    if (req.method === 'GET') {
-        // Get all users
-        const users = await prisma.user.findMany()
-        if (users.length === 0) {
-            res.status(200).json({ message: 'No users found' })
-        } else {
-            res.status(200).json(users)
+export async function GET(req, res) {
+    try {
+        const users = await prisma.user.findMany();
+        return new Response(JSON.stringify(users), { status: 200 });
+    } catch (error) {
+        return new Response(JSON.stringify({ error: 'Failed to fetch users' }), { status: 500 });
+    }
+}
+
+export async function POST(req, res) {
+    try {
+        const data = await req.json();
+        const { email, password, role, student } = data;
+
+        if (!email || !password || !role) {
+            return new Response(JSON.stringify({ error: 'Email, password, and role are required' }), { status: 400 });
         }
-    } else if (req.method === 'POST') {
-        // Create a new user
-        const { email, password, role } = req.body
-        try {
-            const user = await prisma.user.create({
-                data: { email, password, role },
-            })
-            res.status(201).json(user)
-        } catch (error) {
-            res.status(500).json({ message: 'Error creating user', error: error.message })
-        }
-    } else {
-        res.status(405).json({ message: 'Method not allowed' })
+
+        const hashedPassword = await bcrypt.hash(password, 10);
+        const newUser = await prisma.user.create({
+            data: {
+                email,
+                password: hashedPassword,
+                role,
+                student: student ? {
+                    create: student
+                } : undefined,
+            },
+        });
+        return new Response(JSON.stringify(newUser), { status: 201 });
+    } catch (error) {
+        console.log(error);
+        return new Response(JSON.stringify({ error: 'Failed to create user' }), { status: 500 });
     }
 }
