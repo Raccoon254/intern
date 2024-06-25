@@ -1,0 +1,118 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Enums
+enum UserRole {
+  STUDENT
+  ORG_ADMIN
+  DEPT_ADMIN
+  SUPER_ADMIN
+}
+
+enum ApplicationStatus {
+  PENDING
+  UNDER_REVIEW
+  ACCEPTED
+  REJECTED
+}
+
+enum JobPostingType {
+  ATTACHMENT
+  INTERNSHIP
+  JOB
+}
+
+enum JobLocation {
+  ONSITE
+  REMOTE
+  HYBRID
+}
+
+// Models
+model User {
+  id           Int       @id @default(autoincrement())
+  email        String    @unique
+  password     String
+  role         UserRole
+  student      Student?
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
+}
+
+model Organization {
+  id           Int          @id @default(autoincrement())
+  name         String
+  email        String       @unique
+  address      String
+  contactInfo  String
+  departments  Department[]
+  createdAt    DateTime     @default(now())
+  updatedAt    DateTime     @updatedAt
+  deletedAt    DateTime?
+}
+
+model Department {
+  id             Int          @id @default(autoincrement())
+  name           String
+  organizationId Int
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  jobPostings    JobPosting[]
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  deletedAt      DateTime?
+
+  @@index([organizationId])
+}
+
+model JobPosting {
+  id                   Int               @id @default(autoincrement())
+  title                String
+  description          String            @db.Text
+  requirements         String            @db.Text
+  type                 JobPostingType
+  location             JobLocation
+  applicationDeadline  DateTime
+  departmentId         Int
+  department           Department        @relation(fields: [departmentId], references: [id])
+  applications         Application[]
+  createdAt            DateTime          @default(now())
+  updatedAt            DateTime          @updatedAt
+  deletedAt            DateTime?
+
+  @@index([applicationDeadline])
+  @@index([departmentId])
+}
+
+model Student {
+  id           Int           @id @default(autoincrement())
+  userId       Int           @unique
+  user         User          @relation(fields: [userId], references: [id])
+  name         String
+  course       String
+  profile      String        @db.Text
+  applications Application[]
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+}
+
+model Application {
+  id           Int               @id @default(autoincrement())
+  coverLetter  String            @db.Text
+  resume       String            // This could be a file path or URL
+  status       ApplicationStatus @default(PENDING)
+  studentId    Int
+  student      Student           @relation(fields: [studentId], references: [id])
+  jobPostingId Int
+  jobPosting   JobPosting        @relation(fields: [jobPostingId], references: [id])
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+
+  @@index([studentId])
+  @@index([jobPostingId])
+}
