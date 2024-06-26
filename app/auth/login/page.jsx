@@ -3,7 +3,6 @@ import Link from "next/link";
 import LoginButton from "../../components/LoginButton";
 import React, {useEffect, useState} from "react";
 import {signIn, signOut, useSession} from "next-auth/react";
-import {redirect} from "next/navigation";
 import Notification from "/app/Notification";
 
 export default function Login() {
