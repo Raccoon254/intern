@@ -213,7 +213,7 @@ const RegisterPage = () => {
                 </center>
 
                 <div className="w-full mt-8">
-                    <form className="shadow-sm p-6 rounded">
+                    <form className="p-6 rounded">
                         <div className="mb-2">
                             <label className="block text-gray-700 text-sm mb-2" htmlFor="name">
                                 First Name
@@ -235,7 +235,7 @@ const RegisterPage = () => {
                             <label className="block text-gray-700 text-sm mb-2" htmlFor="email">
                                 Email
                             </label>
-                            <input className="input input-bordered input-md w-full max-w-md"
+                            <input className="input input-bordered input-md w-full"
                                    id="email" required type="email" placeholder="user@gmail.com"
                                    value={email}
                                    onChange={(e) => {
@@ -249,39 +249,41 @@ const RegisterPage = () => {
                                 {emailError}
                             </p>
                         </div>
-                        <div className="mb-2">
-                            <label className="block text-gray-700 text-sm mb-2" htmlFor="university">
-                                University
-                            </label>
-                            <input className="input input-bordered input-md w-full max-w-md"
-                                   id="university" required type="text" placeholder="ie: Chuka University"
-                                   value={university}
-                                   onChange={(e) => {
-                                       setInput(e.target.value, setUniversity, setUniversityError, (input) => {
-                                           return input.trim() !== '';
-                                       })
-                                   }}
-                            />
-                            <p className={'text-red-400 text-sm font-semibold p-1 ' + (universityError ? '' : 'none')}>
-                                {universityError}
-                            </p>
-                        </div>
-                        <div className="mb-2">
-                            <label className="block text-gray-700 text-sm mb-2" htmlFor="courseOfStudy">
-                                Course of Study
-                            </label>
-                            <input className="input input-bordered input-md w-full max-w-md"
-                                   id="courseOfStudy" required type="text" placeholder="Computer Science"
-                                   value={courseOfStudy}
-                                   onChange={(e) => {
-                                       setInput(e.target.value, setCourseOfStudy, setCourseOfStudyError, (input) => {
-                                           return input.trim() !== '';
-                                       })
-                                   }}
-                            />
-                            <p className={'text-red-400 text-sm font-semibold p-1 ' + (courseOfStudyError ? '' : 'none')}>
-                                {courseOfStudyError}
-                            </p>
+                        <div className={'flex gap-3'}>
+                            <div className="mb-2 w-1/2">
+                                <label className="block text-gray-700 text-sm mb-2" htmlFor="university">
+                                    University
+                                </label>
+                                <input className="input input-bordered input-md w-full"
+                                       id="university" required type="text" placeholder="ie: Chuka University"
+                                       value={university}
+                                       onChange={(e) => {
+                                           setInput(e.target.value, setUniversity, setUniversityError, (input) => {
+                                               return input.trim() !== '';
+                                           })
+                                       }}
+                                />
+                                <p className={'text-red-400 text-sm font-semibold p-1 ' + (universityError ? '' : 'none')}>
+                                    {universityError}
+                                </p>
+                            </div>
+                            <div className="mb-2">
+                                <label className="block text-gray-700 text-sm mb-2" htmlFor="courseOfStudy">
+                                    Course of Study
+                                </label>
+                                <input className="input input-bordered input-md w-full max-w-md"
+                                       id="courseOfStudy" required type="text" placeholder="Computer Science"
+                                       value={courseOfStudy}
+                                       onChange={(e) => {
+                                           setInput(e.target.value, setCourseOfStudy, setCourseOfStudyError, (input) => {
+                                               return input.trim() !== '';
+                                           })
+                                       }}
+                                />
+                                <p className={'text-red-400 text-sm font-semibold p-1 ' + (courseOfStudyError ? '' : 'none')}>
+                                    {courseOfStudyError}
+                                </p>
+                            </div>
                         </div>
                         <div className="mb-2">
                             <label className="block text-gray-700 text-sm mb-2" htmlFor="phoneNumber">

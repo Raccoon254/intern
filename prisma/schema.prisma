@@ -114,6 +114,7 @@ model Student {
   name         String
   phone        String
   course       String
+  university   String
   photo        String        @default("https://ui-avatars.com/api/?name=Future+Space&background=random&size=128&bold=true&color=fff")
   bio          String        @db.Text
   applications Application[]

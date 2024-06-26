@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "migrate": "npx prisma migrate dev --name init",
     "start": "next start",
     "lint": "next lint"
   },
