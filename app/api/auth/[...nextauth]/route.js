@@ -13,7 +13,7 @@ const authOptions = {
             clientId: process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_SECRET,
 
-            callbackUrl: process.env.CALLBACK,
+            callbackUrl: process.env.GOOGLE_CALLBACK_URL,
         }),
 
         CredentialsProvider({

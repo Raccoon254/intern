@@ -143,7 +143,7 @@ export default function Home() {
                         </h1>
                         <div
                             className="absolute top-[40px] sm:top-[55px] right-0 mb-4 text-xs md:text-sm font-semibold text-orange-800">
-                            By <a className={'text-blue-900'} href="https://futurespace.vercel.app">FutureSpace</a>
+                            By <a className={'text-blue-900'} href="https://futurespace.vercel.app">FutureSpace</a> and <a className={'text-blue-900'} href="https://stevetom.vercel.app">KenTom</a>
                         </div>
                     </div>
                     <p className="text-sm md:text-xl font-normal text-center">
