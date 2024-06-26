@@ -29,25 +29,8 @@ const RegisterPage = () => {
     const [passwordError, setPasswordError] = useState('');
 
     const [isLoading, setIsLoading] = useState(false);
-    const [notifications, setNotifications] = useState([]);
     const { enqueueSnackbar } = useSnackbar();
 
-    function filterNotifications(notifications) {
-        // Convert the notifications to strings for comparison
-        const stringNotifications = notifications.map(JSON.stringify);
-
-        // Create a new Set from the array to remove duplicates
-        const uniqueStringNotifications = new Set(stringNotifications);
-
-        // Convert the strings back to objects and set the state
-        const uniqueNotifications = Array.from(uniqueStringNotifications, JSON.parse);
-        setNotifications(uniqueNotifications);
-
-        // Display the notifications
-        uniqueNotifications.forEach(notification => {
-            enqueueSnackbar(notification.content, { variant: notification.type });
-        });
-    }
 
     function validateAll() {
         if (name.trim() === '') {
@@ -77,17 +60,10 @@ const RegisterPage = () => {
         return name.trim() !== '' && email.trim() !== '' && university.trim() !== '' && courseOfStudy.trim() !== '' && phoneNumber.trim() !== '' && password.trim() !== '';
     }
 
-    function removeNotifications(notifications) {
-        //remove all notifications
-        notifications.splice(0, notifications.length);
-        filterNotifications(notifications);
-    }
-
     const submitForm = (e) => {
-        removeNotifications(notifications);
         e.preventDefault();
         if (!validateAll()) {
-            notifications.push({type: 'error', content: 'Please fill in all the required fields'});
+            enqueueSnackbar('Please fill in all the required fields', { variant: 'error' });
             return;
         }
 
@@ -97,8 +73,8 @@ const RegisterPage = () => {
             name: name,
             email: email,
             university: university,
-            courseOfStudy: courseOfStudy,
-            phoneNumber: phoneNumber,
+            course: courseOfStudy,
+            phone: phoneNumber,
             password: password,
         }
 
@@ -113,24 +89,19 @@ const RegisterPage = () => {
             if (response.ok) {
                 return response.json();
             } else {
-                notifications.push({type: 'error', content: 'An error occurred while processing your request'});
+                enqueueSnackbar('An error occurred while processing your request', { variant: 'error' });
             }
         }).then((data) => {
             setIsLoading(false);
-            // Handle the data
             if (data.message) {
-                // Show a success notification
-                notifications.push({type: 'success', content: data.message});
-                filterNotifications(notifications)
+                enqueueSnackbar(data.message, { variant: 'success' });
                 location.href = '/auth/login';
             } else if (data.error) {
-                // Show an error notification
-                notifications.push({type: 'error', content: data.error});
-                filterNotifications(notifications);
+                enqueueSnackbar(data.error, { variant: 'error' });
             }
         }).catch((error) => {
             console.log(error)
-            alert('An error occurred: ' + error.message);
+            enqueueSnackbar('An error occurred: ' + error.message, { variant: 'error' });
         });
     }
 
@@ -149,6 +120,7 @@ const RegisterPage = () => {
                             </h2>
                             <div className="absolute top-[35px] right-0 mb-4 text-xs font-medium text-orange-800">
                                 By <a className={'text-blue-500'} href="https://futurespace.vercel.app">FutureSpace</a>
+                                and <a className={'text-blue-500'} href="https://stevetom.vercel.app">kenTom</a>
                             </div>
                         </div>
                     </center>
@@ -201,8 +173,6 @@ const RegisterPage = () => {
     return (
         <main className="min-h-screen grid place-items-center w-full">
             <div className="w-full max-w-md m-4 p-4 ">
-
-                <Notification notifications={notifications}/>
 
                 <center>
                     <div className="w-fit relative flex flex-col items-center">
