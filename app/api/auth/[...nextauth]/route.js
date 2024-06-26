@@ -2,7 +2,9 @@ import NextAuth from 'next-auth'
 import GoogleProvider from 'next-auth/providers/google'
 import CredentialsProvider from 'next-auth/providers/credentials'
 import { compare } from 'bcrypt'
-import {User} from "/models/user";
+import { PrismaClient } from '@prisma/client'
+
+const prisma = new PrismaClient()
 
 const authOptions = {
     providers: [
@@ -10,7 +12,7 @@ const authOptions = {
             clientId: process.env.GOOGLE_ID,
             clientSecret: process.env.GOOGLE_SECRET,
 
-            callbackUrl: 'https://intern.co.ke/intern/dashboard',
+            callbackUrl: process.env.CALLBACK,
         }),
         CredentialsProvider({
             name: 'Credentials',
