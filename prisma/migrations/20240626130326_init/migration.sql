@@ -83,6 +83,7 @@ CREATE TABLE `Student` (
     `name` VARCHAR(191) NOT NULL,
     `phone` VARCHAR(191) NOT NULL,
     `course` VARCHAR(191) NOT NULL,
+    `university` VARCHAR(191) NOT NULL,
     `photo` VARCHAR(191) NOT NULL DEFAULT 'https://ui-avatars.com/api/?name=Future+Space&background=random&size=128&bold=true&color=fff',
     `bio` TEXT NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),

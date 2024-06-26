@@ -1,7 +1,7 @@
 'use client'
 import React, {useState} from 'react';
 import Link from "next/link";
-import Notification from "/app/Notification";
+import { useSnackbar } from 'notistack';
 import {signOut, useSession} from "next-auth/react";
 
 const validateInput = (input, setInputError, validationFunction) => {
@@ -30,6 +30,7 @@ const RegisterPage = () => {
 
     const [isLoading, setIsLoading] = useState(false);
     const [notifications, setNotifications] = useState([]);
+    const { enqueueSnackbar } = useSnackbar();
 
     function filterNotifications(notifications) {
         // Convert the notifications to strings for comparison
@@ -41,6 +42,11 @@ const RegisterPage = () => {
         // Convert the strings back to objects and set the state
         const uniqueNotifications = Array.from(uniqueStringNotifications, JSON.parse);
         setNotifications(uniqueNotifications);
+
+        // Display the notifications
+        uniqueNotifications.forEach(notification => {
+            enqueueSnackbar(notification.content, { variant: notification.type });
+        });
     }
 
     function validateAll() {
@@ -219,7 +225,7 @@ const RegisterPage = () => {
                                 First Name
                             </label>
                             <input className="input input-bordered input-md w-full max-w-md"
-                                   id="name" required type="text" placeholder="Future Space"
+                                   id="name" autoComplete={'name'} required type="text" placeholder="Future Space"
                                    value={name}
                                    onChange={(e) => {
                                        setInput(e.target.value, setFirstName, setFirstNameError, (input) => {
@@ -237,6 +243,7 @@ const RegisterPage = () => {
                             </label>
                             <input className="input input-bordered input-md w-full"
                                    id="email" required type="email" placeholder="user@gmail.com"
+                                   autoComplete={'email'}
                                    value={email}
                                    onChange={(e) => {
                                        setInput(e.target.value, setEmail, setEmailError, (input) => {
@@ -257,6 +264,7 @@ const RegisterPage = () => {
                                 <input className="input input-bordered input-md w-full"
                                        id="university" required type="text" placeholder="ie: Chuka University"
                                        value={university}
+                                       autoComplete={'university'}
                                        onChange={(e) => {
                                            setInput(e.target.value, setUniversity, setUniversityError, (input) => {
                                                return input.trim() !== '';
@@ -274,6 +282,7 @@ const RegisterPage = () => {
                                 <input className="input input-bordered input-md w-full max-w-md"
                                        id="courseOfStudy" required type="text" placeholder="Computer Science"
                                        value={courseOfStudy}
+                                       autoComplete={'course'}
                                        onChange={(e) => {
                                            setInput(e.target.value, setCourseOfStudy, setCourseOfStudyError, (input) => {
                                                return input.trim() !== '';
@@ -292,6 +301,7 @@ const RegisterPage = () => {
                             <input className="input input-bordered input-md w-full max-w-md"
                                    id="phoneNumber" required type="text" placeholder="07********"
                                    value={phoneNumber}
+                                   autoComplete={'tel'}
                                    onChange={(e) => {
                                        let value = e.target.value;
                                        if (value.startsWith('0')) {
