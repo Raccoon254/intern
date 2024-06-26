@@ -4,7 +4,14 @@ const prisma = new PrismaClient();
 
 export async function GET(req, res) {
     try {
-        const organizations = await prisma.organization.findMany();
+        const organizations = await prisma.organization.findMany(
+            {
+                include: {
+                    departments: true,
+                    services: true
+                }
+            }
+        );
         return new Response(JSON.stringify(organizations), { status: 200 });
     } catch (error) {
         return new Response(JSON.stringify({ error: 'Failed to fetch organizations' }), { status: 500 });

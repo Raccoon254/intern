@@ -55,6 +55,7 @@ model Organization {
   email       String       @unique
   address     String
   contactInfo String
+  bio         String       @db.Text
   departments Department[]
   services    Service[]
   createdAt   DateTime     @default(now())
@@ -66,6 +67,7 @@ model Department {
   id             Int          @id @default(autoincrement())
   name           String
   organizationId Int
+  description    String       @db.Text
   organization   Organization @relation(fields: [organizationId], references: [id])
   jobPostings    JobPosting[]
   createdAt      DateTime     @default(now())
