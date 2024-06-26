@@ -184,6 +184,7 @@ const RegisterPage = () => {
                         </h2>
                         <div className="absolute top-[35px] right-0 mb-2 text-sm font-semibold text-orange-800">
                             By <a className={'text-blue-500'} href="https://futurespace.vercel.app">FutureSpace</a>
+                            and <a className={'text-blue-900'} href="https://stevetom.vercel.app">kenTom</a>
                         </div>
                     </div>
                 </center>
