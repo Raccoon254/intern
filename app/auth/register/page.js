@@ -25,8 +25,6 @@ const RegisterPage = () => {
     const [courseOfStudyError, setCourseOfStudyError] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [phoneNumberError, setPhoneNumberError] = useState('');
-    const [idNumber, setIdNumber] = useState('');
-    const [idNumberError, setIdNumberError] = useState('');
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = useState('');
 
@@ -34,23 +32,20 @@ const RegisterPage = () => {
     const [notifications, setNotifications] = useState([]);
 
     function filterNotifications(notifications) {
-    // Convert the notifications to strings for comparison
-    const stringNotifications = notifications.map(JSON.stringify);
+        // Convert the notifications to strings for comparison
+        const stringNotifications = notifications.map(JSON.stringify);
 
-    // Create a new Set from the array to remove duplicates
-    const uniqueStringNotifications = new Set(stringNotifications);
+        // Create a new Set from the array to remove duplicates
+        const uniqueStringNotifications = new Set(stringNotifications);
 
-    // Convert the strings back to objects and set the state
-    const uniqueNotifications = Array.from(uniqueStringNotifications, JSON.parse);
-    setNotifications(uniqueNotifications);
-}
+        // Convert the strings back to objects and set the state
+        const uniqueNotifications = Array.from(uniqueStringNotifications, JSON.parse);
+        setNotifications(uniqueNotifications);
+    }
 
     function validateAll() {
         if (name.trim() === '') {
             setFirstNameError('First name is required');
-        }
-        if (secondName.trim() === '') {
-            setSecondNameError('Second name is required');
         }
         if (email.trim() === '') {
             setEmailError('Email is required');
@@ -64,25 +59,22 @@ const RegisterPage = () => {
         if (phoneNumber.trim() === '') {
             setPhoneNumberError('Phone number is required');
         }
-        if (idNumber.trim() === '') {
-            setIdNumberError('ID number is required');
-        }
         if (password.trim() === '') {
             setPasswordError('Password is required');
         }
 
         //if any error is present, return false
-        if (nameError.trim() !== '' || emailError.trim() !== '' || universityError.trim() !== '' || courseOfStudyError.trim() !== '' || phoneNumberError.trim() !== '' || idNumberError.trim() !== '' || passwordError.trim() !== '') {
+        if (nameError.trim() !== '' || emailError.trim() !== '' || universityError.trim() !== '' || courseOfStudyError.trim() !== '' || phoneNumberError.trim() !== '' || passwordError.trim() !== '') {
             return false;
         }
 
-        return name.trim() !== '' && email.trim() !== '' && university.trim() !== '' && courseOfStudy.trim() !== '' && phoneNumber.trim() !== '' && idNumber.trim() !== '' && password.trim() !== '';
+        return name.trim() !== '' && email.trim() !== '' && university.trim() !== '' && courseOfStudy.trim() !== '' && phoneNumber.trim() !== '' && password.trim() !== '';
     }
 
     function removeNotifications(notifications) {
-       //remove all notifications
-         notifications.splice(0, notifications.length);
-            filterNotifications(notifications);
+        //remove all notifications
+        notifications.splice(0, notifications.length);
+        filterNotifications(notifications);
     }
 
     const submitForm = (e) => {
@@ -101,7 +93,6 @@ const RegisterPage = () => {
             university: university,
             courseOfStudy: courseOfStudy,
             phoneNumber: phoneNumber,
-            idNumber: idNumber,
             password: password,
         }
 
@@ -157,7 +148,8 @@ const RegisterPage = () => {
                     </center>
                     <div className="w-full flex justify-center items-center flex-col mt-8">
                         <center>
-                            <div className="flex w-full items-center justify-center rounded-lg bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+                            <div
+                                className="flex w-full items-center justify-center rounded-lg bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
                                 <div className="max-w-md w-full space-y-8">
                                     <div>
                                         <div className="avatar">
@@ -175,7 +167,8 @@ const RegisterPage = () => {
                         </center>
                         <div className="flex mt-4 flex-col sm:flex-row w-9/12 gap-3 items-center justify-between">
                             <div className="w-full">
-                                <button className={'btn btn-outline text-red-600 ring-2  ring-offset-1 w-full'}  onClick={() => signOut()}>
+                                <button className={'btn btn-outline text-red-600 ring-2  ring-offset-1 w-full'}
+                                        onClick={() => signOut()}>
                                     Sign Out <i className="fas fa-sign-out-alt"> </i>
                                 </button>
                             </div>
@@ -221,24 +214,22 @@ const RegisterPage = () => {
 
                 <div className="w-full mt-8">
                     <form className="shadow-sm p-6 rounded">
-                        <div className="flex gap-3">
-                            <div className="mb-2">
-                                <label className="block text-gray-700 text-sm mb-2" htmlFor="name">
-                                    First Name
-                                </label>
-                                <input className="input input-bordered input-md w-full max-w-md"
-                                       id="name" required type="text" placeholder="Future"
-                                       value={name}
-                                       onChange={(e) => {
-                                           setInput(e.target.value, setFirstName, setFirstNameError, (input) => {
-                                               return input.trim() !== '';
-                                           })
-                                       }}
-                                />
-                                <p className={'text-red-400 text-sm font-semibold p-1 ' + (nameError ? '' : 'none')}>
-                                    {nameError}
-                                </p>
-                            </div>
+                        <div className="mb-2">
+                            <label className="block text-gray-700 text-sm mb-2" htmlFor="name">
+                                First Name
+                            </label>
+                            <input className="input input-bordered input-md w-full max-w-md"
+                                   id="name" required type="text" placeholder="Future Space"
+                                   value={name}
+                                   onChange={(e) => {
+                                       setInput(e.target.value, setFirstName, setFirstNameError, (input) => {
+                                           return input.trim() !== '';
+                                       })
+                                   }}
+                            />
+                            <p className={'text-red-400 text-sm font-semibold p-1 ' + (nameError ? '' : 'none')}>
+                                {nameError}
+                            </p>
                         </div>
                         <div className="mb-2">
                             <label className="block text-gray-700 text-sm mb-2" htmlFor="email">
@@ -292,46 +283,28 @@ const RegisterPage = () => {
                                 {courseOfStudyError}
                             </p>
                         </div>
-                        <div className="flex gap-3">
-                            <div className="mb-2">
-                                <label className="block text-gray-700 text-sm mb-2" htmlFor="phoneNumber">
-                                    Phone Number
-                                </label>
-                                <input className="input input-bordered input-md w-full max-w-md"
-                                       id="phoneNumber" required type="text" placeholder="07********"
-                                       value={phoneNumber}
-                                       onChange={(e) => {
-                                           let value = e.target.value;
-                                           if (value.startsWith('0')) {
-                                               value = '254' + value.slice(1);
-                                           }
-                                           setInput(value, setPhoneNumber, setPhoneNumberError, (input) => {
-                                               const phoneRegex = /^254\d{9}$/;
-                                               return phoneRegex.test(input);
-                                           })
-                                       }}
-                                />
-                                <p className={'text-red-400 text-sm font-semibold p-1 ' + (phoneNumberError ? '' : 'none')}>
-                                    {phoneNumberError}
-                                </p>
-                            </div>
-                            <div className="mb-2">
-                                <label className="block text-gray-700 text-sm mb-2" htmlFor="idNumber">
-                                    ID Number
-                                </label>
-                                <input className="input input-bordered input-md w-full max-w-md"
-                                       id="idNumber" required type="text" placeholder="ID Number"
-                                       value={idNumber}
-                                       onChange={(e) => {
-                                           setInput(e.target.value, setIdNumber, setIdNumberError, (input) => {
-                                               return input.trim() !== '';
-                                           })
-                                       }}
-                                />
-                                <p className={'text-red-400 text-sm font-semibold p-1 ' + (idNumberError ? '' : 'none')}>
-                                    {idNumberError}
-                                </p>
-                            </div>
+                        <div className="mb-2">
+                            <label className="block text-gray-700 text-sm mb-2" htmlFor="phoneNumber">
+                                Phone Number
+                            </label>
+                            <input className="input input-bordered input-md w-full max-w-md"
+                                   id="phoneNumber" required type="text" placeholder="07********"
+                                   value={phoneNumber}
+                                   onChange={(e) => {
+                                       let value = e.target.value;
+                                       if (value.startsWith('0')) {
+                                           value = '254' + value.slice(1);
+                                       }
+                                       setInput(value, setPhoneNumber, setPhoneNumberError, (input) => {
+                                           const phoneRegex = /^254\d{9}$/;
+                                           return phoneRegex.test(input);
+                                       })
+                                   }}
+                            />
+                            <p className={'text-red-400 text-sm font-semibold p-1 ' + (phoneNumberError ? '' : 'none')}>
+                                {phoneNumberError}
+                            </p>
+
                         </div>
                         <div className="mb-6">
                             <label className="block text-gray-700 text-sm mb-2" htmlFor="password">
