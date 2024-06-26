@@ -25,10 +25,11 @@ export async function GET(req, { params }) {
     }
 }
 
-export async function PUT(req, res) {
+export async function PUT(req, { params }) {
     try {
         const data = await req.json()
-        const { id, email, password, role, student } = data
+        const { email, password, role, student } = data
+        const { id } = params
 
         if (!email || !password || !role) {
             return new Response(JSON.stringify({ error: 'Email, password, and role are required' }), { status: 400 });
@@ -57,12 +58,11 @@ export async function PUT(req, res) {
     }
 }
 
-export async function DELETE(req, res) {
+export async function DELETE(req, { params }) {
     try {
-        const data = await req.json()
-        const { id } = data
+        const { id } = params
 
-        if (!id) {
+        if (!id || id == '') {
             return new Response(JSON.stringify({ error: 'ID is required' }), { status: 400 });
         }
 
