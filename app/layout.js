@@ -1,7 +1,7 @@
 import {Inter} from "next/font/google";
 import "./globals.css";
 import {NextAuthProvider} from "./AuthProvider";
-import {SnackbarProvider} from 'notistack';
+import NotificationProvider from "@/app/notificationProvider";
 
 const inter = Inter({subsets: ["latin"]});
 
@@ -35,9 +35,9 @@ export default function RootLayout({children}) {
         <html lang="en" data-theme={"winter"}>
         <body className={inter.className}>
         <NextAuthProvider>
-            <SnackbarProvider maxSnack={3}>
+            <NotificationProvider>
                 {children}
-            </SnackbarProvider>
+            </NotificationProvider>
             <script src="/icons/fontawesome.js" crossOrigin="anonymous"></script>
         </NextAuthProvider>
         </body>
