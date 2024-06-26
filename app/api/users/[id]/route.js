@@ -63,7 +63,7 @@ export async function DELETE(req, { params }) {
     
         const { id } = params
 
-        if (!id || id == '') {
+        if (!id || id === '') {
             return new Response(JSON.stringify({ error: 'ID is required' }), { status: 400 });
         }
 
