@@ -112,8 +112,10 @@ model Student {
   userId       Int           @unique
   user         User          @relation(fields: [userId], references: [id])
   name         String
+  phone        String
   course       String
-  profile      String        @db.Text
+  photo        String        @default("https://ui-avatars.com/api/?name=Future+Space&background=random&size=128&bold=true&color=fff")
+  bio          String        @db.Text
   applications Application[]
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
@@ -122,7 +124,7 @@ model Student {
 model Application {
   id           Int               @id @default(autoincrement())
   coverLetter  String            @db.Text
-  resume       String // This could be a file path or URL
+  resume       String            @db.Text
   status       ApplicationStatus @default(PENDING)
   studentId    Int
   student      Student           @relation(fields: [studentId], references: [id])
