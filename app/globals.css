@@ -1,33 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Global styles */
+* {
+    font-family: "Figtree", sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* H tag styles */
+h1 {
+    @apply text-4xl font-bold text-gray-900;
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+h2 {
+    @apply text-3xl font-bold text-gray-900;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+h3 {
+    @apply text-2xl font-bold text-gray-900;
+}
+
+h4 {
+    @apply text-xl font-bold text-gray-900;
+}
+
+h5 {
+    @apply text-lg font-bold text-gray-900;
+}
+
+.notification {
+    @apply z-50 right-3 px-4 py-2 flex rounded-md shadow-sm;
+    opacity: 0;
+    transform: translateX(100px);
+    animation: slideIn 0.5s forwards;
+}
+
+.notification.hide {
+    animation: slideOut 0.5s forwards;
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideOut {
+    0% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(100px);
+    }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.badge-custom {
+    @apply flex justify-center gap-2 items-center text-gray-500 text-sm px-2.5 py-0.5 rounded-full font-medium bg-red-100;
+}
+
+.custom-card {
+    @apply border flex flex-col justify-between rounded-md p-1 border-gray-300 w-full transition duration-200 ease-in-out transform hover:scale-105;
+}
+
+.custom-card:hover {
+    @apply border-gray-500 shadow-md scale-105 bg-gray-100;
+}
+
+.internship-card {
+    @apply border-b border-gray-800 py-4 flex justify-between items-center flex-wrap gap-4;
+}
+
+.scroll-downs {
+    position: relative;
+    @apply scale-50 sm:scale-75;
+}
+
+.mousey {
+    width: 0;
+    padding: 10px 15px;
+    height: 35px;
+    border: 3px solid rgba(66, 17, 33, 0.6);
+    border-radius: 25px;
+    opacity: 0.75;
+    box-sizing: content-box;
+}
+
+
+.internship-card{
+  @apply border-b border-gray-800 py-4 flex justify-between items-center flex-wrap gap-4;
+}
+
+.scroll-downs {
+  position: relative;
+  @apply scale-50 sm:scale-75;
+}
+
+
+.mousey {
+  width: 0;
+  padding: 10px 15px;
+  height: 35px;
+  border: 3px solid rgba(66, 17, 33, 0.6);
+  border-radius: 25px;
+  opacity: 0.75;
+  box-sizing: content-box;
+}
+
+.mousey:hover{
+  animation-name: scroll;
+  background: rgba(138, 43, 226, 0.14);
+  cursor: pointer;
+}
+
+.scroller {
+  width: 4px;
+  height: 10px;
+  transform: translate(-2px, 0px);
+  border-radius: 25%;
+  background-color: rgba(66, 17, 33, 0.83);
+  animation-name: scroll;
+  animation-duration: 2.2s;
+  animation-timing-function: cubic-bezier(.15,.41,.69,.94);
+  animation-iteration-count: infinite;
+}
+
+.scroller:hover{
+  animation-name: scroll;
+  background: rgba(138, 43, 226, 0.14);
+  cursor: pointer;
+  transform: scale(1.5);
+}
+
+@keyframes scroll {
+  0% { opacity: 0;  transform: translate(-2px,0); }
+  10% { transform: translate(-2px,0); opacity: 1; }
+  100% { opacity: 0.3; transform: translate(-2px, 35px); }
+}
+
+.text-rgba{
+  color: rgba(66, 17, 33, 0.83) !important;
+}
+
+.custom-gradient {
+    background: linear-gradient(0deg, rgb(255, 255, 255) 0%,  rgb(255, 255, 255) 10% , rgb(255, 255, 255,0.4) 40%);
+    pointer-events: none;
+}
+
+.custom-c{
+  @apply bordered border-green-600 border-opacity-50 border-2 hover:border hover:border-opacity-100 bg-transparent shadow from-green-950 to-orange-900 p-4 w-[160px] sm:w-48 h-44 sm:h-[190px] rounded-[18px] grid place-items-center transition duration-200 ease-in-out transform hover:scale-105 hover:shadow-md;
+}
+
+.custom-c-mod{
+  @apply bordered border-green-600 border-opacity-50 border-2 hover:border hover:border-opacity-100 bg-transparent shadow p-4 w-[160px] sm:w-48 h-44 sm:h-[190px] rounded-[18px] grid place-items-center transition duration-200 ease-in-out transform hover:scale-105 hover:shadow-md;
+}
+
+.logo-sq-14{
+    height: 56px !important;
+    width: 56px !important;
+}
+
+.company-logo{
+    height: 80px !important;
+    width: 80px !important;
+    aspect-ratio: 1/1 !important;
+    @apply grid place-items-center;
+}
+
+.logo-hover{
+    @apply transition duration-200 ease-in-out transform hover:scale-105 hover:shadow-md hover:bg-gray-100 hover:rounded-md hover:ring-offset-1 hover:ring-1 hover:ring-gray-100;
+}
+
+.tab.active{
+    @apply bg-green-200 text-gray-900;
 }
