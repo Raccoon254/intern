@@ -84,24 +84,19 @@ const RegisterPage = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(formData),
-        }).then((response) => {
+        }).then(async (response) => {
+            const data = await response.json();
             setIsLoading(false);
             if (response.ok) {
-                return response.json();
-            } else {
-                enqueueSnackbar('An error occurred while processing your request', { variant: 'error' });
-            }
-        }).then((data) => {
-            setIsLoading(false);
-            if (data.message) {
-                enqueueSnackbar(data.message, { variant: 'success' });
+                enqueueSnackbar('Registration successful', { variant: 'success' });
                 location.href = '/auth/login';
-            } else if (data.error) {
-                enqueueSnackbar(data.error, { variant: 'error' });
+            } else {
+                throw new Error(data.error || 'An error occurred while processing your request');
             }
         }).catch((error) => {
-            console.log(error)
-            enqueueSnackbar('An error occurred: ' + error.message, { variant: 'error' });
+            console.error(error);
+            enqueueSnackbar(error.message, { variant: 'error' });
+            setIsLoading(false);
         });
     }
 
@@ -182,9 +177,9 @@ const RegisterPage = () => {
                             </span>
                             Link&trade; Auth
                         </h2>
-                        <div className="absolute top-[35px] right-0 mb-2 text-sm font-semibold text-orange-800">
-                            By <a className={'text-blue-500'} href="https://futurespace.vercel.app">FutureSpace</a>
-                            and <a className={'text-blue-900'} href="https://stevetom.vercel.app">kenTom</a>
+                        <div className="absolute top-[35px] right-0 mb-2 text-xs font-semibold text-orange-800">
+                            By <a className={'text-blue-700'} href="https://futurespace.vercel.app">FutureSpace </a>
+                            and <a className={'text-blue-700'} href="https://stevetom.vercel.app">kenTom</a>
                         </div>
                     </div>
                 </center>

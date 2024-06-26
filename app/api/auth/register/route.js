@@ -1,67 +1,72 @@
 // POST
-import {PrismaClient} from "@prisma/client";
+import { PrismaClient } from "@prisma/client";
 import bcrypt from "bcrypt";
 
 const prisma = new PrismaClient();
 
-export async function POST(req, res) {
-    try{
+export async function POST(req) {
+    try {
         const data = await req.json();
-        console.log(data)
-        /*
-        {
-          name: 'Steve Tom',
-          email: 'tomsteve187@gmail.com',
-          university: 'Chuka University',
-          course: 'Computer science',
-          phone: '254758481320',
-          password: '12345678'
-        }
-         */
+        const { name, email, university, course, phone, password } = data;
 
-        const {name, email, university, course, phone, password} = data;
-        //validate the data
+        // Validate the data
         if (!name || !email || !university || !course || !phone || !password) {
-            return new Response(JSON.stringify({error: 'All fields are required'}), {status: 400});
+            return new Response(JSON.stringify({ error: 'All fields are required' }), { status: 400 });
         }
         if (password.length < 8) {
-            return new Response(JSON.stringify({error: 'Password must be atleast 8 characters'}), {status: 400});
+            return new Response(JSON.stringify({ error: 'Password must be at least 8 characters' }), { status: 400 });
         }
-        const phoneRegex = /^[0-9]{12}$/;
-        if (!phone.match(phoneRegex)) {
-            return new Response(JSON.stringify({error: 'Invalid phone number'}), {status: 400});
+        const phoneRegex = /^\d{12}$/;
+        if (!phoneRegex.test(phone)) {
+            return new Response(JSON.stringify({ error: 'Invalid phone number' }), { status: 400 });
         }
         const emailRegex = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
-        if (!email.match(emailRegex)) {
-            return new Response(JSON.stringify({error: 'Invalid email'}), {status: 400});
-        }
-        //hash the password
-        const hashedPassword = await bcrypt.hash(password, 10)
-        const role = 'STUDENT'
-
-        const student = {
-            name,
-            university,
-            course,
-            phone
+        if (!emailRegex.test(email)) {
+            return new Response(JSON.stringify({ error: 'Invalid email' }), { status: 400 });
         }
 
-        const newUser = await prisma.user.create(
-            {
+        // Check if email already exists
+        const existingUser = await prisma.user.findUnique({ where: { email } });
+        if (existingUser) {
+            return new Response(JSON.stringify({ error: 'Email already in use' }), { status: 400 });
+        }
+
+        // Hash the password
+        const hashedPassword = await bcrypt.hash(password, 10);
+
+        // Create new user and student in a single transaction
+        const newUser = await prisma.$transaction(async (prisma) => {
+            const user = await prisma.user.create({
                 data: {
                     email,
                     password: hashedPassword,
-                    role,
-                    student: student ? {
-                        create: student
-                    } : undefined,
+                    role: 'STUDENT',
+                    student: {
+                        create: {
+                            name,
+                            university,
+                            course,
+                            phone,
+                            bio: 'null',
+                        }
+                    }
                 },
-            }
-        );
+                include: {
+                    student: true
+                }
+            });
 
-        return new Response(JSON.stringify(newUser), {status: 201});
-    }catch (e){
-        console.log(e)
-        return new Response(JSON.stringify({error: 'Failed to create user'}), {status: 500});
+            return user;
+        });
+
+        // Remove password from the response
+        const { password: _, ...userWithoutPassword } = newUser;
+        let message = `Welcome ${userWithoutPassword.student.name}!`;
+
+        return new Response(JSON.stringify({ message: message, user: userWithoutPassword }), { status: 201 });
+    } catch (e) {
+        console.error(e);
+        let message = e.message;
+        return new Response(JSON.stringify({ message: message, error: 'Failed to create user' }), { status: 500 });
     }
 }
