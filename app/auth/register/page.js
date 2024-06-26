@@ -15,10 +15,8 @@ const setInput = (value, setState, setInputError, validationFunction) => {
 
 const RegisterPage = () => {
     const {data: session} = useSession()
-    const [firstName, setFirstName] = useState('');
-    const [firstNameError, setFirstNameError] = useState('');
-    const [secondName, setSecondName] = useState('');
-    const [secondNameError, setSecondNameError] = useState('');
+    const [name, setFirstName] = useState('');
+    const [nameError, setFirstNameError] = useState('');
     const [email, setEmail] = useState('');
     const [emailError, setEmailError] = useState('');
     const [university, setUniversity] = useState('');
@@ -48,7 +46,7 @@ const RegisterPage = () => {
 }
 
     function validateAll() {
-        if (firstName.trim() === '') {
+        if (name.trim() === '') {
             setFirstNameError('First name is required');
         }
         if (secondName.trim() === '') {
@@ -74,11 +72,11 @@ const RegisterPage = () => {
         }
 
         //if any error is present, return false
-        if (firstNameError.trim() !== '' || secondNameError.trim() !== '' || emailError.trim() !== '' || universityError.trim() !== '' || courseOfStudyError.trim() !== '' || phoneNumberError.trim() !== '' || idNumberError.trim() !== '' || passwordError.trim() !== '') {
+        if (nameError.trim() !== '' || emailError.trim() !== '' || universityError.trim() !== '' || courseOfStudyError.trim() !== '' || phoneNumberError.trim() !== '' || idNumberError.trim() !== '' || passwordError.trim() !== '') {
             return false;
         }
 
-        return firstName.trim() !== '' && secondName.trim() !== '' && email.trim() !== '' && university.trim() !== '' && courseOfStudy.trim() !== '' && phoneNumber.trim() !== '' && idNumber.trim() !== '' && password.trim() !== '';
+        return name.trim() !== '' && email.trim() !== '' && university.trim() !== '' && courseOfStudy.trim() !== '' && phoneNumber.trim() !== '' && idNumber.trim() !== '' && password.trim() !== '';
     }
 
     function removeNotifications(notifications) {
@@ -98,8 +96,7 @@ const RegisterPage = () => {
         setIsLoading(true);
 
         const formData = {
-            firstName: firstName,
-            secondName: secondName,
+            name: name,
             email: email,
             university: university,
             courseOfStudy: courseOfStudy,
@@ -226,37 +223,20 @@ const RegisterPage = () => {
                     <form className="shadow-sm p-6 rounded">
                         <div className="flex gap-3">
                             <div className="mb-2">
-                                <label className="block text-gray-700 text-sm mb-2" htmlFor="firstName">
+                                <label className="block text-gray-700 text-sm mb-2" htmlFor="name">
                                     First Name
                                 </label>
                                 <input className="input input-bordered input-md w-full max-w-md"
-                                       id="firstName" required type="text" placeholder="Future"
-                                       value={firstName}
+                                       id="name" required type="text" placeholder="Future"
+                                       value={name}
                                        onChange={(e) => {
                                            setInput(e.target.value, setFirstName, setFirstNameError, (input) => {
                                                return input.trim() !== '';
                                            })
                                        }}
                                 />
-                                <p className={'text-red-400 text-sm font-semibold p-1 ' + (firstNameError ? '' : 'none')}>
-                                    {firstNameError}
-                                </p>
-                            </div>
-                            <div className="mb-2">
-                                <label className="block text-gray-700 text-sm mb-2" htmlFor="secondName">
-                                    Second Name
-                                </label>
-                                <input className="input input-bordered input-md w-full max-w-md"
-                                       id="secondName" required type="text" placeholder="Space"
-                                       value={secondName}
-                                       onChange={(e) => {
-                                           setInput(e.target.value, setSecondName, setSecondNameError, (input) => {
-                                               return input.trim() !== '';
-                                           })
-                                       }}
-                                />
-                                <p className={'text-red-400 text-sm font-semibold p-1 ' + (secondNameError ? '' : 'none')}>
-                                    {secondNameError}
+                                <p className={'text-red-400 text-sm font-semibold p-1 ' + (nameError ? '' : 'none')}>
+                                    {nameError}
                                 </p>
                             </div>
                         </div>

@@ -15,6 +15,10 @@ CREATE TABLE `User` (
 CREATE TABLE `Organization` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `name` VARCHAR(191) NOT NULL,
+    `logo` VARCHAR(191) NOT NULL,
+    `banner` VARCHAR(191) NOT NULL,
+    `website` VARCHAR(191) NOT NULL,
+    `employees` VARCHAR(191) NOT NULL,
     `email` VARCHAR(191) NOT NULL,
     `address` VARCHAR(191) NOT NULL,
     `contactInfo` VARCHAR(191) NOT NULL,
@@ -36,6 +40,20 @@ CREATE TABLE `Department` (
     `deletedAt` DATETIME(3) NULL,
 
     INDEX `Department_organizationId_idx`(`organizationId`),
+    PRIMARY KEY (`id`)
+) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- CreateTable
+CREATE TABLE `Service` (
+    `id` INTEGER NOT NULL AUTO_INCREMENT,
+    `name` VARCHAR(191) NOT NULL,
+    `icon` VARCHAR(191) NOT NULL,
+    `organizationId` INTEGER NOT NULL,
+    `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
+    `updatedAt` DATETIME(3) NOT NULL,
+    `deletedAt` DATETIME(3) NULL,
+
+    INDEX `Service_organizationId_idx`(`organizationId`),
     PRIMARY KEY (`id`)
 ) DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 
@@ -63,8 +81,10 @@ CREATE TABLE `Student` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `userId` INTEGER NOT NULL,
     `name` VARCHAR(191) NOT NULL,
+    `phone` VARCHAR(191) NOT NULL,
     `course` VARCHAR(191) NOT NULL,
-    `profile` TEXT NOT NULL,
+    `photo` VARCHAR(191) NOT NULL DEFAULT 'https://ui-avatars.com/api/?name=Future+Space&background=random&size=128&bold=true&color=fff',
+    `bio` TEXT NOT NULL,
     `createdAt` DATETIME(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
     `updatedAt` DATETIME(3) NOT NULL,
 
@@ -76,7 +96,7 @@ CREATE TABLE `Student` (
 CREATE TABLE `Application` (
     `id` INTEGER NOT NULL AUTO_INCREMENT,
     `coverLetter` TEXT NOT NULL,
-    `resume` VARCHAR(191) NOT NULL,
+    `resume` TEXT NOT NULL,
     `status` ENUM('PENDING', 'UNDER_REVIEW', 'ACCEPTED', 'REJECTED') NOT NULL DEFAULT 'PENDING',
     `studentId` INTEGER NOT NULL,
     `jobPostingId` INTEGER NOT NULL,
@@ -90,6 +110,9 @@ CREATE TABLE `Application` (
 
 -- AddForeignKey
 ALTER TABLE `Department` ADD CONSTRAINT `Department_organizationId_fkey` FOREIGN KEY (`organizationId`) REFERENCES `Organization`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE `Service` ADD CONSTRAINT `Service_organizationId_fkey` FOREIGN KEY (`organizationId`) REFERENCES `Organization`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
 
 -- AddForeignKey
 ALTER TABLE `JobPosting` ADD CONSTRAINT `JobPosting_departmentId_fkey` FOREIGN KEY (`departmentId`) REFERENCES `Department`(`id`) ON DELETE RESTRICT ON UPDATE CASCADE;
