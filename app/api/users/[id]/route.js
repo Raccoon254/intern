@@ -2,34 +2,24 @@ import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
 
-export default async function handler(req, res) {
-    const { id } = req.query
+export async function GET(req, { params }) {
+    try {
+        
+        const { id } = params
 
-    if (req.method === 'GET') {
-        // Get a single user
-        const user = await prisma.user.findUnique({
-            where: { id: parseInt(id) },
-        })
-        if (user) {
-            res.status(200).json(user)
-        } else {
-            res.status(404).json({ message: 'User not found' })
+        if (!id) {
+            return new Response(JSON.stringify({ error: 'ID is required' }), { status: 400 })
         }
-    } else if (req.method === 'PUT') {
-        // Update a user
-        const { email, password, role } = req.body
-        const user = await prisma.user.update({
-            where: { id: parseInt(id) },
-            data: { email, password, role },
+
+        const user = await prisma.user.findUnique({
+            where: {
+                id: parseInt(id),
+            },
         })
-        res.status(200).json(user)
-    } else if (req.method === 'DELETE') {
-        // Delete a user
-        await prisma.user.delete({
-            where: { id: parseInt(id) },
-        })
-        res.status(204).end()
-    } else {
-        res.status(405).json({ message: 'Method not allowed' })
+        return new Response(JSON.stringify(user), { status: 200 })
+        
+    } catch (error) {
+        console.log(error)
+        return new Response(JSON.stringify({ error: 'Failed to fetch user' }), { status: 500 })
     }
 }
