@@ -28,7 +28,7 @@ const TypewriterEffect = ({ types }) => {
             return;
         }
 
-        const typingSpeed = reverse ? 75 : 150; // Speed up for deletion
+        const typingSpeed = reverse ? 75 : 200; // Speed up for deletion
 
         const typeTimeout = setTimeout(() => {
             setSubIndex((prevSubIndex) => prevSubIndex + (reverse ? -1 : 1));
@@ -39,8 +39,8 @@ const TypewriterEffect = ({ types }) => {
     }, [subIndex, index, reverse]);
 
     return (
-        <span>
-      {`${types[index].substring(0, subIndex)}${blink ? '|' : ' '}`}
+        <span class={'text-blue-900 font-semibold'}>
+      {`${types[index].substring(0, subIndex)}${blink ? '_' : ''}`}
     </span>
     );
 };

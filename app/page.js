@@ -146,9 +146,10 @@ export default function Home() {
                             By <a className={'text-blue-900'} href="https://futurespace.vercel.app">FutureSpace</a> and <a className={'text-blue-900'} href="https://stevetom.vercel.app">KenTom</a>
                         </div>
                     </div>
-                    <p className="text-sm md:text-xl font-normal text-center">
+
+                    <p className="text-lg md:text-2xl mt-4 font-normal text-center">
                         <br/>
-                        Welcome to the future of  <TypewriterEffect types={types} />
+                        Future of  <TypewriterEffect types={types} />
                     </p>
 
 

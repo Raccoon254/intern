@@ -30,6 +30,8 @@ const RegisterPage = () => {
 
     const [isLoading, setIsLoading] = useState(false);
     const { enqueueSnackbar } = useSnackbar();
+    const [isPasswordVisible, setIsPasswordVisible] = useState(false);
+    const [passwordType, setPasswordType] = useState('password');
 
 
     function validateAll() {
@@ -48,6 +50,7 @@ const RegisterPage = () => {
         if (phoneNumber.trim() === '') {
             setPhoneNumberError('Phone number is required');
         }
+
         if (password.trim() === '') {
             setPasswordError('Password is required');
         }
@@ -284,12 +287,12 @@ const RegisterPage = () => {
                             </p>
 
                         </div>
-                        <div className="mb-6">
+                        <div className="mb-6 relative">
                             <label className="block text-gray-700 text-sm mb-2" htmlFor="password">
                                 Password
                             </label>
                             <input className="input input-bordered input-md w-full max-w-md" id="password"
-                                   type="password" placeholder="******************"
+                                   type={passwordType} placeholder="************"
                                    value={password}
                                    onChange={(e) => {
                                        setInput(e.target.value, setPassword, setPasswordError, (input) => {
@@ -297,6 +300,16 @@ const RegisterPage = () => {
                                        })
                                    }}
                             />
+                            <span className="absolute right-0 top-[30px] mt-2 mr-2">
+                                <button type="button" className="btn btn-xs btn-circle btn-ghost"
+                                        onClick={() => {
+                                            setIsPasswordVisible(!isPasswordVisible);
+                                            setPasswordType(isPasswordVisible ? 'password' : 'text');
+                                        }
+                                        }>
+                                    <i className={`fas ${isPasswordVisible ? 'fa-eye-slash' : 'fa-eye'}`}></i>
+                                </button>
+                            </span>
                             <p className={'text-red-400 text-sm font-semibold p-1 ' + (passwordError ? '' : 'none')}>
                                 {passwordError}
                             </p>
