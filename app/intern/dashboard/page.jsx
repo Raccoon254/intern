@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Notification from "/app/Notification";
 import NavBar from "/app/components/NavBar";
+import ServiceSlider from "/app/components/ServiceSlider";
 import Loading from "/app/loading";
 import { formatDistanceToNow } from "date-fns";
 import TypewriterEffect from "/app/components/TypewriterEffect";
@@ -90,16 +91,14 @@ const Dashboard = () => {
                 </div>
 
                 <div className="flex flex-col justify-center p-4 sm:p-6 md:p-8">
-                    <h1
-                        className="text-3xl mb-6 sm:text-4xl font-bold sm:font-black"
-                    >
+                    <h1 className="text-3xl mb-6 sm:text-4xl font-bold sm:font-black">
                         Featured companies hiring now
                     </h1>
 
                     <div className="cards gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
                         {allCompanies.map((company, index) => (
-                            <div key={index} className="custom-card">
+                            <div key={index} className="custom-card cursor-pointer">
                                 <div className="flex px-3 pt-3 gap-4 items-center">
                                     <div
                                         className="logo ring-1 overflow-hidden ring-offset-2 ring-green-400 logo-sq-14 grid place-items-center bg-green-500 text-white w-14 h-14 rounded-md">
@@ -116,22 +115,19 @@ const Dashboard = () => {
                                         {company.description}
                                     </div>
 
-                                    <div className="flex px-3 flex-wrap gap-2 mt-4">
-                                        {company.services.map((service, serviceIndex) => (
-                                            <div key={serviceIndex} className="ring-1 ring-green-500 badge-custom">
-                                                <i className={service.icon}></i>
-                                                {service.name}
-                                            </div>
-                                        ))}
+                                    <div className="flex px-3 flex-col gap-2 mt-4">
+                                        <h1 className="text-lg font-normal">Services</h1>
+                                        <ServiceSlider services={company.services}/>
                                     </div>
+
                                 </div>
                                 <div className="bottom">
-                                    <div className="border-b-2 border-gray-300 w-full mt-4"></div>
-                                    <div className="px-3 hover:bg-gray-200 pt-4 rounded mt-1 pb-3">
+                                <div className="border-b-2 border-gray-300 w-full mt-4"></div>
+                                    <div className="px-3 hover:bg-gray-200 pt-4 rounded-lg mt-1 pb-3">
                                         <Link className="flex positions-link justify-between items-center"
                                               href={`/intern/company?id=${company.id}`}>
                                             <span className="text-md font-semibold hover:underline underline-offset-1">
-                                                {company.positions} Open Positions
+                                                {company.positions ?? '' } Open Positions
                                             </span>
                                             <i className="fa-solid fa-chevron-right text-sm"></i>
                                         </Link>
