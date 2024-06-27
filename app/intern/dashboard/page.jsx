@@ -202,16 +202,16 @@ const Dashboard = () => {
                                 <div key={index} className="internship-card flex flex-col gap-4 mb-2 relative">
                                     <div className="start flex flex-col mt-1 md:mt-6 sm:flex-row gap-4">
                                         <div
-                                            className="logo logo-sq-14 grid place-items-center bg-secondary text-white w-14 h-14 rounded-lg">
-                                            <img className={"h-12 object-cover rounded"} src={internship.department.organization.logo}
+                                            className="logo logo-sq-14 cursor-pointer grid place-items-center ring-1 ring-green-500 text-white w-14 p-[2px] h-14 rounded-lg">
+                                            <img className={"h-full object-cover rounded-[6px]"} src={internship.department.organization.logo}
                                                  alt={internship.department.organization.name}/>
                                         </div>
                                         <div>
-                                            <div className="relative md:absolute flex gap-2 top-1 left-0">
+                                            <div className="relative md:absolute text-xs flex gap-2 top-1 left-0">
                                                 <span
-                                                    className="bg-gray-300 px-2">{internship.type.toLowerCase()}</span>
+                                                    className="bg-gray-300 px-2 py-1">{internship.type.toLowerCase()}</span>
                                                 <span
-                                                    className="bg-gray-300 px-2">{internship.location.toLowerCase()}</span>
+                                                    className="bg-gray-300 px-2 py-1">{internship.location.toLowerCase()}</span>
                                             </div>
                                         </div>
                                         <div className="info flex flex-col gap-1">
