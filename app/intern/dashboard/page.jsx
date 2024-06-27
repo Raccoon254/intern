@@ -28,7 +28,7 @@ const Dashboard = () => {
                 console.error(error);
             });
 
-        fetch(`/api/jobs`)
+        fetch(`/api/postings`)
             .then(response => response.json())
             .then(data => {
                 setInternships(data.jobsWithDetails);
