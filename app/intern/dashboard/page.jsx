@@ -33,6 +33,54 @@ const Dashboard = () => {
             .then(data => {
                 setInternships(data);
                 console.log(data);
+                //[
+                // 	{
+                // 		"id": 1,
+                // 		"title": "Software Engineer",
+                // 		"description": "We are looking for a skilled software engineer to join our team.",
+                // 		"requirements": "Experience with JavaScript, Node.js, and React.",
+                // 		"type": "JOB",
+                // 		"location": "REMOTE",
+                // 		"applicationDeadline": "2024-12-31T23:59:59.000Z",
+                // 		"createdAt": "2024-06-27T08:07:01.118Z",
+                // 		"updatedAt": "2024-06-27T08:07:01.118Z",
+                // 		"department": {
+                // 			"id": 1,
+                // 			"name": "Research and Development",
+                // 			"organization": {
+                // 				"id": 1,
+                // 				"name": "FutureSpace",
+                // 				"logo": "https://ui-avatars.com/api/?name=Future+Space",
+                // 				"email": "info@futurespace.com",
+                // 				"address": "123 Future Street, Space City, Galaxy",
+                // 				"contactInfo": "123-456-7890"
+                // 			}
+                // 		}
+                // 	},
+                // 	{
+                // 		"id": 2,
+                // 		"title": "Data Analyst Intern",
+                // 		"description": "We are looking for a data analyst intern to support our data team.",
+                // 		"requirements": "Basic understanding of data analysis and experience with Excel.",
+                // 		"type": "INTERNSHIP",
+                // 		"location": "HYBRID",
+                // 		"applicationDeadline": "2024-11-30T23:59:59.000Z",
+                // 		"createdAt": "2024-06-27T08:07:12.118Z",
+                // 		"updatedAt": "2024-06-27T08:07:12.118Z",
+                // 		"department": {
+                // 			"id": 3,
+                // 			"name": "Human Resources",
+                // 			"organization": {
+                // 				"id": 1,
+                // 				"name": "FutureSpace",
+                // 				"logo": "https://ui-avatars.com/api/?name=Future+Space",
+                // 				"email": "info@futurespace.com",
+                // 				"address": "123 Future Street, Space City, Galaxy",
+                // 				"contactInfo": "123-456-7890"
+                // 			}
+                // 		}
+                // 	}
+                // ]
             })
             .catch(error => {
                 console.error(error);
@@ -140,7 +188,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="flex flex-col mt-4 justify-center p-4 sm:p-6 md:p-8">
-                    <h1 className="text-3xl mb-6 sm:text-4xl font-bold sm:font-black">
+                    <h1 className="text-3xl mb-4 sm:text-4xl font-bold sm:font-black">
                         Trending internship opportunities
                     </h1>
 
@@ -148,31 +196,35 @@ const Dashboard = () => {
                         View all jobs
                     </a>
 
-                    <div className="main flex mt-4">
+                    <div className="main flex mt-2">
                         <div className="left w-full md:w-3/4">
                             {internships.map((internship, index) => (
-                                <div key={index} className="internship-card">
-                                    <div className="start flex flex-col sm:flex-row gap-4 justify-center">
+                                <div key={index} className="internship-card flex flex-col gap-4 mb-2 relative">
+                                    <div className="start flex flex-col mt-1 md:mt-6 sm:flex-row gap-4">
                                         <div
-                                            className="logo logo-sq-14 grid place-items-center bg-secondary text-white w-14 h-14 rounded-md">
-                                            <img className={"h-12 object-cover"} src={internship.companyLogo}
-                                                 alt={internship.companyName}/>
+                                            className="logo logo-sq-14 grid place-items-center bg-secondary text-white w-14 h-14 rounded-lg">
+                                            <img className={"h-12 object-cover rounded"} src={internship.department.organization.logo}
+                                                 alt={internship.department.organization.name}/>
+                                        </div>
+                                        <div>
+                                            <div className="relative md:absolute flex gap-2 top-1 left-0">
+                                                <span
+                                                    className="bg-gray-300 px-2">{internship.type.toLowerCase()}</span>
+                                                <span
+                                                    className="bg-gray-300 px-2">{internship.location.toLowerCase()}</span>
+                                            </div>
                                         </div>
                                         <div className="info flex flex-col gap-1">
-                                            <h1 className="text-2xl font-bold">{internship.description}</h1>
+                                            <h1 className="text-2xl font-semibold">{internship.description}</h1>
                                             <div className="text-[1rem] text-gray-500 flex flex-wrap gap-2 font-medium">
-                                                |<p className="">{internship.status}</p>|
-                                                <p className="">{internship.companyName}</p>|
+                                                <p className={""}>{internship.department.organization.name}</p>|
+                                                <p className={""}>{internship.department.name}</p>
                                                 <p className="">{formatDistanceToNow(new Date(internship.createdAt))} ago</p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div className="button-container flex gap-3">
-                                        <Link className="btn rounded-md btn-sm ring-1 ring-offset-1 btn-outline"
-                                              href={""}>
-                                            Save
-                                        </Link>
                                         <Link
                                             className="btn rounded-md ring-1 ring-offset-1 ring-secondary btn-sm btn-primary"
                                             href={"/intern/apply?internship=" + internship.id}>
