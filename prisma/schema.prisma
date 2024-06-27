@@ -92,6 +92,8 @@ model Service {
   @@index([organizationId])
 }
 
+// Add skills to job posting
+// Add status to job posting
 model JobPosting {
   id                  Int            @id @default(autoincrement())
   title               String

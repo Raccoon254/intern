@@ -32,7 +32,7 @@ const Company = () => {
 
     function fetchCompanyInternships(id) {
         console.log("Fetching internships for company with id: ", id);
-        fetch(`/api/organizations/internships/${id}`)
+        fetch(`/api/internships/${id}`)
             .then(response => response.json())
             .then(data => {
                 setInternships(data);
