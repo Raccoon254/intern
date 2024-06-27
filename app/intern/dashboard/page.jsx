@@ -31,7 +31,8 @@ const Dashboard = () => {
         fetch(`/api/postings`)
             .then(response => response.json())
             .then(data => {
-                setInternships(data.jobsWithDetails);
+                setInternships(data);
+                console.log(data);
             })
             .catch(error => {
                 console.error(error);
@@ -160,7 +161,6 @@ const Dashboard = () => {
                                         <div className="info flex flex-col gap-1">
                                             <h1 className="text-2xl font-bold">{internship.description}</h1>
                                             <div className="text-[1rem] text-gray-500 flex flex-wrap gap-2 font-medium">
-                                                <p className="text-gray-800 font-bold">{internship.skills}</p>
                                                 |<p className="">{internship.status}</p>|
                                                 <p className="">{internship.companyName}</p>|
                                                 <p className="">{formatDistanceToNow(new Date(internship.createdAt))} ago</p>
