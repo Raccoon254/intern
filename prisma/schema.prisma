@@ -45,6 +45,7 @@ model User {
   updatedAt DateTime @updatedAt
 }
 
+// add location to organization
 model Organization {
   id          Int          @id @default(autoincrement())
   name        String
@@ -77,6 +78,7 @@ model Department {
   @@index([organizationId])
 }
 
+// add description to service
 model Service {
   id             Int          @id @default(autoincrement())
   name           String

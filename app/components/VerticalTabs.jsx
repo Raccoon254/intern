@@ -1,6 +1,5 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import NavBar from "/app/components/NavBar";
 import Loading from "/app/loading";
 import Notification from "/app/Notification";
 
@@ -47,7 +46,7 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
 
                     <div>
                         <div className={"text-lg mb-3 font-semibold"}>
-                            {company.name} Careers
+                            {company.name} Departments
                         </div>
                         <div className="grid gap-3 sm:grid-cols-2">
                             {company.departments.map((department) => {
@@ -56,7 +55,7 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
 
                                 return (
                                     <div key={department.id}
-                                         className="department bg-white shadow-sm ring-1 ring-offset-1 border ring-gray-50 rounded-lg p-4 transition hover:scale-[1.01] hover:bg-green-100 h-32 flex flex-col justify-between">
+                                         className="department cursor-pointer bg-white shadow-sm ring-1 ring-offset-1 border ring-gray-50 rounded-lg p-4 transition hover:scale-[1.01] hover:bg-green-100 h-32 flex flex-col justify-between">
                                         <h2 className="department-name text-2xl font-bold text-gray-800 mb-2">
                                             <i className="fa-solid fa-poo-storm mr-2"></i>
                                             {department.name}
