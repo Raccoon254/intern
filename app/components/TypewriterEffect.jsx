@@ -40,7 +40,7 @@ const TypewriterEffect = ({ types }) => {
 
     return (
         <span class={'text-blue-900'}>
-      {`${types[index].substring(0, subIndex)}${blink ? '_' : ''}`}
+      {`${types[index].substring(0, subIndex)}${blink ? '|' : ''}`}
     </span>
     );
 };

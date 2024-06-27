@@ -83,7 +83,7 @@ h5 {
 }
 
 .badge-custom {
-    @apply flex justify-center gap-2 items-center text-gray-500 text-sm font-thin px-2.5 py-0.5 rounded-full bg-red-100;
+    @apply flex justify-center gap-2 items-center text-gray-500 text-sm font-thin px-2 py-1 rounded-full bg-red-100;
 }
 
 .custom-card {
@@ -111,35 +111,6 @@ h5 {
     border-radius: 25px;
     opacity: 0.75;
     box-sizing: content-box;
-}
-
-@keyframes marquee {
-    0% {
-        transform: translateX(0);
-    }
-    100% {
-        transform: translateX(-100%);
-    }
-}
-
-.slider-container {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    display: flex;
-    padding: 5px;
-}
-
-.slider-content {
-    display: inline-block;
-    padding-left: 100%; /* Start position */
-    animation: marquee 60s linear infinite;
-}
-
-.badge-custom {
-    display: inline-block;
-    margin: 0 5px;
 }
 
 .internship-card {

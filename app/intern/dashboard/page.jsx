@@ -1,18 +1,17 @@
 "use client";
-import React, { useEffect } from "react";
-import { useSession } from "next-auth/react";
+import React, {useEffect} from "react";
+import {useSession} from "next-auth/react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import Notification from "/app/Notification";
 import NavBar from "/app/components/NavBar";
 import ServiceSlider from "/app/components/ServiceSlider";
 import Loading from "/app/loading";
-import { formatDistanceToNow } from "date-fns";
+import {formatDistanceToNow} from "date-fns";
 import TypewriterEffect from "/app/components/TypewriterEffect";
 
 
 const Dashboard = () => {
-    const { data: session } = useSession();
+    const {data: session} = useSession();
     const [allCompanies, setAllCompanies] = React.useState([]);
     const [internships, setInternships] = React.useState([]);
     const types = ["Attachments", "Internships", "Opportunities"];
@@ -46,7 +45,7 @@ const Dashboard = () => {
             <div className="min-h-screen grid place-items-center w-full">
                 <span className="loading loading-ring loading-lg"></span>
                 <span className="absolute w-96 top-5 right-0">
-                    <Notification notifications={[{ type: "loading", content: "Loading sign in session" }]} />
+                    <Notification notifications={[{type: "loading", content: "Loading sign in session"}]}/>
                 </span>
             </div>
         );
@@ -55,12 +54,12 @@ const Dashboard = () => {
     if (!allCompanies || allCompanies.length === 0) {
         return (
             <div className="overflow-hidden bg-green-100 min-h-screen">
-                <NavBar />
+                <NavBar/>
                 <div className={`bg-white p-4 sm:p-6 md:p-6`}>
-                    <Loading />
+                    <Loading/>
                 </div>
                 <span className="absolute w-96 top-20 right-0">
-                    <Notification notifications={[{ type: "loading", content: "Fetching Company data" }]} />
+                    <Notification notifications={[{type: "loading", content: "Fetching Company data"}]}/>
                 </span>
             </div>
         );
@@ -68,7 +67,7 @@ const Dashboard = () => {
 
     return (
         <div className="min-h-screen bg-gray-100">
-            <NavBar />
+            <NavBar/>
             <main className="">
                 <div className="w-full bg-green-100 grid grid-cols-1 place-items-center h-72 gap-6">
                     <div className="landing-page">
@@ -83,7 +82,7 @@ const Dashboard = () => {
                             >
                                 Find your dream :{" "}
                                 <span className="text-green-500">
-                                    <TypewriterEffect types={types} />
+                                    <TypewriterEffect types={types}/>
                                 </span>
                             </h1>
                         </div>
@@ -103,7 +102,7 @@ const Dashboard = () => {
                                     <div
                                         className="logo ring-1 overflow-hidden ring-offset-2 ring-green-400 logo-sq-14 grid place-items-center bg-green-500 text-white w-14 h-14 rounded-md">
                                         <img className={"h-14 object-cover object-top"} src={company.logo}
-                                             alt={company.name} />
+                                             alt={company.name}/>
                                     </div>
                                     <div className="info">
                                         <h1 className="text-2xl font-bold">{company.name}</h1>
@@ -122,12 +121,12 @@ const Dashboard = () => {
 
                                 </div>
                                 <div className="bottom">
-                                <div className="border-b-2 border-gray-300 w-full mt-4"></div>
+                                    <div className="border-b-2 border-gray-300 w-full mt-4"></div>
                                     <div className="px-3 hover:bg-gray-200 pt-4 rounded-lg mt-1 pb-3">
                                         <Link className="flex positions-link justify-between items-center"
                                               href={`/intern/company?id=${company.id}`}>
                                             <span className="text-md font-semibold hover:underline underline-offset-1">
-                                                {company.positions ?? '' } Open Positions
+                                                {company.positions ?? ''} Open Positions
                                             </span>
                                             <i className="fa-solid fa-chevron-right text-sm"></i>
                                         </Link>
@@ -156,7 +155,7 @@ const Dashboard = () => {
                                         <div
                                             className="logo logo-sq-14 grid place-items-center bg-secondary text-white w-14 h-14 rounded-md">
                                             <img className={"h-12 object-cover"} src={internship.companyLogo}
-                                                 alt={internship.companyName} />
+                                                 alt={internship.companyName}/>
                                         </div>
                                         <div className="info flex flex-col gap-1">
                                             <h1 className="text-2xl font-bold">{internship.description}</h1>
