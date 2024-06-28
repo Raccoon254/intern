@@ -32,55 +32,6 @@ const Dashboard = () => {
             .then(response => response.json())
             .then(data => {
                 setInternships(data);
-                console.log(data);
-                //[
-                // 	{
-                // 		"id": 1,
-                // 		"title": "Software Engineer",
-                // 		"description": "We are looking for a skilled software engineer to join our team.",
-                // 		"requirements": "Experience with JavaScript, Node.js, and React.",
-                // 		"type": "JOB",
-                // 		"location": "REMOTE",
-                // 		"applicationDeadline": "2024-12-31T23:59:59.000Z",
-                // 		"createdAt": "2024-06-27T08:07:01.118Z",
-                // 		"updatedAt": "2024-06-27T08:07:01.118Z",
-                // 		"department": {
-                // 			"id": 1,
-                // 			"name": "Research and Development",
-                // 			"organization": {
-                // 				"id": 1,
-                // 				"name": "FutureSpace",
-                // 				"logo": "https://ui-avatars.com/api/?name=Future+Space",
-                // 				"email": "info@futurespace.com",
-                // 				"address": "123 Future Street, Space City, Galaxy",
-                // 				"contactInfo": "123-456-7890"
-                // 			}
-                // 		}
-                // 	},
-                // 	{
-                // 		"id": 2,
-                // 		"title": "Data Analyst Intern",
-                // 		"description": "We are looking for a data analyst intern to support our data team.",
-                // 		"requirements": "Basic understanding of data analysis and experience with Excel.",
-                // 		"type": "INTERNSHIP",
-                // 		"location": "HYBRID",
-                // 		"applicationDeadline": "2024-11-30T23:59:59.000Z",
-                // 		"createdAt": "2024-06-27T08:07:12.118Z",
-                // 		"updatedAt": "2024-06-27T08:07:12.118Z",
-                // 		"department": {
-                // 			"id": 3,
-                // 			"name": "Human Resources",
-                // 			"organization": {
-                // 				"id": 1,
-                // 				"name": "FutureSpace",
-                // 				"logo": "https://ui-avatars.com/api/?name=Future+Space",
-                // 				"email": "info@futurespace.com",
-                // 				"address": "123 Future Street, Space City, Galaxy",
-                // 				"contactInfo": "123-456-7890"
-                // 			}
-                // 		}
-                // 	}
-                // ]
             })
             .catch(error => {
                 console.error(error);
@@ -118,7 +69,7 @@ const Dashboard = () => {
         <div className="min-h-screen bg-gray-100">
             <NavBar/>
             <main className="">
-                <div className="w-full bg-green-100 grid grid-cols-1 place-items-center h-72 gap-6">
+                <div className="w-full bg-green-100 grid grid-cols-1 place-items-center h-56 md:h-72 gap-6">
                     <div className="landing-page">
                         <div className="text-center">
                             <p
@@ -127,7 +78,7 @@ const Dashboard = () => {
                                 Shape your career with InternLink™
                             </p>
                             <h1
-                                className="text-3xl sm:text-4xl md:text-5xl font-bold mt-3 sm:font-black"
+                                className="text-xl sm:text-4xl md:text-5xl font-bold mt-3 sm:font-black"
                             >
                                 Find your dream :{" "}
                                 <span className="text-green-500">
@@ -171,13 +122,20 @@ const Dashboard = () => {
                                 </div>
                                 <div className="bottom">
                                     <div className="border-b-2 border-gray-300 w-full mt-4"></div>
-                                    <div className="px-3 hover:bg-gray-200 pt-4 rounded-lg mt-1 pb-3">
-                                        <Link className="flex positions-link justify-between items-center"
+                                    <div data-tip={'View ' + company.name } className="px-3 w-full hover:bg-gray-200 tooltip pt-2 rounded-lg mt-1 pb-3">
+                                        <Link className="flex justify-between items-center"
                                               href={`/intern/company?id=${company.id}`}>
-                                            <span className="text-md font-semibold hover:underline underline-offset-1">
-                                                {company.positions ?? ''} Open Positions
+                                            <span className="text-sm flex items-start flex-col font-normal hover:underline underline-offset-1">
+                                                <span>
+                                                    {company.positions ?? ''} Open Positions
+                                                </span>
+                                                <span className={'text-xs font-thin'}>
+                                                    View <span className={'text-green-800 font-semibold'}>{ company.name }</span> details
+                                                </span>
                                             </span>
-                                            <i className="fa-solid fa-chevron-right text-sm"></i>
+                                            <div class="btn btn-sm btn-circle ring-1 ring-gray-300 center">
+                                                <i className="fa-solid fa-mountain text-sm"></i>
+                                            </div>
                                         </Link>
                                     </div>
                                 </div>
@@ -203,7 +161,7 @@ const Dashboard = () => {
                                     <div className="start flex flex-col mt-1 md:mt-6 sm:flex-row gap-4">
                                         <div
                                             className="logo logo-sq-14 cursor-pointer grid place-items-center ring-1 ring-green-500 text-white w-14 p-[2px] h-14 rounded-lg">
-                                            <img className={"h-full object-cover rounded-[6px]"} src={internship.department.organization.logo}
+                                            <img className={"h-full w-full object-cover rounded-[6px]"} src={internship.department.organization.logo}
                                                  alt={internship.department.organization.name}/>
                                         </div>
                                         <div>
