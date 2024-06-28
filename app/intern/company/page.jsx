@@ -61,56 +61,60 @@ const Company = () => {
     return (
         <div className="overflow-hidden bg-green-100 min-h-screen">
             <NavBar/>
-            <div className={`bg-white p-4 sm:p-6 md:p-6`}>
+            <div className='bg-white'>
 
                 <div
-                    className="dashboard flex flex-col sm:flex-row sm:items-center border-b pb-10 justify-between gap-4">
-                    <div className="company flex gap-4 items-start sm:items-end">
+                    className="dashboard h-[300px] bg-white"
+                    style={{
+                        backgroundImage: `url(${company.image ?? "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"})`,
+                        backgroundSize: "cover",
+                        backgroundPosition: "center",
+                    }}
+                >
+                    <div className='justify-between bg-gradient-to-b from-white to-transparent p-2 sm:p-4 md:p-6 rounded-md'>
+                        <div className='flex mb-40 gap-4 flex-col sm:flex-row justify-between sm:items-center'>
+                            <div className="company flex gap-4 items-start">
 
-                        <img
-                            className="h-16 sm:h-20 cursor-pointer object-cover ring-1 ring-green-500 shadow-md company-logo bg-gray-200 rounded-md"
-                            src={company.logo} alt={company.name}/>
+                                <img
+                                    className="h-16 sm:h-20 cursor-pointer object-cover ring-1 ring-green-500 shadow-md company-logo bg-gray-200 rounded-md"
+                                    src={company.logo} alt={company.name}/>
 
-                        <div className="info">
-                            <div className="name text-2xl font-semibold">
-                                {company.name}
+                                <div className="info">
+                                    <div className="name text-2xl font-semibold">
+                                        {company.name}
+                                    </div>
+                                    <div className="description text-sm">
+                                        {company.description ?? "No description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yetNo description available yet"}
+                                    </div>
+                                </div>
+
                             </div>
-                            <div className="description text-sm">
-                                {company.description ?? "No description available yet"}
+
+                            <div className="actions flex gap-2">
+                                <button data-tip={"Share " + company.name}
+                                        className="btn btn-square btn-outline rounded-md btn-sm tooltip md:tooltip-left btn-secondary">
+                                    <i className="fa-solid fa-share-nodes"></i>
+                                </button>
+
+                                {/*<button data-tip={"Follow " + company.name}*/}
+                                {/*        className="btn btn-outline rounded-md btn-sm tooltip btn-secondary">*/}
+                                {/*    <i className="fa-solid fa-plus"></i>*/}
+                                {/*    &nbsp;Follow*/}
+                                {/*</button>*/}
+
                             </div>
                         </div>
-
                     </div>
 
-                    <div className="actions flex gap-2">
-                        <button data-tip={"Share " + company.name}
-                                className="btn btn-outline rounded-md btn-sm tooltip btn-secondary">
-                            <i className="fa-solid fa-share-nodes"></i>
-                        </button>
-
-                        <button data-tip={"Follow " + company.name}
-                                className="btn btn-outline rounded-md btn-sm tooltip btn-secondary">
-                            <i className="fa-solid fa-plus"></i>
-                            &nbsp;Follow
-                        </button>
-
-                    </div>
-                </div>
-                <div className={"w-full mt-4 h-[50px] rounded-md"}
-                     style={{
-                         backgroundImage: `url(${company.image})`,
-                         backgroundSize: "cover",
-                         backgroundPosition: "center",
-                     }}>
                 </div>
 
-                <div className="flex gap-4 flex-col md:flex-row">
+                <div className="flex gap-4 p-2 flex-col md:flex-row">
 
                     <VerticalTabs company={company} internships={internships}/>
 
                     <div className="company rounded-md mt-12 w-full h-[40vh] relative"
                          style={{
-                             backgroundImage: `url(${company.image})`,
+                             backgroundImage: `url(${company.image ?? "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"})`,
                              backgroundSize: "cover",
                              backgroundPosition: "center",
                          }}>

@@ -40,7 +40,7 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
                 </button>
             </div>
 
-            <div className="w-full rounded-md sm:p-4 p-1">
+            <div className="w-full rounded-md sm:p-2 p-1">
 
                 {selectedTab === "1" &&
 
@@ -56,8 +56,8 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
                                 return (
                                     <div key={department.id}
                                          className="department cursor-pointer bg-white shadow-sm ring-1 ring-offset-1 border ring-gray-50 rounded-lg p-4 transition hover:scale-[1.01] hover:bg-green-100 h-32 flex flex-col justify-between">
-                                        <h2 className="department-name text-2xl font-bold text-gray-800 mb-2">
-                                            <i className="fa-solid fa-poo-storm mr-2"></i>
+                                        <h2 className="department-name flex items-center text-2xl font-bold text-gray-800 mb-2">
+                                            <i className="fa-solid text-xs fa-bolt animate-ping text-gray-400 mr-2"></i>
                                             {department.name}
                                         </h2>
                                         <div className="dates flex justify-end items-center gap-2">

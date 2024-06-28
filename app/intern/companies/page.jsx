@@ -80,7 +80,7 @@ const Companies = () => {
                 <div className="flex flex-col justify-center p-3 sm:p-4 md:p-6">
                     <div className="flex flex-col mb-5 justify-between">
                         <div className="flex my-2 flex-col md:flex-row justify-between">
-                            <h1 className="text-3xl mb-3 sm:text-4xl font-bold sm:font-black">
+                            <h1 className="text-3xl mb-3 sm:text-4xl font-semibold md:font-bold sm:font-black">
                                 All companies
                             </h1>
                             <input
