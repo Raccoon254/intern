@@ -1,5 +1,5 @@
 "use client";
-import React, {useEffect} from "react";
+import { useEffect , useState } from "react";
 import {useSession} from "next-auth/react";
 import Link from "next/link";
 import Notification from "/app/Notification";
@@ -12,8 +12,9 @@ import TypewriterEffect from "/app/components/TypewriterEffect";
 
 const Dashboard = () => {
     const {data: session} = useSession();
-    const [allCompanies, setAllCompanies] = React.useState([]);
-    const [internships, setInternships] = React.useState([]);
+    const [allCompanies, setAllCompanies] = useState([]);
+    const [selectedCompanies, setSelectedCompanies] = useState(null); // allCompanies[0
+    const [internships, setInternships] = useState([]);
     const types = ["Attachments", "Internships", "Opportunities"];
 
     useEffect(() => {
