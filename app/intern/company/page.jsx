@@ -148,7 +148,7 @@ const Company = () => {
                                     </a>
                                 </div>
                                 <div className="location flex items-center gap-2">
-                                    <i class="fa-solid fa-envelope"></i>
+                                    <i className="fa-solid fa-envelope"></i>
                                     <p>
                                         {company.email}
                                     </p>

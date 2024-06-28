@@ -1,5 +1,5 @@
 "use client";
-import { useEffect , useState } from "react";
+import {useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
 import Link from "next/link";
 import Notification from "/app/Notification";
@@ -24,6 +24,8 @@ const Dashboard = () => {
             .then(response => response.json())
             .then(data => {
                 setAllCompanies(data);
+                // select 8 random companies
+                setSelectedCompanies(data.sort(() => Math.random() - Math.random()).slice(0, 8));
             })
             .catch(error => {
                 console.error(error);
@@ -39,7 +41,6 @@ const Dashboard = () => {
             });
 
     }, []);
-
 
     if (!session) {
         return (
@@ -73,14 +74,10 @@ const Dashboard = () => {
                 <div className="w-full bg-green-100 grid grid-cols-1 place-items-center h-56 md:h-72 gap-6">
                     <div className="landing-page">
                         <div className="text-center">
-                            <p
-                                className="text-gray-500 text-sm font-semibold sm:text-base"
-                            >
+                            <p className="text-gray-500 text-sm font-semibold sm:text-base">
                                 Shape your career with InternLink™
                             </p>
-                            <h1
-                                className="text-xl sm:text-4xl md:text-5xl font-bold mt-3 sm:font-black"
-                            >
+                            <h1 className="text-xl sm:text-4xl md:text-5xl font-bold mt-3 sm:font-black">
                                 Find your dream :{" "}
                                 <span className="text-green-500">
                                     <TypewriterEffect types={types}/>
@@ -91,13 +88,23 @@ const Dashboard = () => {
                 </div>
 
                 <div className="flex flex-col justify-center p-4 sm:p-6 md:p-8">
-                    <h1 className="text-3xl mb-6 sm:text-4xl font-bold sm:font-black">
-                        Featured companies hiring now
-                    </h1>
+                    <div className="flex flex-col md:flex-row mb-5 justify-between">
+                        <h1 className="text-3xl mb-3 sm:text-4xl font-bold sm:font-black">
+                            Featured companies hiring now
+                        </h1>
+                        <div className={'flex text-sm flex-col'}>
+                            <span>
+                                {allCompanies.length} companies registered
+                            </span>
+                            <Link href={`intern/companies`} className="underline underline-offset-2 text-blue-900">
+                                View all
+                            </Link>
+                        </div>
+                    </div>
 
                     <div className="cards gap-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
 
-                        {allCompanies.map((company, index) => (
+                        {selectedCompanies.map((company, index) => (
                             <div key={index} className="custom-card cursor-pointer">
                                 <div className="flex px-3 pt-3 gap-4 items-center">
                                     <div
@@ -123,18 +130,21 @@ const Dashboard = () => {
                                 </div>
                                 <div className="bottom">
                                     <div className="border-b-2 border-gray-300 w-full mt-4"></div>
-                                    <div data-tip={'View ' + company.name } className="px-3 w-full hover:bg-gray-200 tooltip pt-2 rounded-lg mt-1 pb-3">
+                                    <div data-tip={'View ' + company.name}
+                                         className="px-3 w-full hover:bg-gray-200 tooltip pt-2 rounded-lg mt-1 pb-3">
                                         <Link className="flex justify-between items-center"
                                               href={`/intern/company?id=${company.id}`}>
-                                            <span className="text-sm flex items-start flex-col font-normal hover:underline underline-offset-1">
+                                            <span
+                                                className="text-sm flex items-start flex-col font-normal hover:underline underline-offset-1">
                                                 <span>
                                                     {company.positions ?? ''} Open Positions
                                                 </span>
                                                 <span className={'text-xs font-thin'}>
-                                                    View <span className={'text-green-800 font-semibold'}>{ company.name }</span> details
+                                                    View <span
+                                                    className={'text-green-800 font-semibold'}>{company.name}</span> details
                                                 </span>
                                             </span>
-                                            <div class="btn btn-sm btn-circle ring-1 ring-gray-300 center">
+                                            <div className="btn btn-sm btn-circle ring-1 ring-gray-300 center">
                                                 <i className="fa-solid fa-mountain text-sm"></i>
                                             </div>
                                         </Link>
@@ -142,12 +152,19 @@ const Dashboard = () => {
                                 </div>
                             </div>
                         ))}
-
+                    </div>
+                    <div className={'flex mt-4 text-sm flex-col'}>
+                        <span>
+                            {allCompanies.length - 8} companies remaining
+                        </span>
+                        <Link href={`intern/companies`} className="underline underline-offset-2 text-blue-900">
+                            View all
+                        </Link>
                     </div>
                 </div>
 
                 <div className="flex flex-col mt-4 justify-center p-4 sm:p-6 md:p-8">
-                    <h1 className="text-3xl mb-4 sm:text-4xl font-bold sm:font-black">
+                <h1 className="text-3xl mb-4 sm:text-4xl font-bold sm:font-black">
                         Trending internship opportunities
                     </h1>
 
@@ -162,7 +179,8 @@ const Dashboard = () => {
                                     <div className="start flex flex-col mt-1 md:mt-6 sm:flex-row gap-4">
                                         <div
                                             className="logo logo-sq-14 cursor-pointer grid place-items-center ring-1 ring-green-500 text-white w-14 p-[2px] h-14 rounded-lg">
-                                            <img className={"h-full w-full object-cover rounded-[6px]"} src={internship.department.organization.logo}
+                                            <img className={"h-full w-full object-cover rounded-[6px]"}
+                                                 src={internship.department.organization.logo}
                                                  alt={internship.department.organization.name}/>
                                         </div>
                                         <div>
