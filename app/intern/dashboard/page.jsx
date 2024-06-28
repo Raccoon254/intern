@@ -25,7 +25,6 @@ const Dashboard = () => {
             .then(response => response.json())
             .then(data => {
                 setAllCompanies(data);
-                // select 8 random companies
                 setSelectedCompanies(data.sort(() => Math.random() - Math.random()).slice(0, 8));
             })
             .catch(error => {
