@@ -7,45 +7,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-// Enums
-enum UserRole {
-  STUDENT
-  ORG_ADMIN
-  DEPT_ADMIN
-  SUPER_ADMIN
-}
-
-enum ApplicationStatus {
-  PENDING
-  UNDER_REVIEW
-  ACCEPTED
-  REJECTED
-}
-
-enum JobPostingType {
-  ATTACHMENT
-  INTERNSHIP
-  JOB
-}
-
-enum JobLocation {
-  ONSITE
-  REMOTE
-  HYBRID
-}
-
-// Models
 model User {
-  id        Int      @id @default(autoincrement())
-  email     String   @unique
-  password  String
-  role      UserRole
-  student   Student?
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id               Int       @id @default(autoincrement())
+  email            String    @unique
+  password         String
+  role             UserRole
+  student          Student?
+  resetToken       String?
+  resetTokenExpiry DateTime?
+  createdAt        DateTime  @default(now())
+  updatedAt        DateTime  @updatedAt
 }
 
-// add location to organization
 model Organization {
   id          Int          @id @default(autoincrement())
   name        String
@@ -59,6 +32,7 @@ model Organization {
   bio         String       @db.Text
   departments Department[]
   services    Service[]
+  locations   Location[]
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
   deletedAt   DateTime?
@@ -78,12 +52,12 @@ model Department {
   @@index([organizationId])
 }
 
-// add description to service
 model Service {
   id             Int          @id @default(autoincrement())
   name           String
   icon           String
   organizationId Int
+  description    String       @db.Text
   organization   Organization @relation(fields: [organizationId], references: [id])
   createdAt      DateTime     @default(now())
   updatedAt      DateTime     @updatedAt
@@ -92,8 +66,25 @@ model Service {
   @@index([organizationId])
 }
 
-// Add skills to job posting
-// Add status to job posting
+model Location {
+  id             Int          @id @default(autoincrement())
+  name           String
+  address        String?
+  city           String?
+  state          String?
+  zip            String?
+  country        String?
+  contactInfo    String?
+  organizationId Int
+  description    String       @db.Text
+  organization   Organization @relation(fields: [organizationId], references: [id])
+  createdAt      DateTime     @default(now())
+  updatedAt      DateTime     @updatedAt
+  deletedAt      DateTime?
+
+  @@index([organizationId])
+}
+
 model JobPosting {
   id                  Int            @id @default(autoincrement())
   title               String
@@ -101,6 +92,8 @@ model JobPosting {
   requirements        String         @db.Text
   type                JobPostingType
   location            JobLocation
+  skills              Skill[]
+  status              JobStatus      @default(PENDING)
   applicationDeadline DateTime
   departmentId        Int
   department          Department     @relation(fields: [departmentId], references: [id])
@@ -111,6 +104,16 @@ model JobPosting {
 
   @@index([applicationDeadline])
   @@index([departmentId])
+}
+
+model Skill {
+  id           Int         @id @default(autoincrement())
+  name         String
+  icon         String
+  createdAt    DateTime    @default(now())
+  updatedAt    DateTime    @updatedAt
+  JobPosting   JobPosting? @relation(fields: [jobPostingId], references: [id])
+  jobPostingId Int?
 }
 
 model Student {
@@ -142,4 +145,36 @@ model Application {
 
   @@index([studentId])
   @@index([jobPostingId])
+}
+
+enum UserRole {
+  STUDENT
+  ORG_ADMIN
+  DEPT_ADMIN
+  SUPER_ADMIN
+}
+
+enum ApplicationStatus {
+  PENDING
+  UNDER_REVIEW
+  ACCEPTED
+  REJECTED
+}
+
+enum JobPostingType {
+  ATTACHMENT
+  INTERNSHIP
+  JOB
+}
+
+enum JobLocation {
+  ONSITE
+  REMOTE
+  HYBRID
+}
+
+enum JobStatus {
+  PENDING
+  ACTIVE
+  CLOSED
 }
