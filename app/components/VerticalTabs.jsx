@@ -16,7 +16,7 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
     if (Object.keys(company).length === 0 || company.departments === undefined) {
         return (
             <div>
-                <div className={`bg-white p-4 sm:p-6 md:p-6`}>
+                <div className={`p-4 sm:p-6 md:p-6`}>
                     <Loading />
                 </div>
                 <span className="absolute w-96 top-20 right-0">
@@ -28,7 +28,6 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
 
     return (
         <div className="flex flex-col text-xs gap-2 w-full md:w-9/12 mt-4">
-
             <div className="flex border-b text-sm">
                 <button className={`btn tab rounded-none btn-sm ${selectedTab === "1" ? "active" : ""}`}
                         onClick={() => selectTab("1")}>
@@ -55,7 +54,7 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
 
                                 return (
                                     <div key={department.id}
-                                         className="department cursor-pointer bg-white shadow-sm ring-1 ring-offset-1 border ring-gray-50 rounded-lg p-4 transition hover:scale-[1.01] hover:bg-green-100 h-32 flex flex-col justify-between">
+                                         className="department cursor-pointer shadow-sm ring-1 ring-offset-1 border ring-gray-50 rounded-lg p-4 transition hover:scale-[1.01] hover:bg-green-100 h-32 flex flex-col justify-between">
                                         <h2 className="department-name flex items-center text-2xl font-bold text-gray-800 mb-2">
                                             <i className="fa-solid text-xs fa-bolt animate-ping text-gray-400 mr-2"></i>
                                             {department.name}
@@ -81,7 +80,7 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
                             {internships.length > 0 ? (
                                 internships.map((internship) => (
                                     <div key={internship.id}
-                                         className={"bg-white shadow-sm ring-1 flex justify-between ring-offset-1 border ring-gray-50 rounded-lg p-4 my-2 transition hover:scale-[1.01] hover:bg-green-100"}>
+                                         className={"shadow-sm ring-1 flex justify-between ring-offset-1 border ring-gray-50 rounded-lg p-4 my-2 transition hover:scale-[1.01] hover:bg-green-100"}>
                                         <div>
                                             <h2>{internship.description}</h2>
                                             <p>Skills: {internship.skills}</p>

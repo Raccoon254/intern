@@ -12,7 +12,7 @@ const CompanyCard = ({ company }) => {
                 </div>
                 <div className="info">
                     {/* Limit the name to 13 char and show '...' if longer than that*/}
-                    <h1 className="text-2xl font-semibold">{company.name.length > 13 ? company.name.slice(0, 13) + '...' : company.name}</h1>
+                    <h1 className="text-2xl font-semibold">{ company.name.length > 13 ? company.name.slice(0, 13) + '...' : company.name }</h1>
                     <p className="text-sm text-gray-500">{company.employees}+ partners</p>
                 </div>
             </div>
