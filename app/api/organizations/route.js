@@ -22,23 +22,37 @@ export async function POST(req, res){
     try{
         const data = await req.json();
 
-        const { name, logo, banner, website, employees, email, address, contactInfo, departments, services } = data;
+        const { name, logo, banner, website, employees, email, address, contactInfo,bio, departments, services, locations } = data;
 
         if (!name || !email || !address || !contactInfo) {
             return new Response(JSON.stringify({ error: 'Name, email, address, and contactInfo are required' }), { status: 400 });
         }
 
         const newOrganization = await prisma.organization.create({
-            data: { name, logo, banner, website, employees, email, address, contactInfo,
+            data: { name, logo, banner, website, employees, email, address, contactInfo, bio,
                 departments: {
                     create: departments.map(dept => ({
-                        name: dept.name
+                        name: dept.name,
+                        description: dept.description
                     }))
                 },
                 services: {
                     create: services.map(service => ({
                         name: service.name,
-                        icon: service.icon
+                        icon: service.icon,
+                        description: service.description
+                    }))
+                },
+                locations: {
+                    create: locations.map(location => ({
+                        name: location.name,
+                        address: location.address,
+                        city: location.city,
+                        state: location.state,
+                        zip: location.zip,
+                        country: location.country,
+                        description: location.description,
+                        contactInfo: location.contactInfo
                     }))
                 }
             }

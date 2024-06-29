@@ -5,6 +5,7 @@ const prisma = new PrismaClient();
 
 export async function POST(req) {
     let reqBody;
+
     try {
         reqBody = await req.json();
     } catch (error) {
@@ -66,7 +67,7 @@ export async function POST(req) {
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Password Reset</title>
     </head>
-    <body style="font-family: Arial, sans-serif; line-height: 1.6; background-color: #f4f4f4; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; height: 100vh;" bgcolor="#f4f4f4">
+    <body style="font-family: Arial, sans-serif; line-height: 1.6; background-color: #f4f4f4; margin: 0; padding: 20px; display: flex; justify-content: center; align-items: center; height: auto;" bgcolor="#f4f4f4">
         <div style="max-width: 600px; margin: 20px auto; background: #ffffff; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1);">
             <div style="text-align: center; margin-bottom: 20px;">
                 <h1 style="color: #2c3e50; font-size: 24px;">Password Reset</h1>
@@ -80,7 +81,7 @@ export async function POST(req) {
             </div>
             <div style="text-align: center; font-size: 14px; color: #7f8c8d;">
                 <p>If you're having trouble clicking the password reset button, copy and paste the URL below into your web browser:</p>
-                <p style="margin-top: 10px; color: #3498db;">${process.env.NEXT_PUBLIC_BASE_URL}/reset-password?token=${resetToken}</p>
+                <p style="margin-top: 10px; color: #3498db;">${process.env.NEXT_PUBLIC_BASE_URL}/auth/reset/password?token=${resetToken}</p>
             </div>
             <div style="text-align: center; font-size: 12px; color: #95a5a6; margin-top: 20px;">
                 <p>Best regards,</p>

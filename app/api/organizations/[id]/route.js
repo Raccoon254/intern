@@ -10,7 +10,8 @@ export async function GET(req, { params }) {
             where: { id: parseInt(id) },
             include: {
                 departments: true,
-                services: true
+                services: true,
+                locations: true
             }
         });
 
@@ -33,7 +34,6 @@ export async function PUT(req, { params }) {
             where: { id: parseInt(id) },
             data
         });
-
         return new Response(JSON.stringify(updatedOrganization), { status: 200 });
     } catch (error) {
         return new Response(JSON.stringify({ error: 'Failed to update organization' }), { status: 500 });
