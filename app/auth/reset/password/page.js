@@ -30,10 +30,23 @@ const ResetPassword = () => {
         }
     }, [enqueueSnackbar]);
 
+    const validatePassword = (password) => {
+        const re = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,20}$/;
+        return re.test(password);
+    }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
+
         if (password !== confirmPassword) {
+            setPasswordError('Passwords do not match');
             enqueueSnackbar('Passwords do not match', { variant: 'error' });
+            return;
+        }
+
+        if (!validatePassword(password)) {
+            setPasswordError('Password must be at least 6 characters long and contain at least one number, one uppercase and one lowercase letter');
+            enqueueSnackbar('Invalid password', { variant: 'error' });
             return;
         }
 
