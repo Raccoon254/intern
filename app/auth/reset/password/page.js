@@ -59,7 +59,7 @@ const ResetPassword = () => {
             enqueueSnackbar(response.data.message, { variant: 'success' });
             window.location.href = '/auth/login';
         } catch (error) {
-            enqueueSnackbar(error.response?.data?.message || 'Error resetting password', { variant: 'error' });
+            enqueueSnackbar(error.response?.data?.message || 'Error resetting password ['+error+']', { variant: 'error' });
         } finally {
             setLoading(false);
         }
