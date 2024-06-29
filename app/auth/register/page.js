@@ -87,6 +87,7 @@ const RegisterPage = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(formData),
+
         }).then(async (response) => {
             const data = await response.json();
             setIsLoading(false);
