@@ -192,7 +192,7 @@ const RegisterPage = () => {
                     <form className="p-6 rounded">
                         <div className="mb-2">
                             <label className="block text-gray-700 text-sm mb-2" htmlFor="name">
-                                First Name
+                                Full Name
                             </label>
                             <input className="input input-bordered input-md w-full max-w-md"
                                    id="name" autoComplete={'name'} required type="text" placeholder="Future Space"
