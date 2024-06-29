@@ -25,7 +25,7 @@ const ResetPassword = () => {
             enqueueSnackbar('Invalid or missing token', { variant: 'error' });
             enqueueSnackbar('Redirecting to login page...', { variant: 'info' });
             setTimeout(() => {
-                window.location.href = '/login';
+                window.location.href = '/auth/login';
             }, 3000);
         }
     }, [enqueueSnackbar]);
@@ -52,12 +52,12 @@ const ResetPassword = () => {
 
         setLoading(true);
         try {
-            const response = await axios.post('/api/reset-password', {
+            const response = await axios.post('/api/auth/reset/password', {
                 token,
                 password,
             });
             enqueueSnackbar(response.data.message, { variant: 'success' });
-            window.location.href = '/login';
+            window.location.href = '/auth/login';
         } catch (error) {
             enqueueSnackbar(error.response?.data?.message || 'Error resetting password', { variant: 'error' });
         } finally {
