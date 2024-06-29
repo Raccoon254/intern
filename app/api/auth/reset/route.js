@@ -74,7 +74,7 @@ export async function POST(req) {
             <div style="margin-bottom: 20px;">
                 <p style="color: #34495e;">We received a request to reset your password for your account. Please click the button below to reset your password:</p>
                 <div style="text-align: center; margin: 30px 0;">
-                    <a href="${process.env.NEXT_PUBLIC_BASE_URL}/reset-password?token=${resetToken}" style="background-color: #28a745; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-weight: bold;">Reset Password</a>
+                    <a href="${process.env.NEXT_PUBLIC_BASE_URL}/auth/reset/password?token=${resetToken}" style="background-color: #28a745; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 5px; font-weight: bold;">Reset Password</a>
                 </div>
                 <p style="color: #34495e;">If you did not request a password reset, please ignore this email or reply to let us know. This link will expire in 1 hour.</p>
             </div>

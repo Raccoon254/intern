@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import {signOut, useSession} from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 import Link from "next/link";
 import {useSnackbar} from "notistack";
 
@@ -128,7 +128,7 @@ const ForgotPassword = () => {
                             {emailError && <p className="text-red-500 text-xs mt-1">{emailError}</p>}
                         </div>
                         <div className="flex items-center justify-between">
-                            <button className="btn btn-outline btn-secondary ring-2  ring-offset-1 w-full"
+                            <button className="btn btn-outline btn-secondary ring-2 ring-offset-1 w-full"
                                     onClick={() => {
                                         resetPassword().then(r => console.log(r))
                                     }}
