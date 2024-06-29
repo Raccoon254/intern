@@ -23,6 +23,10 @@ const ResetPassword = () => {
             setToken(resetToken);
         } else {
             enqueueSnackbar('Invalid or missing token', { variant: 'error' });
+            enqueueSnackbar('Redirecting to login page...', { variant: 'info' });
+            setTimeout(() => {
+                window.location.href = '/login';
+            }, 3000);
         }
     }, [enqueueSnackbar]);
 
