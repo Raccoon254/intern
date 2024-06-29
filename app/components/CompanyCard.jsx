@@ -8,10 +8,11 @@ const CompanyCard = ({ company }) => {
             <div className="flex px-3 pt-3 gap-4 items-center">
                 <div
                     className="logo ring-1 overflow-hidden ring-offset-2 ring-green-400 logo-sq-14 grid place-items-center bg-green-500 text-white w-14 h-14 rounded-md">
-                    <img className="h-14 object-cover object-top" src={company.logo} alt={company.name}/>
+                    <img className="h-14 object-cover object-top" src={company.logo} alt={company.name + '\'s logo'}/>
                 </div>
                 <div className="info">
-                    <h1 className="text-2xl font-bold">{company.name}</h1>
+                    {/* Limit the name to 13 char and show '...' if longer than that*/}
+                    <h1 className="text-2xl font-semibold">{company.name.length > 13 ? company.name.slice(0, 13) + '...' : company.name}</h1>
                     <p className="text-sm text-gray-500">{company.employees}+ partners</p>
                 </div>
             </div>
