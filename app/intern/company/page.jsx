@@ -72,7 +72,7 @@ const Company = () => {
                     }}
                 >
                     <div className='justify-between bg-gradient-to-b from-white to-transparent p-2 sm:p-4 md:p-6 rounded-md'>
-                        <div className='flex mb-40 gap-4 flex-col sm:flex-row justify-between sm:items-center'>
+                        <div className='flex mb-40 gap-4 flex-col sm:flex-row items-start'>
                             <div className="company flex gap-4 items-start">
 
                                 <img
@@ -90,7 +90,7 @@ const Company = () => {
 
                             </div>
 
-                            <div className="actions flex gap-2">
+                            <div className="h-full flex items-start gap-2">
                                 <button data-tip={"Share " + company.name}
                                         className="btn btn-square btn-outline rounded-md btn-sm tooltip md:tooltip-left btn-secondary">
                                     <i className="fa-solid fa-share-nodes"></i>

@@ -25,7 +25,7 @@ const ForgotPassword = () => {
                     </center>
                     <div className="w-full flex justify-center items-center flex-col mt-8">
                         <center>
-                            <div className="flex w-full items-center justify-center rounded-lg bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+                            <div className="flex w-full items-center justify-center rounded-lg py-12 px-4 sm:px-6 lg:px-8">
                                 <div className="max-w-md w-full space-y-8">
                                     <div>
                                         <div className="avatar">
@@ -67,7 +67,7 @@ const ForgotPassword = () => {
                     </h2>
                 </center>
                 <div className="w-full mt-4">
-                    <form className="shadow-sm p-6 rounded">
+                    <form className="p-6 rounded">
                         <p className="text-xs max-w-md mb-6 overflow-ellipsis text-gray-500">
                             Enter your email address and we will send you a link to reset your password.
                         </p>

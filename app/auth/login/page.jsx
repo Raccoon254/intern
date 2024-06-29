@@ -86,7 +86,7 @@ export default function Login() {
                     <div className="w-full flex justify-center items-center flex-col mt-8">
                         <center>
                             <div
-                                className="flex w-full items-center justify-center rounded-lg bg-gray-50 py-12 px-4 sm:px-6 lg:px-8">
+                                className="flex w-full items-center justify-center rounded-lg py-12 px-4 sm:px-6 lg:px-8">
                                 <div className="max-w-md w-full space-y-8">
                                     <div>
                                         <div className="avatar">
