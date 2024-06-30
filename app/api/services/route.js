@@ -4,8 +4,14 @@ const prisma = new PrismaClient();
 
 export async function GET(req, res) {
     try {
-        const users = await prisma.service.findMany();
-        return new Response(JSON.stringify(users), { status: 200 });
+        const services = await prisma.service.findMany(
+            {
+                include: {
+                    organization: true,
+                }
+            }
+        );
+        return new Response(JSON.stringify(services), { status: 200 });
     } catch (error) {
         return new Response(JSON.stringify({ error: 'Failed to fetch users' }), { status: 500 });
     }
@@ -13,12 +19,13 @@ export async function GET(req, res) {
 
 export async function POST(req, res) {
     try{
-        const { name, icon, organizationId } = await req.json();
+        const { name, icon, organizationId, description } = await req.json();
         const service = await prisma.service.create({
             data: {
                 name,
                 icon,
-                organizationId
+                organizationId,
+                description
             }
         });
         return new Response(JSON.stringify(service), { status: 200 });

@@ -13,11 +13,12 @@ export async function GET(req, res) {
 
 export async function POST(req, res){
     try{
-        const { name, organizationId } = await req.json();
+        const { name, organizationId, description } = await req.json();
         const department = await prisma.department.create({
             data: {
                 name,
-                organizationId
+                organizationId,
+                description
             }
         });
         return new Response(JSON.stringify(department), { status: 200 });

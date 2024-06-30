@@ -3,7 +3,6 @@ import React, { useState, useEffect } from 'react';
 import { signOut, useSession } from "next-auth/react";
 import axios from 'axios';
 import { useSnackbar } from 'notistack';
-import Link from "next/link";
 import LoggedInNotification from "@/app/components/LoggedInNotification";
 
 const ResetPassword = () => {
