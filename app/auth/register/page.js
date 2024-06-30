@@ -15,7 +15,8 @@ const setInput = (value, setState, setInputError, validationFunction) => {
 }
 
 const RegisterPage = () => {
-    const {data: session} = useSession()
+
+    const { data: session} = useSession()
     const [name, setFirstName] = useState('');
     const [nameError, setFirstNameError] = useState('');
     const [email, setEmail] = useState('');
