@@ -109,6 +109,7 @@ model JobPosting {
 model Skill {
   id           Int         @id @default(autoincrement())
   name         String
+  description  String      @db.Text
   icon         String
   createdAt    DateTime    @default(now())
   updatedAt    DateTime    @updatedAt

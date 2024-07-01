@@ -49,7 +49,8 @@ export async function GET(req) {
 export async function POST(req) {
     try {
         const data = await req.json();
-        const { title, description, requirements, type, location, applicationDeadline, departmentId } = data;
+        console.log(data);
+        const { title, description, requirements, type, location, skills, applicationDeadline, departmentId } = data;
 
         if (!title || !description || !requirements || !type || !location || !applicationDeadline || !departmentId) {
             return new Response(JSON.stringify({ error: 'Missing required fields' }), { status: 400 });
@@ -62,6 +63,14 @@ export async function POST(req) {
                 requirements,
                 type,
                 location,
+                skills: {
+                    create: skills.map(skill => ({
+                        name: skill.name,
+                        description: skill.description,
+                        icon: skill.icon
+                    }))
+                },
+                status: 'PENDING',
                 applicationDeadline: new Date(applicationDeadline), // Ensure date is properly formatted
                 departmentId
             }
@@ -70,6 +79,6 @@ export async function POST(req) {
         return new Response(JSON.stringify(job), { status: 201 });
     } catch (error) {
         console.error(error);
-        return new Response(JSON.stringify({ error: 'Failed to create a job' }), { status: 500 });
+        return new Response(JSON.stringify({ error: 'Failed to create a job '+ error }), { status: 500 });
     }
 }

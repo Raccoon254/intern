@@ -89,7 +89,7 @@ const Dashboard = () => {
 
                 <div className="flex flex-col justify-center p-4 sm:p-6 md:p-8">
                     <div className="flex flex-col md:flex-row mb-5 justify-between">
-                        <h1 className="text-3xl mb-3 sm:text-4xl font-bold sm:font-black">
+                        <h1 className="text-3xl mb-3 sm:text-4xl font-semibold sm:font-bold">
                             Featured companies hiring now
                         </h1>
                         <div className={'flex text-sm flex-col'}>
@@ -119,7 +119,7 @@ const Dashboard = () => {
                 </div>
 
                 <div className="flex flex-col mt-4 justify-center p-4 sm:p-6 md:p-8">
-                <h1 className="text-3xl mb-4 sm:text-4xl font-bold sm:font-black">
+                <h1 className="text-3xl mb-4 sm:text-4xl font-semibold sm:font-bold">
                         Trending internship opportunities
                     </h1>
 
