@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from "react";
 import LoginButton from "./components/LoginButton";
 import TypewriterEffect from "/app/components/TypewriterEffect";
+import Footer from "@/app/components/Footer";
 
 export default function Home() {
 
@@ -299,6 +300,9 @@ export default function Home() {
                     </div>
 
                 </div>
+            </div>
+            <div className={'footer mt-6 md:mt-8'}>
+                <Footer />
             </div>
         </>
     )
