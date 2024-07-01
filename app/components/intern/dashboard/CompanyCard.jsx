@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import ServiceSlider from './ServiceSlider';
+import ServiceSlider from '../../ServiceSlider';
 
 const CompanyCard = ({ company }) => {
     return (

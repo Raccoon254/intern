@@ -1,6 +1,6 @@
 'use client'
 import {useEffect, useState} from "react";
-import CompanyCard from "@/app/components/CompanyCard";
+import CompanyCard from "@/app/components/intern/dashboard/CompanyCard";
 import Notification from "@/app/Notification";
 import NavBar from "@/app/components/NavBar";
 import Loading from "@/app/loading";
