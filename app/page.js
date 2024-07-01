@@ -301,7 +301,7 @@ export default function Home() {
 
                 </div>
             </div>
-            <div className={'footer mt-6 md:mt-8'}>
+            <div className={'footer mt-8 md:mt-12'}>
                 <Footer />
             </div>
         </>
