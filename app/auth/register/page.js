@@ -31,38 +31,33 @@ const RegisterPage = () => {
     const [passwordError, setPasswordError] = useState('');
 
     const [isLoading, setIsLoading] = useState(false);
-    const { enqueueSnackbar } = useSnackbar();
+    const {enqueueSnackbar} = useSnackbar();
     const [isPasswordVisible, setIsPasswordVisible] = useState(false);
     const [passwordType, setPasswordType] = useState('password');
 
 
     function validateAll() {
-        if (name.trim() === '') {
-            setFirstNameError('First name is required');
-        }
-        if (email.trim() === '') {
-            setEmailError('Email is required');
-        }
-        if (university.trim() === '') {
-            setUniversityError('University is required');
-        }
-        if (courseOfStudy.trim() === '') {
-            setCourseOfStudyError('Course of study is required');
-        }
-        if (phoneNumber.trim() === '') {
-            setPhoneNumberError('Phone number is required');
-        }
-
-        if (password.trim() === '') {
-            setPasswordError('Password is required');
-        }
-
-        //if any error is present, return false
-        if (nameError.trim() !== '' || emailError.trim() !== '' || universityError.trim() !== '' || courseOfStudyError.trim() !== '' || phoneNumberError.trim() !== '' || passwordError.trim() !== '') {
-            return false;
-        }
-
-        return name.trim() !== '' && email.trim() !== '' && university.trim() !== '' && courseOfStudy.trim() !== '' && phoneNumber.trim() !== '' && password.trim() !== '';
+        const fields = [
+            { value: name, setError: setFirstNameError, errorMessage: 'First name is required' },
+            { value: email, setError: setEmailError, errorMessage: 'Email is required' },
+            { value: university, setError: setUniversityError, errorMessage: 'University is required' },
+            { value: courseOfStudy, setError: setCourseOfStudyError, errorMessage: 'Course name is required' },
+            { value: phoneNumber, setError: setPhoneNumberError, errorMessage: 'Phone number is required' },
+            { value: password, setError: setPasswordError, errorMessage: 'Password is required' },
+        ];
+    
+        let isValid = true;
+    
+        fields.forEach(field => {
+            if (field.value.trim() === '') {
+                field.setError(field.errorMessage);
+                isValid = false;
+            } else {
+                field.setError('');
+            }
+        });
+    
+        return isValid;
     }
 
     const submitForm = (e) => {
