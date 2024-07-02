@@ -1,15 +1,17 @@
-import Logo from "@/app/components/Logo"
+import Logo from '@/app/components/Logo'
+
 const NotFound = () => {
-  return (
-    <div className="flex flex-col justify-center items-center h-screen">
-      <Logo />
-      <div className="flex flex-col justify-center items-center">
-        <h1 className="text-4xl font-bold">404</h1>
-        <p className="text-xl">Page Not Found</p>
-        <p className="text-xl">The resource is not available</p>
+	return (
+		<div className="flex flex-col justify-center items-center h-screen">
+      <div className="mb-6">
+        <Logo />
       </div>
-    </div>
-  );
+			<div className="flex flex-col justify-center items-center">
+				<h1 className="text-4xl mt-4 font-semibold">404</h1>
+				<p className="text-sm text-gray-400">Page Not Found</p>
+			</div>
+		</div>
+	)
 }
 
 export default NotFound

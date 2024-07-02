@@ -10,7 +10,6 @@ const LoggedInNotification = () => {
     return (
         <main className="min-h-screen grid place-items-center w-full">
             <div className="w-full max-w-md m-4 p-4 ">
-
                 <Logo />
                 <div className="w-full flex justify-center items-center flex-col mt-8">
                     <center>
