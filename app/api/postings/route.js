@@ -49,7 +49,7 @@ export async function GET(req) {
 export async function POST(req) {
     try {
         const data = await req.json();
-        console.log(data);
+        //console.log(data);
         const { title, description, requirements, type, location, skills, applicationDeadline, departmentId } = data;
 
         if (!title || !description || !requirements || !type || !location || !applicationDeadline || !departmentId) {

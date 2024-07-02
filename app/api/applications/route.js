@@ -23,7 +23,6 @@ export async function POST(req, res){
     try{
 
         const { coverLetter, resume, studentId, jobPostingId } = await req.json()
-        
         if ( !coverLetter || !resume || !studentId || !jobPostingId ) {
             return new Response(JSON.stringify({ error: 'All fields are required' }), { status: 400 })
         }
