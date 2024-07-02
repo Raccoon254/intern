@@ -12,6 +12,7 @@ export async function GET(req, res){
                 }
             }
         )
+        return new Response(JSON.stringify(applications), { status: 200 })
     } catch (error) {
         console.error(error)
         return new Response(JSON.stringify({ error: 'Failed to fetch applications' }), { status: 500 })

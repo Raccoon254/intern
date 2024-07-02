@@ -1,6 +1,7 @@
 import {signOut, useSession} from "next-auth/react";
 import Link from "next/link";
 import React from "react";
+import Logo from "@/app/components/Logo"
 
 const LoggedInNotification = () => {
 
@@ -10,20 +11,7 @@ const LoggedInNotification = () => {
         <main className="min-h-screen grid place-items-center w-full">
             <div className="w-full max-w-md m-4 p-4 ">
 
-                <center>
-                    <div className="w-fit relative flex flex-col items-center">
-                        <h2 className="">
-                            <span className="text-green-400">
-                                 Intern
-                            </span>
-                            Link&trade; Auth
-                        </h2>
-                        <div className="absolute top-[35px] right-0 mb-4 text-xs font-medium text-orange-800">
-                            By <a className={'text-blue-500'} href="https://futurespace.vercel.app">FutureSpace </a>
-                            and <a className={'text-blue-500'} href="https://stevetom.vercel.app">kenTom</a>
-                        </div>
-                    </div>
-                </center>
+                <Logo />
                 <div className="w-full flex justify-center items-center flex-col mt-8">
                     <center>
                         <div
