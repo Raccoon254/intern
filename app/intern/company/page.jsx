@@ -1,7 +1,7 @@
 "use client";
 import React, {useEffect, useState} from "react";
 import Loading from "/app/loading";
-import Notification from "/app/Notification";
+import Notification from "/app/components/Notification";
 import VerticalTabs from "@/app/components/VerticalTabs";
 import NavBar from "@/app/components/NavBar";
 

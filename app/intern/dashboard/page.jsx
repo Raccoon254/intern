@@ -2,7 +2,7 @@
 import {Suspense, useEffect, useState} from "react";
 import {useSession} from "next-auth/react";
 import Link from "next/link";
-import Notification from "/app/Notification";
+import Notification from "/app/components/Notification";
 import NavBar from "/app/components/NavBar";
 import ServiceSlider from "/app/components/ServiceSlider";
 import Loading from "/app/loading";

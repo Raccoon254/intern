@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import Loading from "/app/loading";
-import Notification from "/app/Notification";
+import Notification from "/app/components/Notification";
 
 const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) => {
     const [selectedTab, selectTab] = useState("1");

@@ -1,7 +1,7 @@
 'use client'
 import {useEffect, useState} from "react";
 import CompanyCard from "@/app/components/intern/dashboard/CompanyCard";
-import Notification from "@/app/Notification";
+import Notification from "@/app/components/Notification";
 import NavBar from "@/app/components/NavBar";
 import Loading from "@/app/loading";
 import {useSession} from "next-auth/react";
