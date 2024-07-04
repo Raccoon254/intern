@@ -59,7 +59,6 @@ const Dashboard = () => {
     if (!allCompanies || allCompanies.length === 0) {
         return (
             <div className="overflow-hidden bg-green-100 min-h-screen">
-                <NavBar/>
                 <div className={`bg-white p-4 sm:p-6 md:p-6`}>
                     <Loading/>
                 </div>
@@ -72,8 +71,7 @@ const Dashboard = () => {
 
     return (
         <div className="min-h-screen bg-gray-100">
-            <NavBar/>
-            <main className="">
+            <main>
                 <div className="w-full bg-green-100 grid grid-cols-1 place-items-center h-56 md:h-72 gap-6">
                     <div className="landing-page">
                         <div className="text-center">

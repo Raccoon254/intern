@@ -18,15 +18,13 @@ const ApplyPage = () => {
 
     useEffect(() => {
         document.title = 'InternLink™'
-        enqueueSnackbar('Fetching job data', { variant: "success" })
         const urlParams = new URLSearchParams(window.location.search)
         const jobID = urlParams.get('internship')
 
-        //fetch the job details
+        // Fetch the job details
         fetch(`/api/postings/${jobID}`)
             .then((response) => response.json())
             .then((data) => {
-                enqueueSnackbar('Details fetch success', { variant: 'success' });
                 setJob(data)
                 setFormData((prevData) => ({ ...prevData, jobPostingId: data.id }))
                 console.log(data)
@@ -45,10 +43,10 @@ const ApplyPage = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        //if the studentId is not available, return
+        // If the studentId is not available, return
         if (!formData.studentId) {
             enqueueSnackbar('Error submitting application: Student ID not available', { variant: 'error' });
-            //log the session data
+            // Log the session data
             alert(JSON.stringify(session))
             return
         }
@@ -88,8 +86,25 @@ const ApplyPage = () => {
                 <p><strong>Requirements:</strong> {job.requirements}</p>
                 <p><strong>Type:</strong> {job.type}</p>
                 <p><strong>Location:</strong> {job.location}</p>
+                <p><strong>Status:</strong> {job.status}</p>
                 <p><strong>Application Deadline:</strong> {new Date(job.applicationDeadline).toLocaleDateString()}</p>
-                <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+                
+                <h2 className="text-xl font-bold mt-4">Department Details</h2>
+                <p><strong>Name:</strong> {job.department.name}</p>
+                <p><strong>Description:</strong> {job.department.description}</p>
+                
+                <h2 className="text-xl font-bold mt-4">Organization Details</h2>
+                <p><strong>Name:</strong> {job.department.organization.name}</p>
+                <p><strong>Logo:</strong> <img src={job.department.organization.logo} alt={job.department.organization.name} /></p>
+                <p><strong>Banner:</strong> <img src={job.department.organization.banner} alt={`${job.department.organization.name} Banner`} /></p>
+                <p><strong>Website:</strong> <a href={job.department.organization.website} target="_blank" rel="noopener noreferrer">{job.department.organization.website}</a></p>
+                <p><strong>Employees:</strong> {job.department.organization.employees}</p>
+                <p><strong>Email:</strong> {job.department.organization.email}</p>
+                <p><strong>Address:</strong> {job.department.organization.address}</p>
+                <p><strong>Contact Info:</strong> {job.department.organization.contactInfo}</p>
+                <p><strong>Bio:</strong> {job.department.organization.bio}</p>
+
+                <form onSubmit={handleSubmit} className="flex flex-col gap-4 mt-4">
                     <label>
                         Cover Letter:
                         <textarea
