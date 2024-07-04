@@ -39,6 +39,7 @@ export default function RootLayout({ children }) {
 		<html lang="en" data-theme={'winter'}>
 			<body className={inter.className}>
 				<NextAuthProvider>
+                    <NavBar />
 					<NotificationProvider>{children}</NotificationProvider>
 					<script src="/icons/fontawesome.js" crossOrigin="anonymous"></script>
 				</NextAuthProvider>

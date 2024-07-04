@@ -2,16 +2,20 @@
 import { useSession } from 'next-auth/react'
 import Link from 'next/link'
 import React from 'react'
+import { useSnackbar } from 'notistack';
 
 const NavBar = () => {
 	const { data: session } = useSession()
+	const { enqueueSnackbar } = useSnackbar()
 
 	if (!session) {
-		return (
-			<div className="min-h-screen grid place-items-center w-full">
-				<span className="loading loading-ring loading-lg"></span>
-			</div>
-		)
+		enqueueSnackbar('You are not logged in', { variant: 'error' })
+		setTimeout(() => {
+			window.location.href = '/auth/login'
+		}, 2000)
+		return <div className="">
+            <p className="text-2xl font-semibold text-center">Redirecting to login page...</p>
+        </div>
 	}
 
 	return (
