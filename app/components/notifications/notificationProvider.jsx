@@ -5,7 +5,7 @@ import { SnackbarProvider } from 'notistack'
 
 const NotificationProvider = ({ children }) => {
     return (
-        <SnackbarProvider maxSnack={3}>
+        <SnackbarProvider preventDuplicate maxSnack={3}>
             {children}
         </SnackbarProvider>
     )

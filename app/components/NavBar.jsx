@@ -9,13 +9,14 @@ const NavBar = () => {
 	const { enqueueSnackbar } = useSnackbar()
 
 	if (!session) {
-		enqueueSnackbar('You are not logged in', { variant: 'error' })
-		setTimeout(() => {
-			window.location.href = '/auth/login'
-		}, 2000)
-		return <div className="">
-            <p className="text-2xl font-semibold text-center">Redirecting to login page...</p>
-        </div>
+		enqueueSnackbar('Loading logged in session', { variant: 'success' })
+		return (
+            <div>
+                <p className="text-2xl font-semibold text-center">
+                    Loading logged in session
+                </p>
+            </div>
+        )
 	}
 
 	return (

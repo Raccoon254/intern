@@ -1,7 +1,7 @@
 import { Inter } from 'next/font/google'
 import '@/app/globals.css'
 import { NextAuthProvider } from '@/app/AuthProvider'
-import NotificationProvider from '@/app/components/notificationProvider'
+import NotificationProvider from '@/app/components/notifications/notificationProvider'
 import NavBar from '@/app/components/NavBar'
 
 const inter = Inter({ subsets: ['latin'] })
@@ -39,7 +39,7 @@ export default function RootLayout({ children }) {
 		<html lang="en" data-theme={'winter'}>
 			<body className={inter.className}>
 				<NextAuthProvider>
-                    <NavBar />
+					<NavBar />
 					<NotificationProvider>{children}</NotificationProvider>
 					<script src="/icons/fontawesome.js" crossOrigin="anonymous"></script>
 				</NextAuthProvider>
