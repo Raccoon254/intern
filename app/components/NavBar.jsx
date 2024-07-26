@@ -11,12 +11,10 @@ const NavBar = () => {
 	if (!session) {
 		enqueueSnackbar('Loading logged in session', { variant: 'success' })
 		return (
-            <div>
-                <p className="text-2xl font-semibold text-center">
-                    Loading logged in session
-                </p>
-            </div>
-        )
+			<div className="min-h-screen grid place-items-center w-full">
+				<span className="loading loading-dots loading-lg"></span>
+			</div>
+		)
 	}
 
 	return (
