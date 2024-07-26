@@ -1,10 +1,8 @@
-import { Inter } from 'next/font/google'
 import '@/app/globals.css'
 import { NextAuthProvider } from '@/app/AuthProvider'
 import NotificationProvider from '@/app/components/notifications/notificationProvider'
 import NavBar from '@/app/components/NavBar'
 
-const inter = Inter({ subsets: ['latin'] })
 
 export const metadata = {
 	title: 'InternLink: Bridging Interns and Companies in Kenya',
@@ -34,16 +32,18 @@ export const metadata = {
 	googlebot: 'index, follow',
 }
 
-export default function RootLayout({ children }) {
+const Layout = ({ children }) => {
+	// const { data:session } = useSession()
+	//if the user in null show loading
+	//if (!session) return <div>Loading...</div>
 	return (
-		<html lang="en" data-theme={'winter'}>
-			<body className={inter.className}>
-				<NextAuthProvider>
-					<NavBar />
-					<NotificationProvider>{children}</NotificationProvider>
-					<script src="/icons/fontawesome.js" crossOrigin="anonymous"></script>
-				</NextAuthProvider>
-			</body>
-		</html>
+		<section>
+			<NextAuthProvider>
+				<NavBar/>
+				<NotificationProvider>{children}</NotificationProvider>
+			</NextAuthProvider>
+		</section>
 	)
 }
+
+export default Layout
