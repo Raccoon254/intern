@@ -8,12 +8,25 @@ const ServiceSlider = ({ services }) => {
         setIsModalOpen(!isModalOpen);
     };
 
+    const ServiceIcon = ({ icon }) => {
+        if (icon.startsWith('fas') || icon.startsWith('far') || icon.startsWith('fal') || icon.startsWith('fad') || icon.startsWith('fab')) {
+            return (
+                <i className={icon}></i>
+            );
+        }else if (icon.startsWith('http')) {
+            return (
+                <img src={icon} alt={icon} className="w-6 -ml-1 ring-1 ring-green-500 rounded-full h-6"/>
+            );
+        }
+    }
+
     return (
         <div className="relative">
             <div id="slider-content" className="flex flex-wrap gap-2">
                 {services.slice(0, 3).map((service, index) => (
                     <div key={index} className="ring-1 ring-green-500 badge-custom">
-                        <i className={service.icon}></i> {service.name}
+                        <ServiceIcon icon={service.icon} />
+                        {service.name}
                     </div>
                 ))}
                 {services.length > 3 && (
@@ -33,7 +46,8 @@ const ServiceSlider = ({ services }) => {
                         <div className="py-2 flex gap-2 flex-wrap">
                             {services.map((service, index) => (
                                 <div key={index} className="ring-1 ring-green-500 badge-custom">
-                                    <i className={service.icon}></i> {service.name}
+                                    <ServiceIcon icon={service.icon} />
+                                    {service.name}
                                 </div>
                             ))}
                         </div>

@@ -39,7 +39,6 @@ const Layout = ({ children }) => {
 	return (
 		<section>
 			<NextAuthProvider>
-				<NavBar/>
 				<NotificationProvider>{children}</NotificationProvider>
 			</NextAuthProvider>
 		</section>
