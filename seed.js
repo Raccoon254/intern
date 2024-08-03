@@ -1,6 +1,7 @@
 require('dotenv').config();
 const { PrismaClient, UserRole, ApplicationStatus, JobPostingType, JobLocation, JobStatus } = require('@prisma/client');
 const { faker } = require('@faker-js/faker');
+const bcrypt = require('bcrypt');
 
 const prisma = new PrismaClient();
 
@@ -17,10 +18,11 @@ async function main() {
     const users = await Promise.all(
         Array.from({ length: NUM_USERS }).map(async () => {
             const role = faker.helpers.arrayElement(Object.values(UserRole));
+            const password = 'password';
             const user = await prisma.user.create({
                 data: {
                     email: faker.internet.email(),
-                    password: faker.internet.password(), // Remember to hash passwords in a real application
+                    password: await bcrypt.hash(password, 10),
                     role: role,
                     resetToken: faker.string.uuid(),
                     resetTokenExpiry: faker.date.future(),
