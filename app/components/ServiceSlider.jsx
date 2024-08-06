@@ -2,21 +2,27 @@
 import { useState } from 'react';
 
 const ServiceSlider = ({ services }) => {
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const toggleModal = () => {
-        setIsModalOpen(!isModalOpen);
-    };
 
     const ServiceIcon = ({ icon }) => {
         if (icon.startsWith('fas') || icon.startsWith('far') || icon.startsWith('fal') || icon.startsWith('fad') || icon.startsWith('fab')) {
             return (
-                <i className={icon}></i>
+                <div className="w-6 -ml-1 ring-1 center ring-green-100 rounded-full h-6">
+                    <i className={icon}></i>
+                </div>
             );
         }else if (icon.startsWith('http')) {
             return (
-                <img src={icon} alt={icon} className="w-6 -ml-1 ring-1 ring-green-500 rounded-full h-6"/>
+                <img src={icon} alt={icon} className="w-6 -ml-1 ring-1 ring-green-100 rounded-full h-6"/>
             );
+        }
+    }
+
+    const getTwoWords = (name) => {
+        const words = name.split(' ');
+        if (words.length > 1) {
+            return words[0] + ' ' + words[1];
+        } else {
+            return words[0];
         }
     }
 
@@ -26,37 +32,17 @@ const ServiceSlider = ({ services }) => {
                 {services.slice(0, 3).map((service, index) => (
                     <div key={index} className="ring-1 ring-green-500 badge-custom">
                         <ServiceIcon icon={service.icon} />
-                        {service.name}
+                        <span className="overflow-clip">{
+                            getTwoWords(service.name)
+                        }</span>
                     </div>
                 ))}
                 {services.length > 3 && (
-                    <button className="badge-custom flex ring-1 ring-blue-900" onClick={toggleModal}>
+                    <button className="badge-custom flex ring-1 ring-blue-900">
                         <i className={"fa-solid fa-ellipsis-h"}></i> {services.length - 3} more
                     </button>
                 )}
             </div>
-
-            {isModalOpen && (
-                <dialog id="services_modal" className="modal p-1 bg-transparent rounded-lg flex flex-col justify-end" open >
-                    <div className="modal-box w-full rounded-[8px] h-1/2">
-                        <button className="modal-close absolute top-0.5 right-0.5 btn btn-sm btn-circle" onClick={toggleModal}>
-                            <i className="fa-solid fa-times"></i>
-                        </button>
-                        <h3 className="font-bold text-lg">All Services</h3>
-                        <div className="py-2 flex gap-2 flex-wrap">
-                            {services.map((service, index) => (
-                                <div key={index} className="ring-1 ring-green-500 badge-custom">
-                                    <ServiceIcon icon={service.icon} />
-                                    {service.name}
-                                </div>
-                            ))}
-                        </div>
-                        <div className="modal-action">
-                            <button className="btn btn-sm btn-warning" onClick={toggleModal}>Close</button>
-                        </div>
-                    </div>
-                </dialog>
-            )}
         </div>
     );
 };

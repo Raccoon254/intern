@@ -83,7 +83,7 @@ h5 {
 }
 
 .badge-custom {
-    @apply flex justify-center gap-2 items-center text-gray-500 text-sm font-thin px-2 py-1 rounded-full bg-red-100;
+    @apply flex justify-center gap-1 items-center text-gray-500 text-sm font-thin px-2 py-1 rounded-full bg-red-100;
 }
 
 .custom-card {
