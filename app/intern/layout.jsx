@@ -33,9 +33,6 @@ export const metadata = {
 }
 
 const Layout = ({ children }) => {
-	// const { data:session } = useSession()
-	//if the user in null show loading
-	//if (!session) return <div>Loading...</div>
 	return (
 		<section>
 			<NextAuthProvider>

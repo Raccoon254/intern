@@ -19,7 +19,7 @@ export async function GET(req, res){
     }
 }
 
-export async function POST(req, res){
+export async function POST(req){
     try{
 
         const { coverLetter, resume, studentId, jobPostingId } = await req.json()

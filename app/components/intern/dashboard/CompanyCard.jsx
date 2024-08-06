@@ -5,7 +5,7 @@ import ServiceSlider from '../../ServiceSlider';
 const CompanyCard = ({ company }) => {
     return (
         <div className="custom-card cursor-pointer">
-            <div className="flex px-3 pt-3 gap-4 items-center">
+            <div className="flex px-2 pt-2 gap-4 items-center">
                 <div
                     className="logo ring-1 overflow-hidden ring-offset-2 ring-green-400 logo-sq-14 grid place-items-center bg-green-500 text-white w-14 h-14 rounded-md">
                     <img className="h-14 object-cover object-top" src={company.logo} alt={company.name + '\'s logo'}/>
@@ -20,7 +20,7 @@ const CompanyCard = ({ company }) => {
                 <div className="mt-4 px-3 font-medium">
                     {company.description}
                 </div>
-                <div className="flex px-3 flex-col gap-2 mt-4">
+                <div className="flex px-1 flex-col gap-2 mt-4">
                     <h1 className="text-lg font-normal">Services</h1>
                     <ServiceSlider services={company.services}/>
                 </div>

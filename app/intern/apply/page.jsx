@@ -46,8 +46,6 @@ const ApplyPage = () => {
         // If the studentId is not available, return
         if (!formData.studentId) {
             enqueueSnackbar('Error submitting application: Student ID not available', { variant: 'error' });
-            // Log the session data
-            alert(JSON.stringify(session))
             return
         }
         const response = await fetch('/api/applications', {
