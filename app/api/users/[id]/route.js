@@ -15,7 +15,9 @@ export async function GET(req, { params }) {
         const user = await prisma.user.findUnique({
             where: {
                 id: parseInt(id),
-            },
+            },include: {
+                student: true
+            }
         })
         return new Response(JSON.stringify(user), { status: 200 })
 
@@ -28,21 +30,19 @@ export async function GET(req, { params }) {
 export async function PUT(req, { params }) {
     try {
         const data = await req.json()
-        const { email, password, role, student } = data
+        const { email, role, student } = data
         const { id } = params
 
-        if (!email || !password || !role) {
+        if (!email || !role) {
             return new Response(JSON.stringify({ error: 'Email, password, and role are required' }), { status: 400 });
         }
 
-        const hashedPassword = await bcrypt.hash(password, 10)
         const updatedUser = await prisma.user.update({
             where: {
                 id: parseInt(id),
             },
             data: {
                 email,
-                password: hashedPassword,
                 role,
                 student: student ? {
                     update: student
