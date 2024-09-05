@@ -26,9 +26,30 @@ const companies = [
             { name: "Silicon Valley", address: "1065 La Avenida St", city: "Mountain View", state: "California", zip: "94043", country: "USA" },
         ],
         jobPostings: [
-            { title: "Software Engineer", description: "Develop next-generation cloud services.", requirements: "BS in Computer Science, 3+ years experience in cloud technologies.", type: "JOB", location: "ONSITE" },
-            { title: "Product Manager", description: "Lead product development for Azure AI services.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" },
-            { title: "UX Designer Intern", description: "Design user interfaces for Windows applications.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE" }
+            { 
+                title: "Software Engineer", description: "Develop next-generation cloud services.", requirements: "BS in Computer Science, 3+ years experience in cloud technologies.", type: "JOB", location: "ONSITE",
+                skills: [
+                    { name: "C#", icon: "devicon-csharp-plain", description: "Proficient in C# programming language." },
+                    { name: "Azure", icon: "devicon-azure-plain", description: "Experience with Microsoft Azure cloud services." },
+                    { name: "Docker", icon: "devicon-docker-plain", description: "Familiarity with Docker containerization." }
+                ]
+            },
+            { 
+                title: "Product Manager", description: "Lead product development for Azure AI services.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID",
+                skills: [
+                    { name: "AI", icon: "fas fa-robot", description: "Knowledge of artificial intelligence technologies." },
+                    { name: "Product Management", icon: "fas fa-cogs", description: "Experience in tech product management." },
+                    { name: "Agile", icon: "fas fa-infinity", description: "Familiarity with Agile development methodologies." }
+                ]
+            },
+            { 
+                title: "UX Designer Intern", description: "Design user interfaces for Windows applications.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE",
+                skills: [
+                    { name: "UI/UX", icon: "fas fa-paint-brush", description: "Understanding of user interface and user experience design." },
+                    { name: "Figma", icon: "fas fa-vector-square", description: "Proficiency in Figma design tool." },
+                    { name: "Prototyping", icon: "fas fa-magic", description: "Experience with prototyping tools like InVision." }
+                ]
+            }
         ]
     },
     {
@@ -59,9 +80,30 @@ const companies = [
             { name: "New York", address: "111 8th Avenue", city: "New York", state: "New York", zip: "10011", country: "USA" },
         ],
         jobPostings: [
-            { title: "Machine Learning Engineer", description: "Develop ML models for Google Search.", requirements: "PhD in ML or related field, experience with TensorFlow.", type: "JOB", location: "ONSITE" },
-            { title: "Cloud Solutions Architect", description: "Design and implement cloud solutions for enterprise clients.", requirements: "BS in Computer Science, 5+ years in cloud architecture.", type: "JOB", location: "HYBRID" },
-            { title: "Android Developer Intern", description: "Contribute to the development of Android features.", requirements: "Pursuing CS degree, experience with Java and Kotlin.", type: "INTERNSHIP", location: "ONSITE" }
+            { 
+                title: "Machine Learning Engineer", description: "Develop ML models for Google Search.", requirements: "PhD in ML or related field, experience with TensorFlow.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Machine Learning", icon: "fas fa-robot", description: "Expertise in machine learning algorithms and techniques." },
+                    { name: "TensorFlow", icon: "devicon-tensorflow-original", description: "Proficiency in TensorFlow framework." },
+                    { name: "Python", icon: "devicon-python-plain", description: "Strong programming skills in Python." }
+                ]
+            },
+            { 
+                title: "Cloud Solutions Architect", description: "Design and implement cloud solutions for enterprise clients.", requirements: "BS in Computer Science, 5+ years in cloud architecture.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Cloud Computing", icon: "fas fa-cloud", description: "Knowledge of cloud computing technologies and services." },
+                    { name: "Architecture", icon: "fas fa-project-diagram", description: "Experience in designing scalable cloud solutions." },
+                    { name: "Customer Engagement", icon: "fas fa-users", description: "Ability to engage with customers to understand their needs." }
+                ]
+            },
+            { 
+                title: "Android Developer Intern", description: "Contribute to the development of Android features.", requirements: "Pursuing CS degree, experience with Java and Kotlin.", type: "INTERNSHIP", location: "ONSITE",
+                skills: [
+                    { name: "Android Development", icon: "fab fa-android", description: "Experience in building Android applications." },
+                    { name: "Java", icon: "devicon-java-plain", description: "Proficiency in Java programming language." },
+                    { name: "Kotlin", icon: "devicon-kotlin-plain", description: "Familiarity with Kotlin programming language." }
+                ]
+            }
         ]
     },
     {
@@ -92,9 +134,30 @@ const companies = [
             { name: "New York", address: "7 W 34th St", city: "New York", state: "New York", zip: "10001", country: "USA" },
         ],
         jobPostings: [
-            { title: "Software Development Engineer", description: "Build scalable web applications for Amazon.com.", requirements: "BS in Computer Science, 3+ years experience in web development.", type: "JOB", location: "ONSITE" },
-            { title: "Cloud Solutions Architect", description: "Design and implement cloud solutions for enterprise clients.", requirements: "BS in Computer Science, 5+ years in cloud architecture.", type: "JOB", location: "HYBRID" },
-            { title: "Software Development Engineer Intern", description: "Work on Amazon's core software projects.", requirements: "Pursuing CS degree, experience with Java or C++.", type: "INTERNSHIP", location: "ONSITE" }
+            { 
+                title: "Software Development Engineer", description: "Build scalable web applications for Amazon.com.", requirements: "BS in Computer Science, 3+ years experience in web development.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Web Development", icon: "fas fa-globe", description: "Experience in building web applications." },
+                    { name: "JavaScript", icon: "devicon-javascript-plain", description: "Proficiency in JavaScript programming language." },
+                    { name: "React", icon: "devicon-react-original", description: "Familiarity with React library for UI development." }
+                ]
+            },
+            { 
+                title: "Cloud Solutions Architect", description: "Design and implement cloud solutions for enterprise clients.", requirements: "BS in Computer Science, 5+ years in cloud architecture.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Cloud Computing", icon: "fas fa-cloud", description: "Knowledge of cloud computing technologies and services." },
+                    { name: "Architecture", icon: "fas fa-project-diagram", description: "Experience in designing scalable cloud solutions." },
+                    { name: "Customer Engagement", icon: "fas fa-users", description: "Ability to engage with customers to understand their needs." }
+                ]
+            },
+            { 
+                title: "Software Development Engineer Intern", description: "Work on Amazon's core software projects.", requirements: "Pursuing CS degree, experience with Java or C++.", type: "INTERNSHIP", location: "ONSITE",
+                skills: [
+                    { name: "Software Development", icon: "fas fa-code", description: "Experience in software development projects." },
+                    { name: "Java", icon: "devicon-java-plain", description: "Proficiency in Java programming language." },
+                    { name: "C++", icon: "devicon-cplusplus-plain", description: "Familiarity with C++ programming language." }
+                ]
+            }
         ]
     },
     {
@@ -125,9 +188,30 @@ const companies = [
             { name: "New York", address: "770 Broadway", city: "New York", state: "New York", zip: "10003", country: "USA" },
         ],
         jobPostings: [
-            { title: "Software Engineer", description: "Develop new features for the Facebook app.", requirements: "BS in Computer Science, 3+ years experience in mobile development.", type: "JOB", location: "ONSITE" },
-            { title: "Product Manager", description: "Lead product development for Instagram Stories.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" },
-            { title: "UX Designer Intern", description: "Design user interfaces for WhatsApp Web.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE" }
+            { 
+                title: "Software Engineer", description: "Develop new features for the Facebook app.", requirements: "BS in Computer Science, 3+ years experience in mobile development.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Mobile Development", icon: "fas fa-mobile-alt", description: "Experience in building mobile applications." },
+                    { name: "iOS", icon: "devicon-apple-original", description: "Proficiency in iOS app development." },
+                    { name: "Android", icon: "devicon-android-plain", description: "Familiarity with Android app development." }
+                ]
+            },
+            { 
+                title: "Product Manager", description: "Lead product development for Instagram Stories.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Product Management", icon: "fas fa-cogs", description: "Experience in tech product management." },
+                    { name: "Social Media", icon: "fas fa-users", description: "Understanding of social media platforms and trends." },
+                    { name: "Data Analysis", icon: "fas fa-chart-line", description: "Ability to analyze user data and metrics." }
+                ]
+            },
+            { 
+                title: "UX Designer Intern", description: "Design user interfaces for WhatsApp Web.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE",
+                skills: [
+                    { name: "UI/UX", icon: "fas fa-paint-brush", description: "Understanding of user interface and user experience design." },
+                    { name: "Web Design", icon: "fas fa-globe", description: "Experience in designing web interfaces." },
+                    { name: "Prototyping", icon: "fas fa-magic", description: "Experience with prototyping tools like Figma." }
+                ]
+            }
         ]
     },
     {
@@ -158,9 +242,30 @@ const companies = [
             { name: "Austin", address: "12545 Riata Vista Cir", city: "Austin", state: "Texas", zip: "78727", country: "USA" },
         ],
         jobPostings: [
-            { title: "Software Engineer", description: "Develop new features for macOS.", requirements: "BS in Computer Science, 3+ years experience in software development.", type: "JOB", location: "ONSITE" },
-            { title: "Product Manager", description: "Lead product development for Apple Music.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" },
-            { title: "UX Designer Intern", description: "Design user interfaces for Apple Watch.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE" }
+            { 
+                title: "Software Engineer", description: "Develop new features for macOS.", requirements: "BS in Computer Science, 3+ years experience in software development.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "macOS", icon: "fab fa-apple", description: "Experience in macOS software development." },
+                    { name: "Swift", icon: "devicon-swift-plain", description: "Proficiency in Swift programming language." },
+                    { name: "Xcode", icon: "devicon-xcode-plain", description: "Familiarity with Xcode development environment." }
+                ]
+            },
+            { 
+                title: "Product Manager", description: "Lead product development for Apple Music.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Product Management", icon: "fas fa-cogs", description: "Experience in tech product management." },
+                    { name: "Music Industry", icon: "fas fa-music", description: "Understanding of the music industry and streaming services." },
+                    { name: "Data Analysis", icon: "fas fa-chart-line", description: "Ability to analyze user data and metrics." }
+                ]
+            },
+            { 
+                title: "UX Designer Intern", description: "Design user interfaces for Apple Watch.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE",
+                skills: [
+                    { name: "UI/UX", icon: "fas fa-paint-brush", description: "Understanding of user interface and user experience design." },
+                    { name: "Prototyping", icon: "fas fa-magic", description: "Experience with prototyping tools like Sketch." },
+                    { name: "Wearable Tech", icon: "fas fa-watch", description: "Interest in wearable technology and smart devices." }
+                ]
+            }
         ]
     },
     {
@@ -191,9 +296,30 @@ const companies = [
             { name: "Fremont", address: "45500 Fremont Blvd", city: "Fremont", state: "California", zip: "94538", country: "USA" },
         ],
         jobPostings: [
-            { title: "Software Engineer", description: "Develop new features for Tesla vehicles.", requirements: "BS in Computer Science, 3+ years experience in software development.", type: "JOB", location: "ONSITE" },
-            { title: "Product Manager", description: "Lead product development for Powerwall energy storage.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" },
-            { title: "UX Designer Intern", description: "Design user interfaces for Tesla Autopilot.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE" }
+            { 
+                title: "Software Engineer", description: "Develop new features for Tesla vehicles.", requirements: "BS in Computer Science, 3+ years experience in software development.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Automotive", icon: "fas fa-car", description: "Interest in automotive technology and electric vehicles." },
+                    { name: "Embedded Systems", icon: "fas fa-microchip", description: "Experience with embedded systems and firmware development." },
+                    { name: "C++", icon: "devicon-cplusplus-plain", description: "Proficiency in C++ programming language." }
+                ]
+            },
+            { 
+                title: "Product Manager", description: "Lead product development for Powerwall energy storage.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Energy Storage", icon: "fas fa-battery-full", description: "Understanding of battery technology and energy storage systems." },
+                    { name: "Product Management", icon: "fas fa-cogs", description: "Experience in tech product management." },
+                    { name: "Renewable Energy", icon: "fas fa-leaf", description: "Knowledge of renewable energy sources and sustainability." }
+                ]
+            },
+            { 
+                title: "UX Designer Intern", description: "Design user interfaces for Tesla Autopilot.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE",
+                skills: [
+                    { name: "UI/UX", icon: "fas fa-paint-brush", description: "Understanding of user interface and user experience design." },
+                    { name: "Automotive", icon: "fas fa-car", description: "Interest in automotive technology and autonomous driving." },
+                    { name: "Prototyping", icon: "fas fa-magic", description: "Experience with prototyping tools like Sketch." }
+                ]
+            }
         ]
     },
     {
@@ -224,9 +350,29 @@ const companies = [
             { name: "Los Angeles", address: "5808 W Sunset Blvd", city: "Los Angeles", state: "California", zip: "90028", country: "USA" },
         ],
         jobPostings: [
-            { title: "Software Engineer", description: "Develop new features for the Netflix streaming service.", requirements: "BS in Computer Science, 3+ years experience in web development.", type: "JOB", location: "ONSITE" },
-            { title: "Product Manager", description: "Lead product development for Netflix Originals.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" },
-            { title: "UX Designer Intern", description: "Design user interfaces for the Netflix mobile app.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE" }
+            { 
+                title: "Software Engineer", description: "Develop new features for the Netflix streaming service.", requirements: "BS in Computer Science, 3+ years experience in web development.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Web Development", icon: "fas fa-globe", description: "Experience in building web applications." },
+                    { name: "JavaScript", icon: "devicon-javascript-plain", description: "Proficiency in JavaScript programming language." },
+                    { name: "React", icon: "devicon-react-original", description: "Familiarity with React library for UI development." }
+                    ]
+            },
+            { 
+                title: "Product Manager", description: "Lead product development for Netflix Originals.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Product Management", icon: "fas fa-cogs", description: "Experience in tech product management." },
+                    { name: "Entertainment Industry", icon: "fas fa-film", description: "Understanding of the entertainment industry and content creation." },
+                ]
+            },
+            { 
+                title: "UX Designer Intern", description: "Design user interfaces for the Netflix mobile app.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE",
+                skills: [
+                    { name: "UI/UX", icon: "fas fa-paint-brush", description: "Understanding of user interface and user experience design." },
+                    { name: "Mobile Design", icon: "fas fa-mobile-alt", description: "Experience in designing mobile interfaces." },
+                    { name: "Prototyping", icon: "fas fa-magic", description: "Experience with prototyping tools like Figma." }
+                ]
+            }
         ]
     },
     {
@@ -257,9 +403,30 @@ const companies = [
             { name: "New York", address: "249 W 17th St", city: "New York", state: "New York", zip: "10011", country: "USA" },
         ],
         jobPostings: [
-            { title: "Software Engineer", description: "Develop new features for the Twitter platform.", requirements: "BS in Computer Science, 3+ years experience in web development.", type: "JOB", location: "ONSITE" },
-            { title: "Product Manager", description: "Lead product development for Twitter Ads.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" },
-            { title: "UX Designer Intern", description: "Design user interfaces for Twitter Spaces.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE" }
+            { 
+                title: "Software Engineer", description: "Develop new features for the Twitter platform.", requirements: "BS in Computer Science, 3+ years experience in web development.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Web Development", icon: "fas fa-globe", description: "Experience in building web applications." },
+                    { name: "JavaScript", icon: "devicon-javascript-plain", description: "Proficiency in JavaScript programming language." },
+                    { name: "React", icon: "devicon-react-original", description: "Familiarity with React library for UI development." }
+                ]
+            },
+            { 
+                title: "Product Manager", description: "Lead product development for Twitter Ads.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Product Management", icon: "fas fa-cogs", description: "Experience in tech product management." },
+                    { name: "Social Media", icon: "fas fa-users", description: "Understanding of social media platforms and trends." },
+                    { name: "Data Analysis", icon: "fas fa-chart-line", description: "Ability to analyze user data and metrics." }
+                ]
+            },
+            { 
+                title: "UX Designer Intern", description: "Design user interfaces for Twitter Spaces.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE",
+                skills: [
+                    { name: "UI/UX", icon: "fas fa-paint-brush", description: "Understanding of user interface and user experience design." },
+                    { name: "Audio Design", icon: "fas fa-headphones", description: "Experience in designing audio interfaces." },
+                    { name: "Prototyping", icon: "fas fa-magic", description: "Experience with prototyping tools like Figma." }
+                ]
+            }
         ]
     },
     {
@@ -290,9 +457,30 @@ const companies = [
             { name: "New York", address: "3100 47th Ave", city: "Long Island City", state: "New York", zip: "11101", country: "USA" },
         ],
         jobPostings: [
-            { title: "Software Engineer", description: "Develop new features for the Uber app.", requirements: "BS in Computer Science, 3+ years experience in mobile development.", type: "JOB", location: "ONSITE" },
-            { title: "Product Manager", description: "Lead product development for Uber Eats.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" },
-            { title: "UX Designer Intern", description: "Design user interfaces for Uber Freight.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE" }
+            { 
+                title: "Software Engineer", description: "Develop new features for the Uber app.", requirements: "BS in Computer Science, 3+ years experience in mobile development.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Mobile Development", icon: "fas fa-mobile-alt", description: "Experience in building mobile applications." },
+                    { name: "iOS", icon: "devicon-apple-original", description: "Proficiency in iOS app development." },
+                    { name: "Android", icon: "devicon-android-plain", description: "Familiarity with Android app development." }
+                ]
+            },
+            { 
+                title: "Product Manager", description: "Lead product development for Uber Eats.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Product Management", icon: "fas fa-cogs", description: "Experience in tech product management." },
+                    { name: "Food Delivery", icon: "fas fa-utensils", description: "Understanding of food delivery platforms and services." },
+                    { name: "Data Analysis", icon: "fas fa-chart-line", description: "Ability to analyze user data and metrics." }
+                ]
+            },
+            { 
+                title: "UX Designer Intern", description: "Design user interfaces for Uber Freight.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE",
+                skills: [
+                    { name: "UI/UX", icon: "fas fa-paint-brush", description: "Understanding of user interface and user experience design." },
+                    { name: "Logistics", icon: "fas fa-truck", description: "Interest in logistics and transportation services." },
+                    { name: "Prototyping", icon: "fas fa-magic", description: "Experience with prototyping tools like Figma." }
+                ]
+            }
         ]
     },
     {
@@ -323,11 +511,356 @@ const companies = [
             { name: "New York", address: "129 W 29th St", city: "New York", state: "New York", zip: "10001", country: "USA" },
         ],
         jobPostings: [
-            { title: "Software Engineer", description: "Develop new features for the Airbnb platform.", requirements: "BS in Computer Science, 3+ years experience in web development.", type: "JOB", location: "ONSITE" },
-            { title: "Product Manager", description: "Lead product development for Airbnb Experiences.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" },
-            { title: "UX Designer Intern", description: "Design user interfaces for Airbnb Luxe.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE" }
+            { 
+                title: "Software Engineer", description: "Develop new features for the Airbnb platform.", requirements: "BS in Computer Science, 3+ years experience in web development.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Web Development", icon: "fas fa-globe", description: "Experience in building web applications." },
+                    { name: "JavaScript", icon: "devicon-javascript-plain", description: "Proficiency in JavaScript programming language." },
+                    { name: "React", icon: "devicon-react-original", description: "Familiarity with React library for UI development." }
+                ]
+            },
+            { 
+                title: "Product Manager", description: "Lead product development for Airbnb Experiences.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Product Management", icon: "fas fa-cogs", description: "Experience in tech product management." },
+                    { name: "Travel Industry", icon: "fas fa-map-marked-alt", description: "Understanding of the travel industry and experiences." },
+                    { name: "Data Analysis", icon: "fas fa-chart-line", description: "Ability to analyze user data and metrics." }
+                    ]
+            },
+            { 
+                title: "UX Designer Intern", description: "Design user interfaces for Airbnb Luxe.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE",
+                skills: [
+                    { name: "UI/UX", icon: "fas fa-paint-brush", description: "Understanding of user interface and user experience design." },
+                    { name: "Luxury Design", icon: "fas fa-gem", description: "Experience in designing luxury experiences." },
+                    { name: "Prototyping", icon: "fas fa-magic", description: "Experience with prototyping tools like Figma." }
+                ]
+            }
         ]
     },
+    {
+        name: "Coca-Cola",
+        logo: "https://logo.clearbit.com/coca-cola.com",
+        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        website: "https://www.coca-cola.com",
+        employees: "86,200",
+        email: "hello@coke.com",
+        address: "1 Coca-Cola Plaza, Atlanta, GA 30313, USA",
+        contactInfo: "+1 (800) 438-2653",
+        bio: "The Coca-Cola Company is an American multinational corporation and manufacturer, retailer, and marketer of nonalcoholic beverage concentrates and syrups.",
+        departments: [
+            { name: "Beverages", description: "Producing and distributing Coca-Cola's beverage products." },
+            { name: "Marketing", description: "Promoting Coca-Cola's brands and campaigns worldwide." },
+            { name: "Sales", description: "Managing sales and distribution of Coca-Cola products." },
+            { name: "Supply Chain", description: "Handling the logistics and supply chain operations." },
+            { name: "Finance", description: "Managing the financial operations of Coca-Cola's business." }
+        ],
+        services: [
+            { name: "Coca-Cola", description: "Classic cola beverage loved by millions around the world.", icon: "fas fa-cocktail" },
+            { name: "Sprite", description: "Lemon-lime soda with a crisp, refreshing taste.", icon: "fas fa-lemon" },
+            { name: "Fanta", description: "Fruit-flavored soda with bold and vibrant flavors.", icon: "fas fa-apple-alt" },
+            { name: "Dasani", description: "Purified water with a clean and refreshing taste.", icon: "fas fa-tint" }
+        ],
+        locations: [
+            { name: "Atlanta", address: "1 Coca-Cola Plaza", city: "Atlanta", state: "Georgia", zip: "30313", country: "USA" },
+            { name: "New York", address: "711 5th Ave", city: "New York", state: "New York", zip: "10022", country: "USA" },
+        ],
+        jobPostings: [
+            { 
+                title: "Marketing Manager", description: "Lead marketing campaigns for Coca-Cola beverages.", requirements: "BS in Marketing, 5+ years in consumer goods marketing.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Marketing Strategy", icon: "fas fa-bullhorn", description: "Experience in developing marketing strategies." },
+                    { name: "Brand Management", icon: "fas fa-tags", description: "Managing and promoting brand identity and products." },
+                    { name: "Campaign Planning", icon: "fas fa-calendar-alt", description: "Planning and executing marketing campaigns." }
+                ]
+            },
+            { 
+                title: "Supply Chain Analyst", description: "Analyze and optimize Coca-Cola's supply chain operations.", requirements: "BS in Supply Chain Management, 3+ years in logistics analysis.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Supply Chain", icon: "fas fa-truck", description: "Understanding of supply chain logistics and operations." },
+                    { name: "Data Analysis", icon: "fas fa-chart-line", description: "Analyzing and interpreting supply chain data." },
+                    { name: "Process Improvement", icon: "fas fa-cogs", description: "Identifying and implementing process improvements." }
+                ]
+            },
+            { 
+                title: "Finance Intern", description: "Assist with financial analysis and reporting for Coca-Cola.", requirements: "Enrolled in a finance program, proficiency in Excel.", type: "INTERNSHIP", location: "ONSITE",
+                skills: [
+                    { name: "Financial Analysis", icon: "fas fa-chart-bar", description: "Analyzing financial data and trends." },
+                    { name: "Excel", icon: "fas fa-file-excel", description: "Proficiency in Excel for financial modeling." },
+                    { name: "Reporting", icon: "fas fa-file-alt", description: "Preparing financial reports and presentations." }
+                ]
+            }
+        ]
+    },
+    {
+        name: "NVidia",
+        logo: "https://logo.clearbit.com/nvidia.com",
+        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        website: "https://www.nvidia.com",
+        employees: "18,975",
+        email: "hello@nvidia.com",
+        address: "2788 San Tomas Expy, Santa Clara, CA 95051, USA",
+        contactInfo: "+1 (408) 486-2000",
+        bio: "Nvidia Corporation is an American multinational technology company incorporated in Delaware and based in Santa Clara, California. It designs graphics processing units for the gaming and professional markets, as well as system on a chip units for the mobile computing and automotive market.",
+        departments: [
+            { name: "Graphics", description: "Developing GPUs for gaming and professional applications." },
+            { name: "AI", description: "Creating AI solutions and hardware for various industries." },
+            { name: "Data Centers", description: "Providing hardware for data center and cloud computing." },
+            { name: "Automotive", description: "Developing technology for autonomous vehicles and cars." },
+            { name: "Finance", description: "Managing the financial operations of Nvidia's business." }
+        ],
+        services: [
+            { name: "GeForce", description: "Graphics cards for gaming and high-performance computing.", icon: "fas fa-gamepad" },
+            { name: "Quadro", description: "Professional graphics cards for design and visualization.", icon: "fas fa-paint-brush" },
+            { name: "Tesla", description: "Data center GPUs for AI and high-performance computing.", icon: "fas fa-server" },
+            { name: "Drive", description: "AI computing platforms for autonomous vehicles and cars.", icon: "fas fa-car" }
+        ],
+        locations: [
+            { name: "Santa Clara", address: "2788 San Tomas Expy", city: "Santa Clara", state: "California", zip: "95051", country: "USA" },
+            { name: "Austin", address: "500 W 2nd St", city: "Austin", state: "Texas", zip: "78701", country: "USA" },
+        ],
+        jobPostings: [
+            { 
+                title: "Software Engineer", description: "Develop new features for Nvidia's graphics software.", requirements: "BS in Computer Science, 3+ years experience in software development.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Graphics Programming", icon: "fas fa-paint-brush", description: "Experience in graphics programming and rendering." },
+                    { name: "CUDA", icon: "fas fa-code", description: "Proficiency in CUDA parallel computing platform." },
+                    { name: "OpenGL", icon: "devicon-opengl", description: "Familiarity with OpenGL graphics library." }
+                ]
+            },
+            { 
+                title: "Product Manager", description: "Lead product development for Nvidia AI solutions.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Product Management", icon: "fas fa-cogs", description: "Experience in tech product management." },
+                    { name: "Artificial Intelligence", icon: "fas fa-robot", description: "Understanding of AI technologies and applications." },
+                    { name: "Data Analysis", icon: "fas fa-chart-line", description: "Ability to analyze user data and metrics." }
+                ]
+            },
+            { 
+                title: "UX Designer Intern", description: "Design user interfaces for Nvidia Drive platform.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE",
+                skills: [
+                    { name: "UI/UX", icon: "fas fa-paint-brush", description: "Understanding of user interface and user experience design." },
+                    { name: "Automotive", icon: "fas fa-car", description: "Interest in automotive technology and autonomous driving." },
+                    { name: "Prototyping", icon: "fas fa-magic", description: "Experience with prototyping tools like Figma." }
+                ]
+            }
+        ]
+    },
+    {
+        name: "Walmart",
+        logo: "https://logo.clearbit.com/walmart.com",
+        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        website: "https://www.walmart.com",
+        employees: "2.3 million",
+        email: "info@walmart.com",
+        address: "702 SW 8th St, Bentonville, AR 72712, USA",
+        contactInfo: "+1 (800) 925-6278",
+        bio: "Walmart Inc. is an American multinational retail corporation that operates a chain of hypermarkets, discount department stores, and grocery stores.",
+        departments: [
+            { name: "Retail", description: "Managing Walmart's retail operations and stores." },
+            { name: "E-commerce", description: "Overseeing Walmart's online shopping platform." },
+            { name: "Supply Chain", description: "Handling logistics and supply chain operations." },
+            { name: "Technology", description: "Developing technology solutions for Walmart's business." },
+            { name: "Finance", description: "Managing the financial operations of Walmart's business." }
+        ],
+        services: [
+            { name: "Walmart Stores", description: "Physical retail locations for shopping and groceries.", icon: "fas fa-store" },
+            { name: "Walmart.com", description: "Online shopping platform for ordering products and groceries.", icon: "fas fa-shopping-cart" },
+            { name: "Walmart Pickup", description: "Curbside pickup service for online orders at Walmart stores.", icon: "fas fa-car-side" },
+            { name: "Walmart Delivery", description: "Home delivery service for groceries and products from Walmart.", icon: "fas fa-truck" }
+        ],
+        locations: [
+            { name: "Bentonville", address: "702 SW 8th St", city: "Bentonville", state: "Arkansas", zip: "72712", country: "USA" },
+            { name: "San Francisco", address: "1800 Harrison St", city: "San Francisco", state: "California", zip: "94103", country: "USA" },
+        ],
+        jobPostings: [
+            { 
+                title: "Software Engineer", description: "Develop new features for Walmart's e-commerce platform.", requirements: "BS in Computer Science, 3+ years experience in web development.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Web Development", icon: "fas fa-globe", description: "Experience in building web applications." },
+                    { name: "JavaScript", icon: "devicon-javascript-plain", description: "Proficiency in JavaScript programming language." },
+                    { name: "React", icon: "devicon-react-original", description: "Familiarity with React library for UI development." }
+                ]
+            },
+            { 
+                title: "Product Manager", description: "Lead product development for Walmart Pickup service.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Product Management", icon: "fas fa-cogs", description: "Experience in tech product management." },
+                    { name: "Retail Operations", icon: "fas fa-store", description: "Understanding of retail operations and logistics." },
+                    { name: "Data Analysis", icon: "fas fa-chart-line", description: "Ability to analyze user data and metrics." }
+                ]
+            },
+            { 
+                title: "UX Designer Intern", description: "Design user interfaces for Walmart.com.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE",
+                skills: [
+                    { name: "UI/UX", icon: "fas fa-paint-brush", description: "Understanding of user interface and user experience design." },
+                    { name: "E-commerce", icon: "fas fa-shopping-cart", description: "Experience in designing e-commerce platforms." },
+                    { name: "Prototyping", icon: "fas fa-magic", description: "Experience with prototyping tools like Figma." }
+                ]
+            }
+        ]
+    },
+    {
+        name: "Ali Baba",
+        logo: "https://logo.clearbit.com/alibaba.com",
+        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        website: "https://www.alibaba.com",
+        employees: "252,084",
+        email: "info@alibaba.com",
+        address: "969 West Wen Yi Road, Hangzhou, Zhejiang, China",
+        contactInfo: "+86 571 8502 2088",
+        bio: "Alibaba Group Holding Limited, also known as Alibaba Group and Alibaba.com, is a Chinese multinational technology company specializing in e-commerce, retail, Internet, and technology.",
+        departments: [
+            { name: "E-commerce", description: "Managing Alibaba's online shopping platforms." },
+            { name: "Cloud Computing", description: "Providing cloud services and solutions for businesses." },
+            { name: "Finance", description: "Managing the financial operations of Alibaba's business." },
+            { name: "Logistics", description: "Handling the logistics and supply chain operations." },
+            { name: "Technology", description: "Developing technology solutions for Alibaba's business." }
+        ],
+        services: [
+            { name: "Alibaba.com", description: "Global online marketplace for wholesale trade.", icon: "fas fa-globe" },
+            { name: "Taobao", description: "China's largest online shopping website.", icon: "fas fa-shopping-cart" },
+            { name: "AliExpress", description: "Global online retail service for consumers.", icon: "fas fa-shopping-bag" },
+            { name: "Alibaba Cloud", description: "Cloud computing services for businesses and developers.", icon: "fas fa-cloud" }
+        ],
+        locations: [
+            { name: "Hangzhou", address: "969 West Wen Yi Road", city: "Hangzhou", state: "Zhejiang", country: "China" },
+            { name: "Shanghai", address: "969 West Wen Yi Road", city: "Shanghai", state: "Shanghai", country: "China" },
+        ],
+        jobPostings: [
+            { 
+                title: "Software Engineer", description: "Develop new features for Alibaba's e-commerce platforms.", requirements: "BS in Computer Science, 3+ years experience in web development.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Web Development", icon: "fas fa-globe", description: "Experience in building web applications." },
+                    { name: "JavaScript", icon: "devicon-javascript-plain", description: "Proficiency in JavaScript programming language." },
+                    { name: "React", icon: "devicon-react-original", description: "Familiarity with React library for UI development." }
+                ]
+            },
+            { 
+                title: "Product Manager", description: "Lead product development for Alibaba Cloud services.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Product Management", icon: "fas fa-cogs", description: "Experience in tech product management." },
+                    { name: "Cloud Computing", icon: "fas fa-cloud", description: "Understanding of cloud services and solutions." },
+                    { name: "Data Analysis", icon: "fas fa-chart-line", description: "Ability to analyze user data and metrics." }
+                ]
+            },
+            { 
+                title: "UX Designer Intern", description: "Design user interfaces for Taobao online shopping.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE",
+                skills: [
+                    { name: "UI/UX", icon: "fas fa-paint-brush", description: "Understanding of user interface and user experience design." },
+                    { name: "E-commerce", icon: "fas fa-shopping-cart", description: "Experience in designing e-commerce platforms." },
+                    { name: "Prototyping", icon: "fas fa-magic", description: "Experience with prototyping tools like Figma." }
+                ]
+            }
+        ]
+    },
+    {
+        name: "Walt Disney",
+        logo: "https://logo.clearbit.com/disney.com",
+        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        website: "https://www.disney.com",
+        employees: "203,000",
+        email: "hello@walt.com",
+        address: "500 S Buena Vista St, Burbank, CA 91521, USA",
+        contactInfo: "+1 (818) 560-1000",
+        bio: "The Walt Disney Company, commonly known as Disney, is an American diversified multinational mass media and entertainment conglomerate headquartered at the Walt Disney Studios complex in Burbank, California.",
+        departments: [
+            { name: "Media Networks", description: "Managing Disney's cable and broadcast networks." },
+            { name: "Studio Entertainment", description: "Producing and distributing films and TV shows." },
+            { name: "Parks and Resorts", description: "Operating Disney's theme parks and resorts worldwide." },
+            { name: "Consumer Products", description: "Developing and licensing Disney merchandise." },
+            { name: "Finance", description: "Managing the financial operations of Disney's business." }
+        ],
+        services: [
+            { name: "Disney+", description: "Subscription streaming service for Disney content.", icon: "fas fa-tv" },
+            { name: "Disney Studios", description: "Film production and distribution studio for Disney movies.", icon: "fas fa-film" },
+            { name: "Disney Parks", description: "Theme parks and resorts for Disney entertainment.", icon: "fas fa-castle" },
+            { name: "Disney Store", description: "Retail stores for Disney merchandise and products.", icon: "fas fa-store" }
+        ],
+        locations: [
+            { name: "Burbank", address: "500 S Buena Vista St", city: "Burbank", state: "California", zip: "91521", country: "USA" },
+            { name: "Orlando", address: "1180 Seven Seas Dr", city: "Lake Buena Vista", state: "Florida", zip: "32830", country: "USA" },
+        ],
+        jobPostings: [
+            { 
+                title: "Software Engineer", description: "Develop new features for Disney+ streaming service.", requirements: "BS in Computer Science, 3+ years experience in web development.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Web Development", icon: "fas fa-globe", description: "Experience in building web applications." },
+                    { name: "JavaScript", icon: "devicon-javascript-plain", description: "Proficiency in JavaScript programming language." },
+                    { name: "React", icon: "devicon-react-original", description: "Familiarity with React library for UI development." }
+                ]
+            },
+            { 
+                title: "Product Manager", description: "Lead product development for Disney Studios films.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Product Management", icon: "fas fa-cogs", description: "Experience in tech product management." },
+                    { name: "Entertainment Industry", icon: "fas fa-film", description: "Understanding of the entertainment industry and content creation." },
+                    { name: "Data Analysis", icon: "fas fa-chart-line", description: "Ability to analyze user data and metrics." }
+                ]
+            },
+            { 
+                title: "UX Designer Intern", description: "Design user interfaces for Disney Parks mobile app.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE",
+                skills: [
+                    { name: "UI/UX", icon: "fas fa-paint-brush", description: "Understanding of user interface and user experience design." },
+                    { name: "Mobile Design", icon: "fas fa-mobile-alt", description: "Experience in designing mobile interfaces." },
+                    { name: "Prototyping", icon: "fas fa-magic", description: "Experience with prototyping tools like Figma." }
+                ]
+            }
+        ]
+    },
+    {
+        name: "Total Energies",
+        logo: "https://logo.clearbit.com/total.com",
+        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        website: "https://www.total.com",
+        employees: "107,776",
+        email: "info@total.com",
+        address: "2 Place Jean Millier, La Défense, Courbevoie, France",
+        contactInfo: "+33 1 47 44 45 46",
+        bio: "TotalEnergies SE is a French multinational integrated oil and gas company founded in 1924 and one of the seven 'supermajor' oil companies.",
+        departments: [
+            { name: "Exploration & Production", description: "Exploring and extracting oil and gas resources." },
+            { name: "Refining & Chemicals", description: "Refining petroleum products and producing chemicals." },
+            { name: "Renewables & Power", description: "Developing renewable energy and power projects." },
+            { name: "Marketing & Services", description: "Selling petroleum products and services to consumers." },
+            { name: "Finance", description: "Managing the financial operations of TotalEnergies' business." }
+        ],
+        services: [
+            { name: "Total Oil", description: "Petroleum products for fueling vehicles and machinery.", icon: "fas fa-gas-pump" },
+            { name: "Total Gas", description: "Natural gas for heating and power generation.", icon: "fas fa-fire" },
+            { name: "Total Renewables", description: "Renewable energy sources like solar and wind power.", icon: "fas fa-sun" },
+            { name: "Total Chemicals", description: "Chemical products for various industrial applications.", icon: "fas fa-flask" }
+        ],
+        locations: [
+            { name: "La Défense", address: "2 Place Jean Millier", city: "La Défense", state: "Courbevoie", country: "France" },
+            { name: "Houston", address: "1201 Louisiana St", city: "Houston", state: "Texas", zip: "77002", country: "USA" },
+        ],
+        jobPostings: [
+            { 
+                title: "Software Engineer", description: "Develop new features for TotalEnergies' digital platforms.", requirements: "BS in Computer Science, 3+ years experience in web development.", type: "JOB", location: "ONSITE" ,
+                skills: [
+                    { name: "Web Development", icon: "fas fa-globe", description: "Experience in building web applications." },
+                    { name: "JavaScript", icon: "devicon-javascript-plain", description: "Proficiency in JavaScript programming language." },
+                    { name: "React", icon: "devicon-react-original", description: "Familiarity with React library for UI development." }
+                ]
+            },
+            { 
+                title: "Product Manager", description: "Lead product development for Total Renewables projects.", requirements: "MBA preferred, 5+ years in tech product management.", type: "JOB", location: "HYBRID" ,
+                skills: [
+                    { name: "Product Management", icon: "fas fa-cogs", description: "Experience in tech product management." },
+                    { name: "Renewable Energy", icon: "fas fa-sun", description: "Understanding of renewable energy technologies and projects." },
+                    { name: "Data Analysis", icon: "fas fa-chart-line", description: "Ability to analyze user data and metrics." }
+                ]
+            },
+            { 
+                title: "UX Designer Intern", description: "Design user interfaces for Total Oil mobile app.", requirements: "Enrolled in a design program, proficiency in design tools.", type: "INTERNSHIP", location: "REMOTE",
+                skills: [
+                    { name: "UI/UX", icon: "fas fa-paint-brush", description: "Understanding of user interface and user experience design." },
+                    { name: "Energy Industry", icon: "fas fa-fire", description: "Experience in designing energy-related interfaces." },
+                    { name: "Prototyping", icon: "fas fa-magic", description: "Experience with prototyping tools like Figma." }
+                ]
+            }
+        ]
+    }
 ];
 
 module.exports = { companies };

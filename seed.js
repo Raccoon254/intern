@@ -116,10 +116,10 @@ async function main() {
                     applicationDeadline: faker.date.future(),
                     departmentId: faker.helpers.arrayElement(departments).id,
                     skills: {
-                        create: Array.from({ length: faker.number.int({ min: 2, max: 5 }) }).map(() => ({
-                            name: faker.person.jobArea(),
-                            description: faker.lorem.sentence(),
-                            icon: faker.image.avatar(),
+                        create: job.skills.map((skill) => ({ 
+                            name: skill.name,
+                            description: skill.description,
+                            icon: skill.icon
                         })),
                     },
                 },
