@@ -3,12 +3,12 @@ import React, {useEffect, useState} from "react";
 import Loading from "/app/loading";
 import Notification from "/app/components/Notification";
 import VerticalTabs from "@/app/components/VerticalTabs";
-import NavBar from "@/app/components/NavBar";
-
+import {useSnackbar} from "notistack";
 const Company = () => {
 
     const [company, setCompany] = useState({});
     const [internships, setInternships] = useState([]);
+    const {enqueueSnackbar} = useSnackbar();
 
     useEffect(() => {
 
@@ -31,15 +31,13 @@ const Company = () => {
     }, []);
 
     function fetchCompanyInternships(id) {
-        console.log("Fetching internships for company with id: ", id);
         fetch(`/api/internships/${id}`)
             .then(response => response.json())
             .then(data => {
                 setInternships(data);
-                console.log(data);
             })
             .catch(error => {
-                console.error(error);
+                enqueueSnackbar("Failed to fetch internships", {variant: "error"});
             });
     }
 

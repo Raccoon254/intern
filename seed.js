@@ -79,7 +79,7 @@ async function main() {
                 data: {
                     name: service.name,
                     icon: service.icon,
-                    description: faker.lorem.paragraph(),
+                    description: service.description,
                     organizationId: org.id,
                 },
             });
