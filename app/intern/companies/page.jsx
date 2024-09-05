@@ -6,6 +6,7 @@ import NavBar from "@/app/components/NavBar";
 import Loading from "@/app/loading";
 import {useSession} from "next-auth/react";
 import TypewriterEffect from "@/app/components/TypewriterEffect";
+import {useSnackbar} from "notistack";
 
 const Companies = () => {
     const {data: session} = useSession();
@@ -13,6 +14,7 @@ const Companies = () => {
     const types = ["Company", "Internship", "Opportunity"];
     const [searchTerm, setSearchTerm] = useState("");
     const [filteredCompanies, setFilteredCompanies] = useState([]);
+    const {enqueueSnackbar} = useSnackbar();
 
     useEffect(() => {
         fetch(`/api/organizations`)
@@ -26,11 +28,15 @@ const Companies = () => {
     }, []);
 
     useEffect(() => {
-        setFilteredCompanies(
-            companies.filter(company =>
-                company.name.toLowerCase().includes(searchTerm.toLowerCase())
-            )
-        );
+        try {
+            setFilteredCompanies(
+                companies.filter(company =>
+                    company.name.toLowerCase().includes(searchTerm.toLowerCase())
+                )
+            );
+        } catch (e) {
+            enqueueSnackbar("Failed to filter companies", {variant: "error"});
+        }
     }, [searchTerm, companies]);
 
     if (!session) {
