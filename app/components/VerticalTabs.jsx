@@ -11,6 +11,7 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
     useEffect(() => {
         setCompany(companyProp);
         setInternships(internshipsProp);
+        console.log(internshipsProp);
     }, [companyProp, internshipsProp]);
 
     if (Object.keys(company).length === 0 || company.departments === undefined) {
@@ -83,7 +84,24 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
                                          className={"shadow-sm ring-1 flex justify-between ring-offset-1 border ring-gray-50 rounded-lg p-4 my-2 transition hover:scale-[1.01] hover:bg-green-100"}>
                                         <div>
                                             <h2>{internship.description}</h2>
-                                            <p>Skills: {internship.skills}</p>
+                                            <div>
+                                                <p>Skills:</p>
+                                                <div className={"flex gap-2"}>
+                                                    {internship.skills.map((skill, skillIndex) => (
+                                                        <div key={skillIndex}
+                                                             className={"ring-1 btn btn-outline btn-sm"}>
+                                                        {/*    if the name starts with devicon or fa */}
+                                                            {skill.icon.startsWith("devicon") ? (
+                                                                <i className={skill.icon}></i>
+                                                            ) : skill.name.startsWith("fa") ? (
+                                                                <i className={skill.icon}></i>
+                                                            ) : (
+                                                                skill.name
+                                                            )}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
                                             <p>Status: {internship.status}</p>
                                             <p>Created at: {new Date(internship.createdAt).toLocaleDateString()}</p>
                                             <p>Updated at: {new Date(internship.updatedAt).toLocaleDateString()}</p>

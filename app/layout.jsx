@@ -36,12 +36,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
 	return (
 		<html lang="en" data-theme={'winter'}>
-			<body className={inter.className}>
-				<NextAuthProvider>
-					<NotificationProvider>{children}</NotificationProvider>
-					<script src="/icons/fontawesome.js" crossOrigin="anonymous"></script>
-				</NextAuthProvider>
-			</body>
+		<head>
+			<link rel="stylesheet" type='text/css'
+				  href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css"/>
+			<title>{metadata.title}</title>
+		</head>
+
+		<body className={inter.className}>
+		<NextAuthProvider>
+			<NotificationProvider>{children}</NotificationProvider>
+			<script src="/icons/fontawesome.js" crossOrigin="anonymous"></script>
+		</NextAuthProvider>
+		</body>
 		</html>
 	)
 }
