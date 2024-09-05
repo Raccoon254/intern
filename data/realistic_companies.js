@@ -16,7 +16,11 @@ const companies = [
             { name: "Business Development", description: "Identifying and developing strategic partnerships and investment opportunities." },
             { name: "Marketing", description: "Promoting Microsoft's products and services to customers worldwide." }
         ],
-        services: ["Microsoft 365", "Azure", "Windows"],
+        services: [
+            { name: "Microsoft Azure", description: "Cloud computing services for building, testing, deploying, and managing applications.", icon: "fas fa-cloud" },
+            { name: "Microsoft 365", description: "Integrated productivity apps and cloud services for businesses.", icon: "fas fa-envelope" },
+            { name: "Xbox Game Pass", description: "Subscription service for access to a library of games on Xbox consoles and PC.", icon: "fas fa-gamepad" }
+        ],
         locations: [
             { name: "Redmond", address: "One Microsoft Way", city: "Redmond", state: "Washington", zip: "98052", country: "USA" },
             { name: "Silicon Valley", address: "1065 La Avenida St", city: "Mountain View", state: "California", zip: "94043", country: "USA" },
@@ -44,7 +48,12 @@ const companies = [
             { name: "Android", description: "Developing and enhancing the Android mobile operating system." },
             { name: "YouTube", description: "Managing and innovating the world's largest video sharing platform." }
         ],
-        services: ["Google Search", "Google Ads", "Google Cloud"],
+        services: [
+            { name: "Google Search", description: "The world's most popular search engine for finding information online.", icon: "fas fa-search" },
+            { name: "Google Ads", description: "Online advertising platform for businesses to reach customers across the web.", icon: "fas fa-bullhorn" },
+            { name: "Google Cloud", description: "Cloud computing services for building, testing, and deploying applications.", icon: "fas fa-cloud" },
+            { name: "Android", description: "Mobile operating system for smartphones, tablets, and other devices.", icon: "fab fa-android" }
+        ],
         locations: [
             { name: "Mountain View", address: "1600 Amphitheatre Parkway", city: "Mountain View", state: "California", zip: "94043", country: "USA" },
             { name: "New York", address: "111 8th Avenue", city: "New York", state: "New York", zip: "10011", country: "USA" },
@@ -72,7 +81,12 @@ const companies = [
             { name: "Studios", description: "Producing original content for Amazon Prime Video." },
             { name: "Logistics", description: "Handling Amazon's global shipping and delivery operations." }
         ],
-        services: ["Amazon Prime", "AWS", "Kindle"],
+        services: [
+            { name: "Amazon.com", description: "Online marketplace for buying and selling a wide variety of products.", icon: "fas fa-shopping-cart" },
+            { name: "Amazon Web Services", description: "Cloud computing services for businesses and developers.", icon: "fas fa-cloud" },
+            { name: "Amazon Prime Video", description: "Streaming service for movies, TV shows, and original content.", icon: "fas fa-video" },
+            { name: "Kindle", description: "E-reader and tablet devices for reading books and media.", icon: "fas fa-book-reader" }
+        ],
         locations: [
             { name: "Seattle", address: "410 Terry Ave N", city: "Seattle", state: "Washington", zip: "98109", country: "USA" },
             { name: "New York", address: "7 W 34th St", city: "New York", state: "New York", zip: "10001", country: "USA" },
@@ -100,7 +114,12 @@ const companies = [
             { name: "WhatsApp", description: "Overseeing the WhatsApp messaging and calling service." },
             { name: "Oculus", description: "Creating virtual reality hardware and software products." }
         ],
-        services: ["Facebook", "Instagram", "WhatsApp"],
+        services: [
+            { name: "Facebook", description: "Social media platform for connecting with friends and family.", icon: "fab fa-facebook" },
+            { name: "Instagram", description: "Photo and video sharing app for creative expression.", icon: "fab fa-instagram" },
+            { name: "WhatsApp", description: "Messaging and calling app for private communication.", icon: "fab fa-whatsapp" },
+            { name: "Oculus", description: "Virtual reality headsets for immersive gaming and experiences.", icon: "fab fa-oculus" }
+        ],
         locations: [
             { name: "Menlo Park", address: "1 Hacker Way", city: "Menlo Park", state: "California", zip: "94025", country: "USA" },
             { name: "New York", address: "770 Broadway", city: "New York", state: "New York", zip: "10003", country: "USA" },
@@ -128,7 +147,12 @@ const companies = [
             { name: "Design", description: "Crafting the user experience and industrial design of Apple products." },
             { name: "Operations", description: "Managing Apple's global supply chain and manufacturing." }
         ],
-        services: ["iPhone", "Mac", "Apple Watch", "Apple Music"],
+        services: [
+            { name: "iPhone", description: "Apple's flagship smartphone with iOS operating system.", icon: "fas fa-mobile-alt" },
+            { name: "MacBook", description: "Apple's line of laptop computers for personal and professional use.", icon: "fas fa-laptop" },
+            { name: "Apple Music", description: "Music streaming service with millions of songs and playlists.", icon: "fas fa-music" },
+            { name: "iCloud", description: "Cloud storage and backup service for Apple devices.", icon: "fas fa-cloud" }
+        ],
         locations: [
             { name: "Cupertino", address: "One Apple Park Way", city: "Cupertino", state: "California", zip: "95014", country: "USA" },
             { name: "Austin", address: "12545 Riata Vista Cir", city: "Austin", state: "Texas", zip: "78727", country: "USA" },
@@ -156,7 +180,12 @@ const companies = [
             { name: "Solar", description: "Designing and installing solar energy systems for customers." },
             { name: "Software", description: "Developing software for Tesla's vehicles and energy products." }
         ],
-        services: ["Model S", "Powerwall", "Solar Roof"],
+        services: [
+            { name: "Tesla Vehicles", description: "Electric cars with cutting-edge technology and performance.", icon: "fas fa-car" },
+            { name: "Powerwall", description: "Home battery for storing solar energy and powering your home.", icon: "fas fa-battery-full" },
+            { name: "Solar Roof", description: "Roof tiles with integrated solar cells for sustainable energy generation.", icon: "fas fa-solar-panel" },
+            { name: "Full Self-Driving", description: "Autonomous driving package for Tesla vehicles.", icon: "fas fa-robot" }
+        ],
         locations: [
             { name: "Palo Alto", address: "3500 Deer Creek Rd", city: "Palo Alto", state: "California", zip: "94304", country: "USA" },
             { name: "Fremont", address: "45500 Fremont Blvd", city: "Fremont", state: "California", zip: "94538", country: "USA" },
@@ -184,7 +213,12 @@ const companies = [
             { name: "Product", description: "Designing and enhancing the Netflix user experience." },
             { name: "Finance", description: "Managing the financial operations of Netflix's business." }
         ],
-        services: ["Netflix Originals", "Streaming", "DVD Rentals"],
+        services: [
+            { name: "Netflix Streaming", description: "Subscription service for streaming TV shows and movies.", icon: "fas fa-tv" },
+            { name: "Netflix Originals", description: "Exclusive content produced by Netflix for subscribers.", icon: "fas fa-film" },
+            { name: "Netflix Kids", description: "Family-friendly shows and movies for younger viewers.", icon: "fas fa-child" },
+            { name: "Netflix DVD", description: "DVD rental service for physical media enthusiasts.", icon: "fas fa-dvd" }
+        ],
         locations: [
             { name: "Los Gatos", address: "100 Winchester Cir", city: "Los Gatos", state: "California", zip: "95032", country: "USA" },
             { name: "Los Angeles", address: "5808 W Sunset Blvd", city: "Los Angeles", state: "California", zip: "90028", country: "USA" },
@@ -212,7 +246,12 @@ const companies = [
             { name: "Product", description: "Designing and enhancing the Twitter user experience." },
             { name: "Finance", description: "Managing the financial operations of Twitter's business." }
         ],
-        services: ["Twitter", "Twitter Ads", "Twitter Spaces"],
+        services: [
+            { name: "Twitter", description: "Social media platform for sharing news and updates with followers.", icon: "fab fa-twitter" },
+            { name: "Twitter Spaces", description: "Live audio chat rooms for hosting conversations on Twitter.", icon: "fas fa-headphones" },
+            { name: "Twitter Ads", description: "Advertising platform for promoting products and services on Twitter.", icon: "fas fa-bullhorn" },
+            { name: "Twitter Blue", description: "Subscription service for premium Twitter features and content.", icon: "fas fa-coins" },
+        ],
         locations: [
             { name: "San Francisco", address: "1355 Market St", city: "San Francisco", state: "California", zip: "94103", country: "USA" },
             { name: "New York", address: "249 W 17th St", city: "New York", state: "New York", zip: "10011", country: "USA" },
@@ -240,7 +279,12 @@ const companies = [
             { name: "ATG", description: "Developing autonomous driving technology for Uber vehicles." },
             { name: "Finance", description: "Managing the financial operations of Uber's business." }
         ],
-        services: ["Uber Rides", "Uber Eats", "Uber Freight"],
+        services: [
+            { name: "Uber Rides", description: "On-demand ride-hailing service for passengers.", icon: "fas fa-car" },
+            { name: "Uber Eats", description: "Food delivery service for ordering from local restaurants.", icon: "fas fa-utensils" },
+            { name: "Uber Freight", description: "Logistics platform for shipping and transportation of goods.", icon: "fas fa-truck" },
+            { name: "Uber ATG", description: "Autonomous driving technology for Uber's self-driving vehicles.", icon: "fas fa-robot" }
+        ],
         locations: [
             { name: "San Francisco", address: "1455 Market St", city: "San Francisco", state: "California", zip: "94103", country: "USA" },
             { name: "New York", address: "3100 47th Ave", city: "Long Island City", state: "New York", zip: "11101", country: "USA" },
@@ -268,7 +312,12 @@ const companies = [
             { name: "Transport", description: "Facilitating transportation options for Airbnb guests." },
             { name: "Finance", description: "Managing the financial operations of Airbnb's business." }
         ],
-        services: ["Airbnb Homes", "Airbnb Experiences", "Airbnb Luxe"],
+        services: [
+            { name: "Airbnb Homes", description: "Vacation rental platform for booking homes and apartments.", icon: "fas fa-home" },
+            { name: "Airbnb Experiences", description: "Travel experiences and activities hosted by locals.", icon: "fas fa-map-marked-alt" },
+            { name: "Airbnb Luxe", description: "Luxury accommodations and concierge services for travelers.", icon: "fas fa-gem" },
+            { name: "Airbnb Transport", description: "Transportation options for getting around during your stay.", icon: "fas fa-car" }
+        ],
         locations: [
             { name: "San Francisco", address: "888 Brannan St", city: "San Francisco", state: "California", zip: "94103", country: "USA" },
             { name: "New York", address: "129 W 29th St", city: "New York", state: "New York", zip: "10001", country: "USA" },

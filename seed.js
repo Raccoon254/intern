@@ -77,8 +77,8 @@ async function main() {
         for (const service of company.services) {
             await prisma.service.create({
                 data: {
-                    name: service,
-                    icon: faker.image.avatar(),
+                    name: service.name,
+                    icon: service.icon,
                     description: faker.lorem.paragraph(),
                     organizationId: org.id,
                 },
