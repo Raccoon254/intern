@@ -47,7 +47,6 @@ const Profile = () => {
         const email = session.user.email;
         const role = session.user.role;
         const student = formData;
-
         try {
             const response = await axios.put(`/api/users/${session.user.id}`, {
                 email,
@@ -74,18 +73,28 @@ const Profile = () => {
         <div className="flex flex-col md:flex-row-reverse md:gap-6 md:space-x-8">
             <div className="md:mt-[79px]">
                 <div className="w-40 h-40 md:w-80 md:h-80 mx-auto md:mx-0 mb-6 md:mb-0">
-                    <img
-                        src={studentData.student.photo}
-                        alt="User Profile"
-                        className="w-full h-full object-cover rounded-full md:rounded-lg"
-                    />
+                    {studentData.student.photo ? (
+                        <img
+                            src={studentData.student.photo}
+                            alt="User Profile"
+                            className="w-full h-full object-cover rounded-full md:rounded-lg"
+                        />
+                    ) : (
+                        <div>
+                            <img
+                                src={`https://api.dicebear.com/9.x/pixel-art/${studentData.student.name}.svg`}
+                                alt="User Profile"
+                                className="w-full h-full object-cover rounded-full md:rounded-lg"
+                            />
+                        </div>
+                    )}
                 </div>
             </div>
             <div className="flex-1">
                 <h1 className="text-3xl font-bold mb-6 text-gray-800">Edit Profile</h1>
                 <div className="space-y-4">
                     <div>
-                        <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
+                    <label htmlFor="name" className="block text-sm font-medium text-gray-700">Name</label>
                         <input
                                 type="text"
                                 id="name"

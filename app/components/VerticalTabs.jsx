@@ -11,7 +11,6 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
     useEffect(() => {
         setCompany(companyProp);
         setInternships(internshipsProp);
-        console.log(internshipsProp);
     }, [companyProp, internshipsProp]);
 
     if (Object.keys(company).length === 0 || company.departments === undefined) {
@@ -90,14 +89,15 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
                                                     {internship.skills.map((skill, skillIndex) => (
                                                         <div key={skillIndex}
                                                              className={"ring-1 btn btn-outline btn-sm"}>
-                                                        {/*    if the name starts with devicon or fa */}
                                                             {skill.icon.startsWith("devicon") ? (
                                                                 <i className={skill.icon}></i>
-                                                            ) : skill.name.startsWith("fa") ? (
+                                                            ) : skill.icon.startsWith("fa") ? (
                                                                 <i className={skill.icon}></i>
                                                             ) : (
-                                                                skill.name
+                                                                skill.icon
                                                             )}
+                                                            
+                                                            {skill.name}
                                                         </div>
                                                     ))}
                                                 </div>
