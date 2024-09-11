@@ -2,7 +2,7 @@ const companies = [
     {
         name: "Microsoft",
         logo: "https://logo.clearbit.com/microsoft.com",
-        banner: "https://img.freepik.com/free-photo/microsoft-logo-building_1268-14361.jpg",
+        banner: "https://www.corian.in/sites/hi-in.corian.com/IMG/uploads/images/CASE-STUDIES/case-studies-microsoft-munich-2.jpg",
         website: "https://www.microsoft.com",
         employees: "181,000",
         email: "info@microsoft.com",
@@ -55,7 +55,7 @@ const companies = [
     {
         name: "Google",
         logo: "https://logo.clearbit.com/google.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://as1.ftcdn.net/v2/jpg/03/13/00/48/1000_F_313004896_eQivpAWYpGiyiAZH7Fv8GEPJdm6wpSkJ.jpg",
         website: "https://www.google.com",
         employees: "156,500",
         email: "press@google.com",
@@ -109,7 +109,7 @@ const companies = [
     {
         name: "Amazon",
         logo: "https://logo.clearbit.com/amazon.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://clarksvillenow.sagacom.com/files/2021/03/amazon-center-1200x768.jpg",
         website: "https://www.amazon.com",
         employees: "1,298,000",
         email: "info@amazon.com",
@@ -163,7 +163,7 @@ const companies = [
     {
         name: "Facebook",
         logo: "https://logo.clearbit.com/facebook.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://www.arch2o.com/wp-content/uploads/2018/09/Arch2O-a-new-expansion-to-facebook-headquarters-by-frank-gehry-2.jpg",
         website: "https://www.facebook.com",
         employees: "58,604",
         email: "hello@facebook.com",
@@ -217,7 +217,7 @@ const companies = [
     {
         name: "Apple",
         logo: "https://logo.clearbit.com/apple.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://static01.nyt.com/images/2019/05/31/us/31applehq-01alt/31applehq-01alt-superJumbo.jpg?quality=75&auto=webp",
         website: "https://www.apple.com",
         employees: "147,000",
         email: "info@apple.com",
@@ -271,7 +271,7 @@ const companies = [
     {
         name: "Tesla",
         logo: "https://logo.clearbit.com/tesla.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://i0.wp.com/electrek.co/wp-content/uploads/sites/3/2023/08/Tesla-Data-Center.jpg?w=1500&quality=82&strip=all&ssl=1",
         website: "https://www.tesla.com",
         employees: "70,757",
         email: "help@tesla.inc",
@@ -325,7 +325,7 @@ const companies = [
     {
         name: "Netflix",
         logo: "https://logo.clearbit.com/netflix.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://images.squarespace-cdn.com/content/v1/5bfa3e12da02bc0b5fbc4533/8fab5153-5bce-4597-8a80-0dff3b7cde35/netflix+office+headquarters+los+angeles.jpeg?format=2500w",
         website: "https://www.netflix.com",
         employees: "9,400",
         email: "hello@netflix.com",
@@ -378,7 +378,7 @@ const companies = [
     {
         name: "Twitter",
         logo: "https://logo.clearbit.com/twitter.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://media.bizj.us/view/img/11855675/twitter*900x506x4032-2268-0-378.jpg",
         website: "https://www.twitter.com",
         employees: "5,500",
         email: "info@twitter.com",
@@ -432,7 +432,7 @@ const companies = [
     {
         name: "Uber",
         logo: "https://logo.clearbit.com/uber.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://blog.uber-cdn.com/cdn-cgi/image/width=1536,quality=80,onerror=redirect,format=auto/wp-content/uploads/2022/01/MB12-Bridges-Exterior.jpg",
         website: "https://www.uber.com",
         employees: "26,900",
         email: "hello@ubber.inc",
@@ -486,7 +486,7 @@ const companies = [
     {
         name: "Airbnb",
         logo: "https://logo.clearbit.com/airbnb.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://images.adsttc.com/media/images/59ef/ff39/b22e/3819/9400/001c/slideshow/999_62.jpg?1508900662",
         website: "https://www.airbnb.com",
         employees: "25,000",
         email: "info@airbnb.com",
@@ -540,7 +540,7 @@ const companies = [
     {
         name: "Coca-Cola",
         logo: "https://logo.clearbit.com/coca-cola.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://upload.wikimedia.org/wikipedia/commons/1/12/Coca-Cola_Building_Los_Angeles.jpg",
         website: "https://www.coca-cola.com",
         employees: "86,200",
         email: "hello@coke.com",
@@ -594,7 +594,7 @@ const companies = [
     {
         name: "NVidia",
         logo: "https://logo.clearbit.com/nvidia.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://s3.amazonaws.com/cms.ipressroom.com/219/files/20224/628c2a47b3aed32797213f6c_voyager-exterior-sign-2/voyager-exterior-sign-2_1829ac3c-85ac-4929-8c67-5994c15c70c9-prv.jpg",
         website: "https://www.nvidia.com",
         employees: "18,975",
         email: "hello@nvidia.com",
@@ -648,7 +648,7 @@ const companies = [
     {
         name: "Walmart",
         logo: "https://logo.clearbit.com/walmart.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://media.bizj.us/view/img/4285141/photo-p6-walmart*900x506x5724-3216-0-107.jpg",
         website: "https://www.walmart.com",
         employees: "2.3 million",
         email: "info@walmart.com",
@@ -702,7 +702,7 @@ const companies = [
     {
         name: "Ali Baba",
         logo: "https://logo.clearbit.com/alibaba.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://ichef.bbci.co.uk/news/800/cpsprodpb/159D8/production/_115363588_gettyimages-1174671524.jpg.webp",
         website: "https://www.alibaba.com",
         employees: "252,084",
         email: "info@alibaba.com",
@@ -756,7 +756,7 @@ const companies = [
     {
         name: "Walt Disney",
         logo: "https://logo.clearbit.com/disney.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://images.adsttc.com/media/images/5264/acf3/e8e4/4ef4/c200/021b/newsletter/wdch_built_01_gp_pr.jpg?1382329540",
         website: "https://www.disney.com",
         employees: "203,000",
         email: "hello@walt.com",
@@ -810,7 +810,7 @@ const companies = [
     {
         name: "Total Energies",
         logo: "https://logo.clearbit.com/total.com",
-        banner: "https://images.unsplash.com/photo-1573804633927-bfcbcd909acd",
+        banner: "https://as1.ftcdn.net/v2/jpg/05/04/92/78/1000_F_504927826_FZ2shRudvTbBp7dp46Ml3j6GQR46Kdg1.jpg",
         website: "https://www.total.com",
         employees: "107,776",
         email: "info@total.com",
