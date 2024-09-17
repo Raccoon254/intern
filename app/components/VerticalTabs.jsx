@@ -82,43 +82,57 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
                         </div>
                         <div className={"grid gap-2 grid-cols-1"}>
                             {internships.length > 0 ? (
-                                internships.map((internship) => (
-                                    <div key={internship.id}
-                                         className={"shadow-sm ring-1 flex justify-between ring-offset-1 border ring-gray-50 rounded-lg p-4 my-2 transition hover:scale-[1.01] hover:bg-green-100"}>
+                                internships.map((job) => (
+                                    console.log(job),
+                                    <div key={job.id}
+                                         className={"shadow-sm ring flex justify-between border border-gray-400 ring-gray-200 rounded-lg p-4 my-2 transition hover:scale-[1.01]"}>
                                         <div>
-                                            <h2>{internship.description}</h2>
-                                            <div>
-                                                <p>Skills:</p>
-                                                <div className={"flex gap-2"}>
-                                                    {internship.skills.map((skill, skillIndex) => (
+                                            <h2>{job.title}</h2>
+                                            
+                                            <div className="text-xl">
+                                                <p>{job.description}</p>
+                                            </div>
+                                            
+                                            {/*Skills*/}
+                                            
+                                            <div className="my-4">
+                                                <div className={"grid grid-cols-2 gap-2"}>
+                                                    {job.skills.map((skill, skillIndex) => (
                                                         <div key={skillIndex}
-                                                             className={"ring-1 btn btn-outline btn-sm"}>
-                                                            {skill.icon.startsWith("devicon") ? (
-                                                                <i className={skill.icon}></i>
-                                                            ) : skill.icon.startsWith("fa") ? (
-                                                                <i className={skill.icon}></i>
-                                                            ) : (
-                                                                skill.icon
-                                                            )}
-                                                            
-                                                            {skill.name}
+                                                             className={"ring w-full border border-customGray ring-customGray ring-opacity-30 flex gap-2 p-2 rounded-md"}>
+                                                            <div className="text-3xl">
+                                                                {skill.icon.startsWith("devicon") ? (
+                                                                    <i className={skill.icon}></i>
+                                                                ) : skill.icon.startsWith("fa") ? (
+                                                                    <i className={skill.icon}></i>
+                                                                ) : (
+                                                                    skill.icon
+                                                                )}
+                                                            </div>
+                                                            <div className="overflow-hidden">
+                                                                <div className={"font-semibold text-sm"}>
+                                                                    {skill.name}
+                                                                </div>
+                                                                <div>
+                                                                    {skill.description.length > 25 ? (
+                                                                        <div className={"text-xs text-nowrap"}>
+                                                                            {skill.description.substring(0, 25)}...
+                                                                        </div>
+                                                                    ) : (
+                                                                        <div className={"text-xs text-nowrap"}>
+                                                                            {skill.description}
+                                                                        </div>
+                                                                    )}
+                                                                </div>
+                                                            </div>
                                                         </div>
                                                     ))}
                                                 </div>
                                             </div>
-                                            <p>Status: {internship.status}</p>
-                                            <p>Created at: {new Date(internship.createdAt).toLocaleDateString()}</p>
-                                            <p>Updated at: {new Date(internship.updatedAt).toLocaleDateString()}</p>
+                                            <p>Status: {job.status}</p>
+                                            <p>Created at: {new Date(job.createdAt).toLocaleDateString()}</p>
+                                            <p>Updated at: {new Date(job.updatedAt).toLocaleDateString()}</p>
                                         </div>
-                                        <div className="actions flex flex-col gap-1">
-                                            <button className={"btn btn-sm tooltip btn-ghost btn-circle ring-1"}>
-                                                <i className="fa-solid fa-share-nodes"></i>
-                                            </button>
-                                            <button className={"btn btn-sm tooltip btn-ghost btn-circle ring-1"}>
-                                                <i className="fa-solid fa-plus"></i>
-                                            </button>
-                                        </div>
-
                                     </div>
                                 ))
                             ) : (
