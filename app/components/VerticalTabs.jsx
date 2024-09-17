@@ -33,13 +33,17 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
                         onClick={() => selectTab("1")}>
                     <i className="fa-solid fa-bolt"></i> Overview
                 </button>
-                <button className={`btn tab rounded-none btn-sm ${selectedTab === "2" ? "active" : ""}`}
+                <button className={`btn tab relative rounded-none btn-sm ${selectedTab === "2" ? "active" : ""}`}
                         onClick={() => selectTab("2")}>
-                    <i className="fa-brands fa-servicestack"></i> Internships
+                    <i className="fa-brands fa-servicestack"></i> Vacancies
+                    
+                    <span className="absolute -top-2 -right-2 bg-red-500 text-white rounded-full w-5 h-5 flex justify-center items-center">
+                        {internships.length}
+                    </span>
                 </button>
             </div>
 
-            <div className="w-full rounded-md sm:p-2 p-1">
+            <div className="w-full h-full rounded-md sm:p-2 p-1">
 
                 {selectedTab === "1" &&
 

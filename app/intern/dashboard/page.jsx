@@ -89,7 +89,7 @@ const Dashboard = () => {
                     </div>
                 </div>
 
-                <div className="flex flex-col justify-center p-2 md:p-4">
+                <div className="flex flex-col justify-center p-4">
                     <div className="flex flex-col md:flex-row mb-5 justify-between">
                         <h1 className="text-3xl mb-3 sm:text-4xl font-semibold sm:font-bold">
                             Featured companies hiring now

@@ -7,7 +7,7 @@ import {useSnackbar} from "notistack";
 const Company = () => {
 
     const [company, setCompany] = useState({});
-    const [internships, setInternships] = useState([]);
+    const [jobs, setJobs] = useState([]);
     const {enqueueSnackbar} = useSnackbar();
 
     useEffect(() => {
@@ -31,10 +31,10 @@ const Company = () => {
     }, []);
 
     function fetchCompanyInternships(id) {
-        fetch(`/api/internships/${id}`)
+        fetch(`/api/jobs/${id}`)
             .then(response => response.json())
             .then(data => {
-                setInternships(data);
+                setJobs(data);
             })
             .catch(error => {
                 enqueueSnackbar("Failed to fetch internships", {variant: "error"});
@@ -57,7 +57,7 @@ const Company = () => {
 
     return (
         <div className="overflow-hidden bg-white min-h-screen">
-            <div className='bg-white w-full flex flex-col'
+            <div className='bg-white w-full flex flex-col h-screen'
                  style={{
                     backgroundImage: `url(${company.banner ?? "https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2532&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"})`,
                     backgroundSize: "cover",
@@ -100,10 +100,10 @@ const Company = () => {
 
                 </div>
 
-                <div className={'bg-gradient-to-t via-20% from-white flex flex-col justify-end'}>
-                    <div className="flex gap-4 bg-white h-auto backdrop-blur-[1px] bg-opacity-80 flex-col md:flex-row p-2 sm:p-4 md:p-6">
+                <div className={'bg-gradient-to-t h-full from-white flex flex-col justify-end'}>
+                    <div className="flex gap-4 h-full bg-white backdrop-blur-[1px] bg-opacity-80 flex-col md:flex-row p-2 sm:p-4 md:p-6">
 
-                        <VerticalTabs company={company} internships={internships}/>
+                        <VerticalTabs company={company} internships={jobs}/>
 
                         <div className="company rounded-md mt-12 w-full relative">
                             <div
