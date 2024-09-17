@@ -87,11 +87,12 @@ h5 {
 }
 
 .custom-card {
-    @apply border flex flex-col justify-between rounded-xl p-1 border-gray-300 w-full transition duration-200 ease-in-out transform hover:scale-105;
+    @apply border flex ring ring-gray-200 flex-col justify-between rounded-xl p-1 border-gray-300 w-full transition duration-200 ease-in-out transform hover:scale-105;
 }
 
 .custom-card:hover {
-    @apply border-gray-500 shadow-md scale-105 bg-gray-100;
+    @apply border-gray-500 shadow-md bg-gray-100;
+    transform: scale(1.02);
 }
 
 .scroll-downs {
