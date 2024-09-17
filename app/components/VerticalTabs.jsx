@@ -129,9 +129,44 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
                                                     ))}
                                                 </div>
                                             </div>
-                                            <p>Status: {job.status}</p>
-                                            <p>Created at: {new Date(job.createdAt).toLocaleDateString()}</p>
-                                            <p>Updated at: {new Date(job.updatedAt).toLocaleDateString()}</p>
+                                            
+                                            <div>
+                                                <div>
+                                                    Requirement
+                                                </div>
+                                                <div>
+                                                    {job.requirements}
+                                                </div>
+                                            </div>
+                                            <p>Status: {job.status.toLowerCase()}</p>
+                                            <div>
+                                                {/*//this is an internship, a job or an attachment = job.type*/}
+                                                This is
+                                                {job.type == "internship" ? (
+                                                    <span> an internship</span>
+                                                ) : job.type == "job" ? (
+                                                    <span> a job</span>
+                                                ) : job.type == "attachment" ? (
+                                                    <span> an attachment</span>
+                                                ) : (
+                                                    <span> a job</span>
+                                                )}
+                                                <div>
+                                                    {job.location == "remote" ? (
+                                                        <span> Available remotely</span>
+                                                    ) : job.location == "onsite" ? (
+                                                        <span> Available onsite</span>
+                                                    ) : job.location == "hybrid" ? (
+                                                        <span> Available hybrid</span>
+                                                    ) : (
+                                                        <span> Available onsite</span>
+                                                    )}
+                                                </div>
+                                            {/*    created at */}
+                                                <div>
+                                                    Created at: {job.createdAt}
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
                                 ))
