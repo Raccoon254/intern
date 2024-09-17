@@ -14,11 +14,7 @@ export async function GET(req, { params }) {
             },
             include: {
                 skills: true,
-                department: {
-                    include: {
-                        organization: true,
-                    }
-                }
+                department: true
             }
         });
 

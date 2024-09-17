@@ -77,13 +77,9 @@ const VerticalTabs = ({ company: companyProp, internships: internshipsProp }) =>
                 }
                 {selectedTab === "2" &&
                     <div>
-                        <div className={"text-lg mb-3 font-semibold"}>
-                            {company.name} Internships
-                        </div>
                         <div className={"grid gap-2 grid-cols-1"}>
                             {internships.length > 0 ? (
                                 internships.map((job) => (
-                                    console.log(job),
                                     <div key={job.id}
                                          className={"shadow-sm ring flex justify-between border border-gray-400 ring-gray-200 rounded-lg p-4 my-2 transition hover:scale-[1.01]"}>
                                         <div>
