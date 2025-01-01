@@ -9,6 +9,11 @@
     font-family: "Figtree", sans-serif;
 }
 
+/* Center on ultra-wide screens*/
+html{
+    @apply min-h-screen flex justify-center items-center;
+}
+
 /* H tag styles */
 h1 {
     @apply text-4xl font-bold text-gray-900;
